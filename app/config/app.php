@@ -181,7 +181,8 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'NestedSet'		  => 'Kalnoy\Nestedset\NestedSet',
+'NestedSet'		  => 'Kalnoy\Nestedset\NestedSet',
+'Node' => 'Kalnoy\Nestedset\Node',
 
 	),
 
