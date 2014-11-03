@@ -10,6 +10,14 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+/*
+Route::get('/', function()
+{
+  $items = Menu::all();
+  $itemsHelper = new ItemsHelper($items);
+  return View::make('hello',compact('items','itemsHelper'));
+});
+*/
 
 Route::get('/', 'PageController@show');
 
@@ -43,4 +51,5 @@ Route::get('{slug}', array('as' => 'page', 'uses' => 'PageController@show'))
     ->where('slug', Page::$slugPattern);
 
 
+//View::composer('hello', 'Fbf\LaravelNavigation\NavigationComposer');
 View::composer('layouts.master', 'Fbf\LaravelNavigation\NavigationComposer');

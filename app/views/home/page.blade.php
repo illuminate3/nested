@@ -2,7 +2,7 @@
 @if (isset($contents))
     <aside class="col-md-4">
         <section class="panel panel-default">
-            <header class="panel-heading"><h3 class="panel-title">Contents</h3></header>
+            <header class="panel-heading"><h3 class="panel-title">Contents</h3>: header</header>
             <div class="panel-body">{{ HTML::nav($contents) }}</div>
         </section>
     </aside>
@@ -10,7 +10,7 @@
 
     <section class="col-md-8">
         <header class="page-header">
-            <h1>{{ $page->title }}{{ $page->id }}</h1>
+            <h1>{{ $page->title }}; page ID ={{ $page->id }}</h1>
         </header>
 
         <article>{{ markdown($page->body) }}</article>
@@ -28,31 +28,13 @@
     </section>
 
 
-{{-- dd($page->sites) --}}
 
-<div class="table-responsive">
-<table class="table table-striped table-bordered" id="DataTable">
-	<thead>
-		<tr>
-			<th>{{ trans('lingos::table.name') }}</th>
-			<th>{{ trans('lingos::table.email') }}</th>
-		</tr>
-	</thead>
+<div id="menuh1">
+{{ $itemsHelper->htmlList() }}
+</div>
 
-	<tbody>
-		@foreach ($page->sites as $profile)
-			<tr>
-				<td>
-					{{{ $profile->name }}}
-				<td>
-				<td>
-					{{ $profile->description }}
-				<td>
-			</tr>
-		@endforeach
-	</tbody>
-</table>
-</div> <!-- ./responsive -->
+
+
 
 
 </div>

@@ -43,14 +43,23 @@ class PageController extends BaseController {
 
 //dd( View::make($view) );
 
-        $this->layout->content = View::make($view, compact('page'));
+
+
+  $items = Menu::all();
+  $itemsHelper = new ItemsHelper($items);
+//  return View::make('hello',compact('items','itemsHelper'));
+
+
+
+        $this->layout->content = View::make($view, compact('page', 'items','itemsHelper'));
 //        $this->layout->content = View::make($view, with(compact('page', 'sites')) );
-
-
-
 
         $this->layout->menu = $this->getMenu($page);
         $this->layout->breadcrumbs = $this->getBreadcrumbs($page);
+
+
+$this->layout->pullDown = $this->getPullDown();
+
 	}
 
 	/**
@@ -102,4 +111,15 @@ class PageController extends BaseController {
 
 		return make_nav($itemTree, $activePage->getKey());
 	}
+
+	protected function getPullDown()
+	{
+		$pages = $this->page->withDepth()->defaultOrder()->get();
+//dd($pages);
+//		return make_nav($pages, $activePage->getKey());
+//		return make_nav($pages);
+		return $pages;
+	}
+
+
 }

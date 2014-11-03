@@ -19,5 +19,32 @@
 @stop
 
 @section('content')
-    {{ $content }}
+	{{ $content }}
+
+
+
+<br>
+
+<div class="row">
+	<div class="col-md-6">
+
+@if (isset($menu))
+	@foreach ($menu as $item)
+		<a href="{{ $item['url'] }}">{{ $item['label'] }}</a>
+<br>
+	@endforeach
+@endif
+
+	</div>
+	<div class="col-md-6">
+
+@if (isset($contents))
+	{{ HTML::nav($contents) }}
+@endif
+
+	</div>
+</div>
+
+{{-- HTML::pulldown($pages) --}}
+
 @stop
