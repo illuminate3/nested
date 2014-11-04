@@ -41,6 +41,10 @@ class PageController extends BaseController {
 
         $this->layout->title = $page->title;
 
+$this->layout->exploreNested = $this->exploreNested();
+
+
+
 //dd( View::make($view) );
 
 
@@ -104,6 +108,7 @@ $this->layout->pullDown = $this->getPullDown();
      */
 	protected function getMenu(Page $activePage)
 	{
+
 		$itemTree = $this->page
 			->where('parent_id', '=', 1)
 			->get([ 'id', 'slug', 'title', '_lft', 'parent_id' ])
@@ -120,6 +125,39 @@ $this->layout->pullDown = $this->getPullDown();
 //		return make_nav($pages);
 		return $pages;
 	}
+
+
+	protected function exploreNested()
+	{
+
+// dump straight list
+$result = $this->page->withDepth()->defaultOrder()->get();
+
+// 1,2,4 WTF???
+//$result = Page::hasChildren()->get();
+
+// this is returning only 1 value!!! UGH!!!
+//$result = Page::hasChildren()->withDepth()->having('depth', '=', 1)->get();
+
+// #1 Using accessor
+//$result = $this->page->getAncestors();
+
+
+// All nodes will now be ordered by lft value,, dump straight list
+//$result = Page::defaultOrder()->get();
+
+// remove ID=1
+//$result = Page::hasParent()->get();
+
+
+
+//dd($result);
+
+		return $result;
+	}
+
+
+
 
 
 }

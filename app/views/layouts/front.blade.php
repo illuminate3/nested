@@ -28,6 +28,9 @@
 <div class="row">
 	<div class="col-md-6">
 
+
+Simple Menu --------------------------------------------------------
+<br>
 @if (isset($menu))
 	@foreach ($menu as $item)
 		<a href="{{ $item['url'] }}">{{ $item['label'] }}</a>
@@ -37,7 +40,8 @@
 
 	</div>
 	<div class="col-md-6">
-
+HTML::nav(contents) --------------------------------------------------------
+<br>
 @if (isset($contents))
 	{{ HTML::nav($contents) }}
 @endif
@@ -45,6 +49,8 @@
 	</div>
 </div>
 
-{{-- HTML::pulldown($pages) --}}
+pullDown --------------------------------------------------------
+<br>
+{{ HTML::pulldown($pullDown) }}
 
 @stop

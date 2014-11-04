@@ -49,7 +49,3 @@ Route::group(array('prefix' => 'pages'), function () {
 // route
 Route::get('{slug}', array('as' => 'page', 'uses' => 'PageController@show'))
     ->where('slug', Page::$slugPattern);
-
-
-//View::composer('hello', 'Fbf\LaravelNavigation\NavigationComposer');
-View::composer('layouts.master', 'Fbf\LaravelNavigation\NavigationComposer');

@@ -18,11 +18,3 @@ View::composer('home.page', function ($view)
     $view->next = $page->getNext();
     $view->prev = $page->getPrev();
 });
-
-/*
-View::composer(array(
-	'layouts.master',
-//	'hello',
-	'laravel-pages::page',
-), 'Fbf\LaravelNavigation\NavigationComposer');
-*/
