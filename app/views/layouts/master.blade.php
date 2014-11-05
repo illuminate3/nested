@@ -48,6 +48,12 @@
 
 <br>
 <br>
+
+MainNavigation --------------------------------------------------------
+{{ $PrimaryNavigation }}
+
+
+<br>
 <br>
 Admin Categories --------------------------------------------------------
 <br>
@@ -61,20 +67,60 @@ Admin Categories --------------------------------------------------------
 
 
 
+<br>
+<br>
+pullDown --------------------------------------------------------
+<!--
+<nav class="sidebar-nav">
+<ul id="metisMenu">
+	<li class="active">
+		<a href="#">
+		<span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>
+		<span class="sidebar-nav-item">metisMenu</span>
+		<span class="fa arrow"></span>
+		</a>
+		<ul class="collapse in">
+			<li>
+				<a href="https://github.com/onokumus/metisMenu">
+				<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+				LEVEL 1
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+				LEVEL 1
+				<span class="fa plus-minus"></span>
+				</a>
+				<ul class="collapse">
+					<li><a href="#">item 2.1</a></li>
+					<li><a href="#">item 2.2</a></li>
+					<li><a href="#">item 2.3</a></li>
+					<li><a href="#">item 2.4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</nav>
+-->
 
 @if (isset($pullDown) && !empty($pullDown))
-<ul id="metisMenu11">
+<ul id="">
+	<li>
 	@foreach ($pullDown as $item)
-
+@if ($item->depth == '0')
+@else
 	<li>
 		{{ item_depth($item->depth) }}
 		@if ($item->slug)
-			<a href="{{ route('page', array('slug' => $item->slug)) }}">{{ $item->title }}</a>
+			<a href="{{ route('page', array('slug' => $item->slug)) }}">{{ $item->title }}--{{ $item->depth }}</a>
 		@endif
-		--{{ $item->depth }}
 	</li>
 
+@endif
 	@endforeach
+	</li>
 </ul>
 @endif
 

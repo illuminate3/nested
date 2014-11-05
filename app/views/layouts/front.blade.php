@@ -42,8 +42,8 @@ Simple Menu --------------------------------------------------------
 	<div class="col-md-6">
 HTML::nav(contents) --------------------------------------------------------
 <br>
-@if (isset($contents))
-	{{ HTML::nav($contents) }}
+@if (isset($menu2))
+	{{ HTML::navy($menu2) }}
 @endif
 
 	</div>

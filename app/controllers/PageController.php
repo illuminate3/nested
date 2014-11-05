@@ -42,23 +42,27 @@ class PageController extends BaseController {
         $this->layout->title = $page->title;
 
 $this->layout->exploreNested = $this->exploreNested();
-
+//dd($this->layout->exploreNested);
 
 
 //dd( View::make($view) );
 
 
 
-  $items = Menu::all();
-  $itemsHelper = new ItemsHelper($items);
+//  $items = Menu::all();
+//  $itemsHelper = new ItemsHelper($items);
 //  return View::make('hello',compact('items','itemsHelper'));
 
 
 
-        $this->layout->content = View::make($view, compact('page', 'items','itemsHelper'));
+//        $this->layout->content = View::make($view, compact('page', 'items','itemsHelper'));
 //        $this->layout->content = View::make($view, with(compact('page', 'sites')) );
+        $this->layout->content = View::make($view, compact('page', 'items'));
 
-        $this->layout->menu = $this->getMenu($page);
+$this->layout->menu = $this->getMenu($page);
+$this->layout->menu2 = $this->getMenu2($page);
+//dd($this->layout->menu);
+
         $this->layout->breadcrumbs = $this->getBreadcrumbs($page);
 
 
@@ -111,6 +115,16 @@ $this->layout->pullDown = $this->getPullDown();
 
 		$itemTree = $this->page
 			->where('parent_id', '=', 1)
+			->get([ 'id', 'slug', 'title', '_lft', 'parent_id' ])
+			->toTree();
+
+		return make_nav($itemTree, $activePage->getKey());
+	}
+	protected function getMenu2(Page $activePage)
+	{
+
+		$itemTree = $this->page
+			->where('parent_id', '!=', 'NULL')
 			->get([ 'id', 'slug', 'title', '_lft', 'parent_id' ])
 			->toTree();
 

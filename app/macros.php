@@ -109,3 +109,63 @@ HTML::macro('pulldown', function($data)
 
 });
 
+
+/*
+<nav class="sidebar-nav">
+<ul id="metisMenu">
+	<li class="active">
+		<a href="#">
+		<span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>
+		<span class="sidebar-nav-item">metisMenu</span>
+		<span class="fa arrow"></span>
+		</a>
+		<ul class="collapse in">
+			<li>
+				<a href="https://github.com/onokumus/metisMenu">
+				<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+				LEVEL 1
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+				LEVEL 1
+				<span class="fa plus-minus"></span>
+				</a>
+				<ul class="collapse">
+					<li><a href="#">item 2.1</a></li>
+					<li><a href="#">item 2.2</a></li>
+					<li><a href="#">item 2.3</a></li>
+					<li><a href="#">item 2.4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</nav>
+*/
+
+HTML::macro('navy', function($data)
+{
+    if (empty($data)) return '';
+var_dump($data);
+    $html = '<nav class="sidebar-nav"><ul id="metisMenu">';
+
+    foreach ($data as $item)
+    {
+        $html .= '<li';
+
+        if (isset($item['active']) && $item['active']) $html .= ' class="active"';
+
+        $html .= '><a href="'.$item['url'].'">';
+        $html .= e($item['label']);
+//if ( is_array($item)) {
+//        $html .= '<span class="fa plus-minus"></span>';
+//}
+        $html .= '</a>';
+        if (isset($item['items'])) $html .= HTML::nav($item['items']);
+        $html .= '</li>';
+    }   
+
+    return $html.'</ul></nav>';
+});

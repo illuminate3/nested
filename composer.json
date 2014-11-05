@@ -7,7 +7,8 @@
 	"require": {
 		"laravel/framework": "~4.2.0",
 "kalnoy/nestedset": "~2.0@beta",
-"erusev/parsedown": "~0.9.3"
+"erusev/parsedown": "~0.9.3",
+"fbf/laravel-navigation": "dev-master"
 	},
 
     "require-dev": {

@@ -30,7 +30,7 @@
 
 
 <div id="menuh1">
-{{ $itemsHelper->htmlList() }}
+{{-- $itemsHelper->htmlList() --}}
 </div>
 
 
