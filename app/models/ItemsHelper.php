@@ -46,28 +46,82 @@ class ItemsHelper {
 		$html = '';
 
 		foreach($array as $k=>$v) {
-			$html .= '<ul class="">';
-
-//dd($v);
-//dd($k);
-/*
-if (!is_array($k)) {
-			$html .= '<li class="top_parent">' . $k . '</li>';
-} else {
-			$html .= '<li class="">' . $k . '</li>';
-}
-*/
-			$html .= '<li class="">' . $k . '</li>';
 			if(count($v) > 0) {
-				$html .= $this->htmlFromArray($v);
-//dd($v);
+				$html .= '<li>';
+			} else {
+				$html .= '<li>';
 			}
 
-			$html .= "</ul>";
+$html .= '<a href="#">';
+$html .= $k . '--' . count($v);
+$html .= '</a>';
+
+			if(count($v) > 1) {
+		$html .= '<ul class="collapse in">';
+				$html .= $this->htmlFromArray($v);
+		$html .= '</ul>';
+			} elseif( (count($v) == 0) && (count($v) < 1) ) {
+		$html .= '<ul class="collapse">';
+				$html .= $this->htmlFromArray($v);
+		$html .= '</ul>';
+			} else {
+			$html .= "</li>";
+			}
+
 		}
 
+		return $html;
+	}
+/*
+<nav class="sidebar-nav">
+<ul id="metisMenu">
+	<li class="active">
+		<a href="#">
+		<span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>
+		<span class="sidebar-nav-item">metisMenu</span>
+		<span class="fa arrow"></span>
+		</a>
+		<ul class="collapse in">
+			<li>
+				<a href="https://github.com/onokumus/metisMenu">
+				<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+				LEVEL 1
+				</a>
+			</li>
+			<li>
+				<a href="#">
+				<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+				LEVEL 1
+				<span class="fa plus-minus"></span>
+				</a>
+				<ul class="collapse">
+					<li><a href="#">item 2.1</a></li>
+					<li><a href="#">item 2.2</a></li>
+					<li><a href="#">item 2.3</a></li>
+					<li><a href="#">item 2.4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</nav>
+*/
 
-//dd($html);
+	private function htmlFromArray1($array) {
+		$html = '';
+
+		foreach($array as $k=>$v) {
+			if(count($v) > 0) {
+				$html .= '<li>';
+			} else {
+				$html .= '<li>';
+			}
+
+			$html .= $k . '--' . count($v);
+
+			$html .= "</li>";
+		}
+
 		return $html;
 	}
 

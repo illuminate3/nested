@@ -76,7 +76,13 @@ HTML::macro('nav', function($data)
         if (isset($item['active']) && $item['active']) $html .= ' class="active"';
 
         $html .= '><a href="'.$item['url'].'">';
-        $html .= e($item['label']).'</a>';
+
+        $html .= e($item['label']);
+
+if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
+
+        $html .= '</a>';
+
         if (isset($item['items'])) $html .= HTML::nav($item['items']);
         $html .= '</li>';
     }   
@@ -148,7 +154,7 @@ HTML::macro('pulldown', function($data)
 HTML::macro('navy', function($data)
 {
     if (empty($data)) return '';
-var_dump($data);
+//var_dump($data);
     $html = '<nav class="sidebar-nav"><ul id="metisMenu">';
 
     foreach ($data as $item)
@@ -159,9 +165,9 @@ var_dump($data);
 
         $html .= '><a href="'.$item['url'].'">';
         $html .= e($item['label']);
-//if ( is_array($item)) {
-//        $html .= '<span class="fa plus-minus"></span>';
-//}
+
+if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
+
         $html .= '</a>';
         if (isset($item['items'])) $html .= HTML::nav($item['items']);
         $html .= '</li>';

@@ -49,8 +49,8 @@ $this->layout->exploreNested = $this->exploreNested();
 
 
 
-//  $items = Menu::all();
-//  $itemsHelper = new ItemsHelper($items);
+$items = Menu::all();
+$this->layout->itemsHelper = new ItemsHelper($items);
 //  return View::make('hello',compact('items','itemsHelper'));
 
 

@@ -50,21 +50,48 @@
 <br>
 
 MainNavigation --------------------------------------------------------
-{{ $PrimaryNavigation }}
+{{-- $PrimaryNavigation --}}
 
+<nav class="sidebar-nav11">
+<ul class="metisMenu11">
+{{-- $itemsHelper->htmlList() --}}
+</ul>
+</nav>
+
+<!--
+<div id='cssmenu'>
+<ul>
+   <li class='active'><a href='#'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Products</span></a>
+      <ul>
+         <li><a href='#'><span>Product 1</span></a></li>
+         <li><a href='#'><span>Product 2</span></a></li>
+         <li class='last'><a href='#'><span>Product 3</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>About</span></a>
+      <ul>
+         <li><a href='#'><span>Company</span></a></li>
+         <li class='last'><a href='#'><span>Contact</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Contact</span></a></li>
+</ul>
+</div>
+-->
 
 <br>
 <br>
 Admin Categories --------------------------------------------------------
 <br>
-
+{{--
 @if (isset($exploreNested) && !empty($exploreNested))
 	@foreach ($exploreNested as $item)
 {{ $item->id }} --- {{ $item->slug }} --{{ $item->depth }}
 <br>
 	@endforeach
 @endif
-
+--}}
 
 
 <br>
@@ -104,7 +131,7 @@ pullDown --------------------------------------------------------
 </ul>
 </nav>
 -->
-
+{{--
 @if (isset($pullDown) && !empty($pullDown))
 <ul id="">
 	<li>
@@ -123,7 +150,7 @@ pullDown --------------------------------------------------------
 	</li>
 </ul>
 @endif
-
+--}}
 {{--
 <nav class="sidebar-nav">
 <ul id="metisMenu">
@@ -236,7 +263,8 @@ pullDown --------------------------------------------------------
 
 <script>
 	$(function () {
-		$('#metisMenu').metisMenu();
+		$('#metisMenu1').metisMenu({
+		});
 	});
 </script>
 
