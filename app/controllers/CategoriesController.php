@@ -2,20 +2,21 @@
 
 use dflydev\markdown\MarkdownParser;
 
-class PagesController extends BaseController {
+class CategoriesController extends BaseController {
 
 	protected $layout = 'layouts.backend';
 
 	/**
-	 * The page storage.
+	 * The category storage.
 	 *
-	 * @var  Page
+	 * @var  Category
 	 */
-	protected $page;
+	protected $category;
 
-	public function __construct(Page $page)
+	public function __construct(Category $category)
 	{
-		$this->page = $page;
+//dd('loaded');
+		$this->category = $category;
 	}
 
 	/**
@@ -25,11 +26,11 @@ class PagesController extends BaseController {
 	 */
 	public function index()
 	{
-		$pages = $this->page->withDepth()->defaultOrder()->get();
-
+		$categories = $this->category->withDepth()->defaultOrder()->get();
+//dd('loaded');
         $this->layout
-        	->withTitle('Manage Pages')
-        	->nest('content', 'pages.index', compact('pages'));
+        	->withTitle('Manage Categories')
+        	->nest('content', 'categories.index', compact('categories'));
 	}
 
 	/**
@@ -42,8 +43,8 @@ class PagesController extends BaseController {
 		$parents = $this->getParents();
 
         $this->layout
-        	->withTitle('Create a page')
-        	->nest('content', 'pages.create', compact('parents'));
+        	->withTitle('Create a category')
+        	->nest('content', 'categories.create', compact('parents'));
 	}
 
 	/**
@@ -53,23 +54,23 @@ class PagesController extends BaseController {
 	 */
 	public function store()
 	{
-		$data = $this->page->preprocessData(Input::all());
+		$data = $this->category->preprocessData(Input::all());
 
-		$page = new Page($data);
+		$category = new Category($data);
 
-		if (($messages = $page->validate()) === true)
+		if (($messages = $category->validate()) === true)
 		{
-			if ($page->save())
+			if ($category->save())
 			{
-				return Redirect::route('pages.index')->withSuccess('The page has been created!');
+				return Redirect::route('categories.index')->withSuccess('The category has been created!');
 			}
 
-			return Redirect::route('pages.create')
-				->withError('Something went wrong while saving the page.')
+			return Redirect::route('categories.create')
+				->withError('Something went wrong while saving the category.')
 				->withInput($data);
 		}
 
-		return Redirect::route('pages.create')->withInput($data)->withErrors($messages);
+		return Redirect::route('categories.create')->withInput($data)->withErrors($messages);
 	}
 
 	/**
@@ -80,12 +81,12 @@ class PagesController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$page = $this->page->findOrFail($id);
+		$category = $this->category->findOrFail($id);
 		$parents = $this->getParents();
 
         $this->layout
-        	->withTitle('Update '.$page->title)
-        	->nest('content', 'pages.edit', compact('page', 'parents'));
+        	->withTitle('Update '.$category->title)
+        	->nest('content', 'categories.edit', compact('category', 'parents'));
 	}
 
 	/**
@@ -96,38 +97,40 @@ class PagesController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$page = $this->page->findOrFail($id);
-
-		$data = $this->page->preprocessData(Input::all());
+		$category = $this->category->findOrFail($id);
+//dd('loaded');
+		$data = $this->category->preprocessData(Input::all());
 
 		try
 		{
-			$page->fill($data);
+			$category->fill($data);
 		}
 		catch (Exception $e)
 		{
-			return Redirect::route('pages.edit', array($id))
+			return Redirect::route('categories.edit', array($id))
 				->withInput()
 				->withError($e->getMessage());
 		}
+//dd('loaded');
 
-		if (($messages = $page->validate()) === true)
+		if (($messages = $category->validate()) === true)
 		{
-			if ($page->save())
+			if ($category->save())
 			{
 				$response = Input::has('save')
-					? Redirect::route('pages.index')
-					: Redirect::route('pages.edit', array($id));
+					? Redirect::route('categories.index')
+					: Redirect::route('categories.edit', array($id));
 
-				return $response->withSuccess('The page has been updated!');
+				return $response->withSuccess('The category has been updated!');
 			}
 
-			return Redirect::route('pages.edit', array($id))
+			return Redirect::route('categories.edit', array($id))
 				->withInput()
-				->withError('Could not save the page.');
+				->withError('Could not save the category.');
 		}
+//dd('loaded');
 
-		return Redirect::route('pages.edit', array($id))
+		return Redirect::route('categories.edit', array($id))
 			->withInput($data)
 			->withErrors($messages);
 	}
@@ -141,18 +144,18 @@ class PagesController extends BaseController {
 	 */
 	public function confirm($id)
 	{
-		$page = $this->page->findOrFail($id);
+		$category = $this->category->findOrFail($id);
 
-		$message = "Are you shure to destroy {$page->title}?";
+		$message = "Are you shure to destroy {$category->title}?";
 
-		if ($page->getDescendantCount())
+		if ($category->getDescendantCount())
 		{
 			$message .= " All descendants will also be destroyed!";
 		}
 
 		$this->layout
 			->withTitle('Confirm destroy')
-			->nest('content', 'pages.confirm', compact('message', 'page'));
+			->nest('content', 'categories.confirm', compact('message', 'category'));
 	}
 
 	/**
@@ -163,24 +166,24 @@ class PagesController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$page = $this->page->findOrFail($id);
+		$category = $this->category->findOrFail($id);
 
-		$response = Redirect::route('pages.index');
+		$response = Redirect::route('categories.index');
 
-		if ($page->delete())
+		if ($category->delete())
 		{
-			$response->withSuccess('The page has been destroyed!');
+			$response->withSuccess('The category has been destroyed!');
 		}
 		else
 		{
-			$response->withWarning('The page was not destroyed.');
+			$response->withWarning('The category was not destroyed.');
 		}
 
 		return $response;
 	}
 
 	/**
-	 * Move the specified page up.
+	 * Move the specified category up.
 	 *
 	 * @param  int $id
 	 *
@@ -192,7 +195,7 @@ class PagesController extends BaseController {
 	}
 
 	/**
-	 * Move the specified page down.
+	 * Move the specified category down.
 	 *
 	 * @param  int $id
 	 *
@@ -204,7 +207,7 @@ class PagesController extends BaseController {
 	}
 
 	/**
-	 * Move the page.
+	 * Move the category.
 	 *
 	 * @param  int $id
 	 * @param  'before'|'after' $dir
@@ -213,43 +216,43 @@ class PagesController extends BaseController {
 	 */
 	protected function move($id, $dir)
 	{
-		$page = $this->page->findOrFail($id);
-		$response = Redirect::route('pages.index');
+		$category = $this->category->findOrFail($id);
+		$response = Redirect::route('categories.index');
 
-		$sibling = $dir === 'before' ? $page->getPrevSibling() : $page->getNextSibling();
+		$sibling = $dir === 'before' ? $category->getPrevSibling() : $category->getNextSibling();
 
 		if ($sibling)
 		{
-			$page->$dir($sibling)->save();
+			$category->$dir($sibling)->save();
 
-			if ($page->hasMoved())
+			if ($category->hasMoved())
 			{
-				return $response->withSuccess('The page has been successfully moved!');
+				return $response->withSuccess('The category has been successfully moved!');
 			}
 		}
 
-		return $response->withWarning('The page did not move.');
+		return $response->withWarning('The category did not move.');
 	}
 
 	/**
-	 * Export pages.
+	 * Export categories.
 	 *
 	 * @return Response
 	 */
 	public function export()
 	{
-		$exporter = App::make('PagesExporter');
-		$path = storage_path('tmp/pages.tmp');
+		$exporter = App::make('CategoriesExporter');
+		$path = storage_path('tmp/categories.tmp');
 
 		if ($exporter->export($path))
 		{
 			$headers = array('Content-Type' => $exporter->getMimeType());
-			$fileName = 'pages.'.$exporter->getExtension();
+			$fileName = 'categories.'.$exporter->getExtension();
 
 			return Response::download($path, $fileName, $headers);
 		}
 
-		return Redirect::route('pages.index')->withError('Failed to export pages.');
+		return Redirect::route('categories.index')->withError('Failed to export categories.');
 	}
 
 	/**
@@ -259,7 +262,7 @@ class PagesController extends BaseController {
 	 */
 	protected function getParents()
 	{
-		$all = $this->page->select('id', 'title')->withDepth()->defaultOrder()->get();
+		$all = $this->category->select('id', 'title')->withDepth()->defaultOrder()->get();
 		$result = array();
 
 		foreach ($all as $item)

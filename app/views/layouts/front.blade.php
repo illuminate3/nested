@@ -12,8 +12,13 @@
     @endif
 
     <ul class="nav navbar-nav pull-right">
+{{--
         <li>
-            <a href="{{ route('pages.index') }}"><span class="glyphicon glyphicon-wrench"></span> Manage</a>
+            <a href="{{ route('pages.index') }}"><span class="glyphicon glyphicon-wrench"></span> Manage Pages</a>
+        </li>
+--}}
+        <li>
+            <a href="{{ route('categories.index') }}"><span class="glyphicon glyphicon-wrench"></span> Manage Categories</a>
         </li>
     </ul>
 @stop

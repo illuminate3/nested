@@ -2,7 +2,7 @@
 
 @section('menu')
 <ul class="nav navbar-nav">
-    <li><a href="{{ route('pages.index') }}">Pages</a></li>
+    <li><a href="{{ route('categories.index') }}">Categories</a></li>
 </ul>
 
 

@@ -13,13 +13,14 @@
             {{ Form::text('slug', null, array(
                 'class' => 'form-control', 
                 'required' => true,
-                'pattern' => '^'.Page::$slugPattern.'$',
+                'pattern' => '^'.Category::$slugPattern.'$',
             )) }}
         </div>
         <span class="help-block">This one accepts only letters, numbers, dash and slash, i.e. "docs/installation".</span>
     </div>
 {{ Form::endGroup('slug') }}
 
+{{--
 {{ Form::beginGroup('body') }}
     {{ Form::label('body', 'Body', array('class' => 'col-lg-2 control-label')) }}
     <div class="col-lg-10">
@@ -29,8 +30,10 @@
         </span>
     </div>
 {{ Form::endGroup('body') }}
+--}}
 
-@if (!isset($page) || !$page->isRoot())
+
+@if (!isset($category) || !$category->isRoot())
 {{ Form::beginGroup('parent_id') }}
     {{ Form::label('parent_id', 'Parent', array('class' => 'col-lg-2 control-label')) }}
     <div class="col-lg-10">

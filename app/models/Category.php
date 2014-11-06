@@ -1,6 +1,13 @@
 <?php
 
-class Page extends \Kalnoy\Nestedset\Node {
+class Category extends \Kalnoy\Nestedset\Node {
+
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'categories';
 
     /**
      * The set of characters for testing slugs.
@@ -9,11 +16,14 @@ class Page extends \Kalnoy\Nestedset\Node {
      */
     public static $slugPattern = '[a-z0-9\-/]+';
 
-	protected $fillable = array('slug', 'title', 'body', 'parent_id');
+	protected $fillable = array('slug', 'title', 'parent_id');
 
-    protected $visible = array('title', 'slug', 'body', 'children');
+    protected $visible = array('title', 'slug', 'children');
 
 // DEFINE Relationships --------------------------------------------------
+
+//dd('loaded');
+
 
 	public function sites()
 	{
@@ -59,15 +69,14 @@ class Page extends \Kalnoy\Nestedset\Node {
             'slug'  => array(
                 'required',
                 'regex:#^'.self::$slugPattern.'$#',
-                'unique:pages'.($this->exists ? ',slug,'.$this->id : ''),
+                'unique:categories'.($this->exists ? ',slug,'.$this->id : ''),
             ),
 
-            'body'  => 'required',
         );
 
         if ($this->exists && ! $this->isRoot())
         {
-            $rules['parent_id'] = 'required|exists:pages,id';
+            $rules['parent_id'] = 'required|exists:categories,id';
         }
 
         return $rules;
@@ -80,7 +89,7 @@ class Page extends \Kalnoy\Nestedset\Node {
      */
     public function getContents()
     {
-        // The source of contents is the top page not including the root.
+        // The source of contents is the top category not including the root.
         $source = $this->parent_id == 1
             ? $this
             : $this->ancestors()->withoutRoot()->first();
@@ -95,11 +104,11 @@ class Page extends \Kalnoy\Nestedset\Node {
     }
 
     /**
-     * Get the page that is immediately after current page following the contents.
+     * Get the category that is immediately after current category following the contents.
      *
      * @param array $columns
      *
-     * @return Page|null
+     * @return Category|null
      */
     public function getNext(array $columns = array('slug', 'title', 'parent_id'))
     {
@@ -109,11 +118,11 @@ class Page extends \Kalnoy\Nestedset\Node {
     }
 
     /**
-     * Get the page that is immediately before current page following the contents.
+     * Get the category that is immediately before current category following the contents.
      *
      * @param array $columns
      *
-     * @return Page|null
+     * @return Category|null
      */
     public function getPrev(array $columns = array('slug', 'title', 'parent_id'))
     {
@@ -131,7 +140,7 @@ class Page extends \Kalnoy\Nestedset\Node {
      */
     public function getNavUrl()
     {
-        return URL::route('page', array($this->attributes['slug']));
+        return URL::route('category', array($this->attributes['slug']));
     }
 
     /**

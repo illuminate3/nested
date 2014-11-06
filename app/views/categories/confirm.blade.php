@@ -1,5 +1,5 @@
 {{ Form::open(array(
-    'route' => array('pages.destroy', $page->id),
+    'route' => array('categories.destroy', $category->id),
     'method' => 'delete',
 )) }}
 
