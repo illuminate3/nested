@@ -5,7 +5,6 @@
 @section('head')
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
 <link rel="stylesheet" href="{{ asset('css/plugins/metisMenu/metisMenu.min.css') }}">
 <link rel="stylesheet"  href="{{ asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" type="text/css">
 
