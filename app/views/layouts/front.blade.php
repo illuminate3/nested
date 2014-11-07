@@ -36,7 +36,7 @@
 
 Simple Menu --------------------------------------------------------
 <br>
-@if (isset($menu))
+@if (isset($menu22))
 	@foreach ($menu as $item)
 		<a href="{{ $item['url'] }}">{{ $item['label'] }}</a>
 <br>
@@ -47,7 +47,7 @@ Simple Menu --------------------------------------------------------
 	<div class="col-md-6">
 HTML::nav(contents) --------------------------------------------------------
 <br>
-@if (isset($menu2))
+@if (isset($menu222))
 	{{ HTML::navy($menu2) }}
 @endif
 

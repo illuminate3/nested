@@ -45,6 +45,9 @@
 
 		    </ul>
 		    @yield('content')
+@if (isset($menu2))
+	{{ HTML::navy($menu2) }}
+@endif
 
 <br>
 <br>
@@ -153,12 +156,12 @@ pullDown --------------------------------------------------------
 --}}
 {{--
 <nav class="sidebar-nav">
-<ul id="metisMenu">
+<ul id="menu">
 <li class="active">
   <a href="#">
 	<span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>
 	<span class="sidebar-nav-item">metisMenu</span>
-	<span class="fa arrow"></span>
+	<span class="fa arrow fa-2x"></span>
   </a>
   <ul class="collapse in">
 	<li>
@@ -247,6 +250,7 @@ pullDown --------------------------------------------------------
 </nav>
 --}}
 
+
 		</div>
 
 		<footer class="main-footer container">
@@ -263,8 +267,7 @@ pullDown --------------------------------------------------------
 
 <script>
 	$(function () {
-		$('#metisMenu1').metisMenu({
-		});
+		$('#menu').metisMenu();
 	});
 </script>
 

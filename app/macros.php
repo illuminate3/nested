@@ -67,13 +67,13 @@ HTML::macro('nav', function($data)
 {
     if (empty($data)) return '';
 
-    $html = '<ul class="nav">';
+    $html = '<ul>';
 
     foreach ($data as $item)
     {
         $html .= '<li';
 
-        if (isset($item['active']) && $item['active']) $html .= ' class="active"';
+//        if (isset($item['active']) && $item['active']) $html .= ' class="active"';
 
         $html .= '><a href="'.$item['url'].'">';
 
@@ -151,17 +151,18 @@ HTML::macro('pulldown', function($data)
 </nav>
 */
 
+
 HTML::macro('navy', function($data)
 {
     if (empty($data)) return '';
-//var_dump($data);
-    $html = '<nav class="sidebar-nav"><ul id="metisMenu">';
+//print_r($data);
+    $html = '<nav class="sidebar-nav"><ul id="menu">';
 
     foreach ($data as $item)
     {
         $html .= '<li';
 
-        if (isset($item['active']) && $item['active']) $html .= ' class="active"';
+//        if (isset($item['active']) && $item['active']) $html .= ' class="active"';
 
         $html .= '><a href="'.$item['url'].'">';
         $html .= e($item['label']);
