@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
+
 return array(
 
     /*
@@ -11,7 +13,22 @@ return array(
      |
      */
 
-    'enabled' => false,
+    'enabled' => Config::get('app.debug'),
+
+    /*
+     |--------------------------------------------------------------------------
+     | Storage settings
+     |--------------------------------------------------------------------------
+     |
+     | DebugBar stores data for session/ajax requests in a directory.
+     | You can disable this, so the debugbar stores data in headers/session,
+     | but this can cause problems with large data collectors.
+     |
+     */
+    'storage' => array(
+        'enabled' => true,
+        'path' => storage_path() . '/debugbar',
+    ),
 
     /*
      |--------------------------------------------------------------------------
@@ -20,7 +37,10 @@ return array(
      |
      | Vendor files are included by default, but can be set to false.
      | This can also be set to 'js' or 'css', to only include javascript or css vendor files.
-     | Vendor files are for css: font-awesome (including fonts) en for js: jquery 1.8.3
+     | Vendor files are for css: font-awesome (including fonts) and highlight.js (css files)
+     | and for js: jquery and and highlight.js
+     | So if you want syntax highlighting, set it to true.
+     | jQuery is set to not conflict with existing jQuery scripts.
      |
      */
 
@@ -37,6 +57,17 @@ return array(
      */
 
     'capture_ajax' => true,
+
+    /*
+     |--------------------------------------------------------------------------
+     | Capture Console Commands
+     |--------------------------------------------------------------------------
+     |
+     | The Debugbar can listen to Artisan commands. You can view them with the browse button in the Debugbar.
+     |
+     */
+
+    'capture_console' => false,
 
     /*
      |--------------------------------------------------------------------------
@@ -59,13 +90,14 @@ return array(
         'route'           => true,  // Current route information
         'laravel'         => false, // Laravel version and environment
         'events'          => false, // All events fired
-        'twig'            => false, // Twig, requires barryvdh/laravel-twigbridge
         'default_request' => false, // Regular or special Symfony request logger
         'symfony_request' => true,  // Only one can be enabled..
         'mail'            => true,  // Catch mail messages
         'logs'            => false, // Add the latest log messages
         'files'           => false, // Show the included files
         'config'          => false, // Display config settings
+        'auth'            => false, // Display Laravel authentication status
+        'session'         => false, // Display session data in a separate tab
     ),
 
     /*
@@ -78,22 +110,31 @@ return array(
      */
 
     'options' => array(
-        'pdo' => array(
+        'auth' => array(
+            'show_name' => false,   // Also show the users name/email in the debugbar
+        ),
+        'db' => array(
             'with_params'       => true,   // Render SQL with the parameters substituted
-            'quotation_char'    => "'",    // The character to surround params
-            'extra_connections' => array(  // Add extra connections to the PDO Collector
-                // 'mysql',
-            )
+            'timeline'          => false,  // Add the queries to the timeline
+            'backtrace'         => false,  // EXPERIMENTAL: Use a backtrace to find the origin of the query in your files.
+            'explain' => array(            // EXPERIMENTAL: Show EXPLAIN output on queries
+                'enabled' => false,
+                'types' => array('SELECT'), // array('SELECT', 'INSERT', 'UPDATE', 'DELETE'); for MySQL 5.6.3+
+            ),
+            'hints'             => true,    // Show hints for common mistakes
         ),
         'mail' => array(
             'full_log' => false
         ),
         'views' => array(
-            'data' => true,
+            'data' => false,    //Note: Can slow down the application, because the data can be quite large..
         ),
         'route' => array(
             'label' => true  // show complete route on bar
-        )
+        ),
+        'logs' => array(
+            'file' => null
+        ),
     ),
 
     /*

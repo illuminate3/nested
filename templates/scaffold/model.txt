@@ -1,0 +1,14 @@
+<?php
+
+class {{className}} extends Eloquent {
+	protected $guarded = array();
+
+// DEFINE Rules --------------------------------------------------
+	public static $rules = array({{rules}});
+
+// DEFINE Fillable --------------------------------------------------
+
+
+// DEFINE Relationships --------------------------------------------------
+
+}
