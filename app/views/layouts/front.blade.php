@@ -18,6 +18,9 @@
         </li>
 --}}
         <li>
+            <a href="{{ route('items.index') }}"><span class="glyphicon glyphicon-wrench"></span> Items</a>
+        </li>
+        <li>
             <a href="{{ route('categories.index') }}"><span class="glyphicon glyphicon-wrench"></span> Manage Categories</a>
         </li>
     </ul>

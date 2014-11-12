@@ -6,14 +6,19 @@
 
 	"require": {
 		"laravel/framework": "~4.2.0",
+"illuminate3/lingos": "dev-master",
+"illuminate3/bootawesome": "dev-master",
+"chumper/datatable": "2.*",
 "kalnoy/nestedset": "~2.0@beta",
-"erusev/parsedown": "~0.9.3",
-"fbf/laravel-navigation": "dev-master"
+"erusev/parsedown": "~0.9.3"
 	},
 
-    "require-dev": {
-    	"phpunit/phpunit": "3.7.*",
-    	"mockery/mockery": "~0.8.0"
+	"require-dev": {
+		"barryvdh/laravel-debugbar": "1.*",
+		"barryvdh/laravel-ide-helper": "1.*",
+"dollar/generators": "dev-master",
+		"mockery/mockery": "~0.9",
+		"phpunit/phpunit": "~4.0"
 	},
 
 	"autoload": {

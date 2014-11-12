@@ -21,6 +21,7 @@ class CreateItemsTable extends Migration
 			$table->string('model_number')->nullable();
 			$table->text('description')->nullable();
 			$table->string('image')->nullable();
+
 /*
 			$table->integer('asset_id');
 			$table->integer('site_id');

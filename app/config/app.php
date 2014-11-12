@@ -114,7 +114,14 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-'Fbf\LaravelNavigation\LaravelNavigationServiceProvider',
+'Illuminate3\Lingos\LingosServiceProvider',
+'Illuminate3\BootAwesome\BootstrapServiceProvider',
+'Chumper\Datatable\DatatableServiceProvider',
+//'Fbf\LaravelNavigation\LaravelNavigationServiceProvider',
+'Barryvdh\Debugbar\ServiceProvider',
+'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+//'Way\Generators\GeneratorsServiceProvider',
+'Dollar\Generators\GeneratorsServiceProvider',
 
 	),
 
@@ -181,9 +188,10 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-'NestedSet'		  => 'Kalnoy\Nestedset\NestedSet',
-'Node' => 'Kalnoy\Nestedset\Node',
-
+'Bootstrap'		=> 'Illuminate3\BootAwesome\Facades\Bootstrap',
+'NestedSet'		=> 'Kalnoy\Nestedset\NestedSet',
+'Node'			=> 'Kalnoy\Nestedset\Node',
+'Debugbar' => 'Barryvdh\Debugbar\Facade',
 	),
 
 );
