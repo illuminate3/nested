@@ -15,27 +15,15 @@ class CreateAssetsTable extends Migration
 		Schema::create('assets', function(Blueprint $table) {
 			$table->increments('id');
 
-//			$table->integer('asset_id');
-			$table->integer('item_id');
+			$table->integer('user_id')->nullable();
+			$table->integer('item_id')->nullable();
 			$table->integer('site_id')->nullable();
-//			$table->string('custodian');			change to asset_user table
 			$table->integer('room')->nullable();
-//			$table->integer('user_id');
-			$table->integer('statuses_tech_id');
-
-			$table->string('asset_tag')->unique()->index();
-			$table->string('serial')->unique()->index();
-			$table->string('po')->index();
-
+			$table->integer('asset_status_id')->nullable();
+			$table->string('asset_tag')->nullable();
+			$table->string('serial')->nullable();
+			$table->string('po')->nullable();
 			$table->text('note')->nullable();
-/*
-			$table->integer('category_id')->nullable();
-			$table->string('make')->nullable();
-			$table->string('model')->nullable();
-			$table->string('model_number')->nullable();
-			$table->text('description')->nullable();
-			$table->string('image')->nullable();
-*/
 
 			$table->softDeletes();
 			$table->timestamps();

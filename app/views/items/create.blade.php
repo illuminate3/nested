@@ -90,6 +90,15 @@
         </div>
 
 
+@if (!isset($category) || !$category->isRoot())
+{{ Form::beginGroup('parent_id') }}
+    {{ Form::label('parent_id', 'Parent', array('class' => 'col-lg-2 control-label')) }}
+    <div class="col-lg-10">
+        {{ Form::select('parent_id', $parents, null, array('class' => 'form-control', 'required' => true)) }}
+    </div>
+{{ Form::endGroup('parent_id') }}
+@endif
+
 	<hr>
 
 	{{ Bootstrap::submit(

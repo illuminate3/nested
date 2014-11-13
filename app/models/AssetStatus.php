@@ -1,13 +1,13 @@
 <?php
 
-class {{className}} extends Eloquent {
+class AssetStatus extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = '{{className}}s';
+	protected $table = 'AssetStatuss';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -23,13 +23,19 @@ class {{className}} extends Eloquent {
 // DEFINE Rules --------------------------------------------------
 	public static $rules = array(
 /*
-	{{rules}}
+	
+		'name' => 'required',
+		'description' => 'required'
+	
 */
 	);
 
 	public static $rulesUpdate = array(
 /*
-	{{rules}}
+	
+		'name' => 'required',
+		'description' => 'required'
+	
 */
 	);
 

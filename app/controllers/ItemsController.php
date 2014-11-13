@@ -9,9 +9,10 @@ class ItemsController extends BaseController {
 	 */
 	protected $item;
 
-	public function __construct(Item $item)
+	public function __construct(Item $item, Category $category)
 	{
 		$this->item = $item;
+		$this->category = $category;
 	}
 
 	/**
@@ -43,12 +44,19 @@ class ItemsController extends BaseController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
+//		$input = Input::all();
+		$input = array_except(Input::all(), ['parent_id']);
+
 		$validation = Validator::make($input, Item::$rules);
 
 		if ($validation->passes())
 		{
 			$this->item->create($input);
+
+
+$category = Input::get('parent_id');
+$this->item->attachItem($id, $category);
+
 
 			return Redirect::route('items.index');
 		}
@@ -82,12 +90,22 @@ class ItemsController extends BaseController {
 	{
 		$item = $this->item->find($id);
 
+$category = $this->category->findOrFail($id);
+$parents = $this->category->getParents();
+
+/*
+$this->layout
+->withTitle('Update '.$category->title)
+->nest('content', 'categories.edit', compact('category', 'parents'));
+*/
+
 		if (is_null($item))
 		{
 			return Redirect::route('items.index');
 		}
 
-		return View::make('items.edit', compact('item'));
+		return View::make('items.edit',
+			compact('item', 'category', 'parents'));
 	}
 
 	/**
@@ -98,13 +116,45 @@ class ItemsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		$input = array_except(Input::all(), '_method');
+//		$input = array_except(Input::all(), '_method');
+		$input = array_except(Input::all(), ['_method', 'parent_id']);
+
+
 		$validation = Validator::make($input, Item::$rules);
+
+//dd($input);
 
 		if ($validation->passes())
 		{
 			$item = $this->item->find($id);
 			$item->update($input);
+
+//$product = $id;
+//$product->categories()->attach(Input::get('parent_id'));
+
+//Item::find($id)->categories()->attach( Input::get('parent_id') );
+
+//$customer = Item::find($id);
+//$customer->categories()->attach(Input::get('parent_id'));
+
+
+$category = Input::get('parent_id');
+$this->item->attachItem($id, $category);
+
+
+/*
+			$bill = Bill::find($bill_id);
+
+			$charges = Charge::where('bill_id', '=', $bill_id)->get();
+			foreach($charges as $key => $value)
+			{
+				$charges[$key]['status_pick_id'] = 1;
+			}
+			foreach($charges as $charge)
+			{
+				$bill->charges()->attach($charge); //this executes the insert-query
+			}
+*/
 
 			return Redirect::route('items.show', $id);
 		}
@@ -127,5 +177,7 @@ class ItemsController extends BaseController {
 
 		return Redirect::route('items.index');
 	}
+
+
 
 }

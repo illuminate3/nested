@@ -53,7 +53,18 @@ Route::get('{slug}', array('as' => 'page', 'uses' => 'PageController@show'))
 //View::composer('layouts.master', 'Fbf\LaravelNavigation\NavigationComposer');
 */
 
+
+Route::resource('asset', 'AssetsController');
+//Route::when('assets/*', 'AssetsController');
+Route::resource('items', 'ItemsController');
+
+
 Route::get('/', 'CategoryController@show');
+Route::get('/', array(
+	'as' => 'home',
+	'uses' => 'CategoryController@show'
+	));
+
 
 Route::resource('categories', 'CategoriesController', array('except' => array('show')));
 
@@ -79,18 +90,12 @@ Route::group(array('prefix' => 'categories'), function () {
 });
 
 
-Route::resource('items', 'ItemsController');
-
 // The slug route should be registered last since it will capture any slug-like
 // route
 Route::get('{slug}', array('as' => 'category', 'uses' => 'CategoryController@show'))
     ->where('slug', Category::$slugPattern);
 
 
-	Route::get('/', array(
-		'as' => 'home',
-		'uses' => 'CategoryController@index'
-		));
 
 Route::resource('vedette.admin', 'Vedette\controllers\AdminController', array('only' => array('index')));
 
@@ -209,3 +214,8 @@ Route::get('api/users', array(
 
 
 });
+
+
+Route::resource('asset_statuses', 'Asset_statusesController');
+
+Route::resource('assetstatuses', 'AssetstatusesController');

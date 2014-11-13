@@ -31,9 +31,28 @@ class CategoryController extends BaseController {
 	public function show($slug = '/')
 	{
 //dd('loaded');
-		$category = $this->category->whereSlug($slug)->first();
+//		$category = $this->category->whereSlug($slug)->first();
 //		$category = $this->category->whereSlug($slug)->with('sites')->first();
 //		$user = $this->user->with('profile')->findOrFail($id);
+//		$profile = $this->profile->with('grades', 'sites', 'departments')->findOrFail($id);
+
+//		$site = $this->site->with('profiles')->findOrFail($id);
+//		$profiles = Site::findOrFail($id)->profiles;
+/*
+		return View::make(
+			'sites.show',
+			compact(
+				'site', 'profiles', 'logo', 'contact'
+//				'site', 'logo'
+			)
+*/
+
+
+$category = $this->category->with('items')->whereSlug($slug)->first();
+//dd($category->id);
+$items = Category::findOrFail($category->id)->items;
+//dd($items);
+
 //dd('loaded');
 
 		if ($category === null)
@@ -54,8 +73,8 @@ $this->layout->exploreNested = $this->exploreNested();
 
 
 
-$items = Menu::all();
-$this->layout->itemsHelper = new ItemsHelper($items);
+//$items = Menu::all();
+//$this->layout->itemsHelper = new ItemsHelper($items);
 //  return View::make('hello',compact('items','itemsHelper'));
 
 //dd('loaded');

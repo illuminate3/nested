@@ -22,13 +22,12 @@ class Category extends \Kalnoy\Nestedset\Node {
 
 // DEFINE Relationships --------------------------------------------------
 
-//dd('loaded');
+public function items()
+{
+	return $this->belongsToMany('Item');
+}
 
 
-	public function sites()
-	{
-		return $this->hasMany('Site');
-	}
 
     /**
      * Apply some processing for an input.
@@ -152,4 +151,30 @@ class Category extends \Kalnoy\Nestedset\Node {
     {
         return $this->title;
     }
+
+	/**
+	 * Get all available nodes as a list for HTML::select.
+	 *
+	 * @return array
+	 */
+	public function getParents()
+	{
+//dd('here');
+
+		$all = $this->select('id', 'title')->withDepth()->defaultOrder()->get();
+		$result = array();
+
+		foreach ($all as $item)
+		{
+			$title = $item->title;
+
+			if ($item->depth > 0) $title = str_repeat('—', $item->depth).' '.$title;
+
+			$result[$item->id] = $title;
+		}
+
+		return $result;
+	}
+
+
 }
