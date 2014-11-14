@@ -3,18 +3,16 @@
 @section('title')
 @parent
 	{{ Config::get('vedette.vedette_html.separator') }}
-	{{ trans('lingos::general.command.edit') }}
+	{{ trans('lingos::general.command.create') }}
 @stop
 
 @section('styles')
 @stop
 
 @section('scripts')
-	<script src="{{ asset('packages/illuminate3/vedette/assets/js/restfulizer.js') }}"></script>
 @stop
 
 @section('inline-scripts')
-	var text_confirm_message = '{{ trans('lingos::job_title.ask.delete') }}';
 @stop
 
 @section('content')
@@ -22,17 +20,18 @@
 <h1>
 	<p class="pull-right">
 	{{ Bootstrap::linkIcon(
-		'asset_statuses.index',
+		'rooms.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
 	) }}
 	</p>
 	<i class="fa fa-edit fa-lg"></i>
-	{{ trans('lingos::general.command.edit') }}
+	{{ trans('lingos::general.command.create') }}
 	<hr>
 </h1>
 </div>
+
 
 @if ($errors->any())
 	{{ Bootstrap::danger( implode('', $errors->all(':message<br>')), true) }}
@@ -44,17 +43,30 @@
 	</div>
 @endif
 
+
 <div class="row">
-{{ Form::model($assetStatus, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('asset_statuses.update', $assetStatus->id))) }}
+{{ Form::open(array('route' => 'rooms.store', 'class' => 'form-horizontal')) }}
 
 {{-- Form::open(
 	[
-		'route' => array('asset_statuses.update', $assetStatus->id),
-		'assetStatus' => 'form',
-		'method' => 'PATCH'
+		'route' => array('rooms.store'),
+		'job_title' => 'form'
 	]
 ) --}}
 
+        <div class="form-group">
+            {{ Form::label('site_id', 'Site_id:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::input('number', 'site_id', Input::old('site_id'), array('class'=>'form-control')) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('user_id', 'User_id:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::input('number', 'user_id', Input::old('user_id'), array('class'=>'form-control')) }}
+            </div>
+        </div>
 
         <div class="form-group">
             {{ Form::label('name', 'Name:', array('class'=>'col-md-2 control-label')) }}
@@ -81,9 +93,9 @@
 	) }}
 
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-sm-6">
 		{{ Bootstrap::linkIcon(
-			'asset_statuses.index',
+			'rooms.index',
 			trans('lingos::button.cancel'),
 			'times fa-fw',
 			[
@@ -91,24 +103,12 @@
 			]
 		) }}
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-6">
 		{{ Bootstrap::reset(
 			trans('lingos::button.reset'),
 			[
 				'class' => 'btn btn-default btn-block'
 			]
-		) }}
-		</div>
-		<div class="col-sm-4">
-		{{ Bootstrap::linkIcon(
-			'asset_statuses.destroy',
-			trans('lingos::button.delete'),
-			'trash-o fa-fw',
-			array(
-				'class' => 'btn btn-default btn-block action_confirm',
-				'data-method' => 'delete',
-				'title' => trans('lingos::account.command.delete')
-			)
 		) }}
 		</div>
 	</div>

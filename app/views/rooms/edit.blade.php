@@ -22,7 +22,7 @@
 <h1>
 	<p class="pull-right">
 	{{ Bootstrap::linkIcon(
-		'asset_statuses.index',
+		'rooms.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
@@ -45,16 +45,30 @@
 @endif
 
 <div class="row">
-{{ Form::model($assetStatus, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('asset_statuses.update', $assetStatus->id))) }}
+{{ Form::model($room, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('rooms.update', $room->id))) }}
 
 {{-- Form::open(
 	[
-		'route' => array('asset_statuses.update', $assetStatus->id),
-		'assetStatus' => 'form',
+		'route' => array('rooms.update', $room->id),
+		'room' => 'form',
 		'method' => 'PATCH'
 	]
 ) --}}
 
+
+        <div class="form-group">
+            {{ Form::label('site_id', 'Site_id:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::input('number', 'site_id', Input::old('site_id'), array('class'=>'form-control')) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('user_id', 'User_id:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::input('number', 'user_id', Input::old('user_id'), array('class'=>'form-control')) }}
+            </div>
+        </div>
 
         <div class="form-group">
             {{ Form::label('name', 'Name:', array('class'=>'col-md-2 control-label')) }}
@@ -83,7 +97,7 @@
 	<div class="row">
 		<div class="col-sm-4">
 		{{ Bootstrap::linkIcon(
-			'asset_statuses.index',
+			'rooms.index',
 			trans('lingos::button.cancel'),
 			'times fa-fw',
 			[
@@ -101,7 +115,7 @@
 		</div>
 		<div class="col-sm-4">
 		{{ Bootstrap::linkIcon(
-			'asset_statuses.destroy',
+			'rooms.destroy',
 			trans('lingos::button.delete'),
 			'trash-o fa-fw',
 			array(

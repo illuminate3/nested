@@ -3,7 +3,7 @@
 @section('title')
 @parent
 	{{ Config::get('vedette.vedette_html.separator') }}
-	AssetStatus
+	Room
 @stop
 
 @section('styles')
@@ -24,14 +24,14 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 <h1>
 	<p class="pull-right">
 	{{ Bootstrap::linkIcon(
-		'asset_statuses.index',
+		'rooms.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
 	) }}
 	</p>
 	<i class="fa fa-tag fa-lg"></i>
-	AssetStatus
+	Room
 	<hr>
 </h1>
 </div>
@@ -42,6 +42,8 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 <table class="table table-striped table-hover" id="DataTable">
 	<thead>
 		<tr>
+			<th>Site_id</th>
+			<th>User_id</th>
 			<th>Name</th>
 			<th>Description</th>
 			<th>{{ trans('lingos::table.actions') }}</th>
@@ -50,21 +52,23 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 
 	<tbody>
 		<tr>
-			<td>{{{ $assetStatus->name }}}</td>
-			<td>{{{ $assetStatus->description }}}</td>
+			<td>{{{ $room->site_id }}}</td>
+			<td>{{{ $room->user_id }}}</td>
+			<td>{{{ $room->name }}}</td>
+			<td>{{{ $room->description }}}</td>
 			<td width="25%">
 				{{ Form::open(array(
-					'route' => array('asset_statuses.destroy', $assetStatus->id),
+					'route' => array('rooms.destroy', $room->id),
 					'role' => 'form',
 					'method' => 'delete',
 					'class' => 'form-inline'
 				)) }}
 
 					{{ Bootstrap::linkRouteIcon(
-						'asset_statuses.edit',
+						'rooms.edit',
 						trans('lingos::button.edit'),
 						'edit fa-fw',
-						array($assetStatus->id),
+						array($room->id),
 						array(
 							'class' => 'btn btn-success form-group',
 							'title' => trans('lingos::account.command.edit')
@@ -72,10 +76,10 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 					) }}
 
 					{{ Bootstrap::linkRouteIcon(
-						'asset_statuses.destroy',
+						'rooms.destroy',
 						trans('lingos::button.delete'),
 						'trash-o fa-fw',
-						array($assetStatus->id),
+						array($room->id),
 						array(
 							'class' => 'btn btn-danger form-group action_confirm',
 							'data-method' => 'delete',

@@ -104,24 +104,21 @@ public function getStatuses()
 public function attachAsset($id, $item_id)
 {
 //	$item = Item::find($id);
-//	$item->categories()->attach($category);
+//	$item->categories()->attach($category_id);
 	$asset = Asset::find($id);
 	$asset->items()->attach($item_id);
 }
 
 public function attachSite($id, $site_id)
 {
-	$site = Site::find($id);
-	$site->sites()->attach($site_id);
+	$asset = Asset::find($id);
+	$asset->sites()->attach($site_id);
 }
 
 public function attachUser($id, $user_id)
 {
-//dd('loaded');
-	$user = User::find($id);
-//dd($user);
-	$user->users()->attach($user_id);
-dd('loaded');
+	$asset = Asset::find($id);
+	$asset->users()->attach($user_id);
 }
 
 

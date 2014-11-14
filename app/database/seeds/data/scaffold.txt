@@ -49,3 +49,4 @@ CREATE TABLE `assets` (
 
 php artisan generate:scaffold assets --fields="item_id:integer, site_id:integer, room:integer, statuses_tech_id:integer, asset_tag:string, serial:string, po:string, note:text"
 
+php artisan generate:scaffold rooms --fields="site_id:integer:nullable, user_id:integer:nullable, name:string:nullable, description:string:nullable"

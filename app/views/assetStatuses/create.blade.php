@@ -20,7 +20,7 @@
 <h1>
 	<p class="pull-right">
 	{{ Bootstrap::linkIcon(
-		'assetStatuses.index',
+		'asset_statuses.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
@@ -45,11 +45,11 @@
 
 
 <div class="row">
-{{ Form::open(array('route' => 'assetStatuses.store', 'class' => 'form-horizontal')) }}
+{{ Form::open(array('route' => 'asset_statuses.store', 'class' => 'form-horizontal')) }}
 
 {{-- Form::open(
 	[
-		'route' => array('assetStatuses.store'),
+		'route' => array('asset_statuses.store'),
 		'job_title' => 'form'
 	]
 ) --}}
@@ -81,7 +81,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 		{{ Bootstrap::linkIcon(
-			'assetStatuses.index',
+			'asset_statuses.index',
 			trans('lingos::button.cancel'),
 			'times fa-fw',
 			[

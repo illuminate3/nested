@@ -32,10 +32,10 @@ public function assets()
 
 // Functions --------------------------------------------------
 
-public function attachItem($id, $category)
+public function attachItem($id, $category_id)
 {
 	$item = Item::find($id);
-	$item->categories()->attach($category);
+	$item->categories()->attach($category_id);
 }
 
 

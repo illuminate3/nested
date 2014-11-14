@@ -57,7 +57,8 @@ Route::get('{slug}', array('as' => 'page', 'uses' => 'PageController@show'))
 Route::resource('asset', 'AssetsController');
 //Route::when('assets/*', 'AssetsController');
 Route::resource('items', 'ItemsController');
-
+Route::resource('asset_statuses', 'AssetStatusesController');
+Route::resource('rooms', 'RoomsController');
 
 Route::get('/', 'CategoryController@show');
 Route::get('/', array(
@@ -216,6 +217,3 @@ Route::get('api/users', array(
 });
 
 
-Route::resource('asset_statuses', 'Asset_statusesController');
-
-Route::resource('assetstatuses', 'AssetstatusesController');

@@ -147,15 +147,12 @@ $this->asset->attachSite($id, $site);
 //$category = Input::get('parent_id');
 //$this->item->attachItem($id, $category);
 
-$item_id = Input::get('item_id');
-//$this->asset->attachAsset($id, $item_id);
-//dd('here1');
-$user_id = Input::get('user_id');
-$this->asset->attachUser($id, $user_id);
-dd('here2');
-$site_id = Input::get('site_id');
-$this->asset->attachSite($id, $site_id);
-//dd('here3');
+			$item_id = Input::get('item_id');
+			$this->asset->attachAsset($id, $item_id);
+			$user_id = Input::get('user_id');
+			$this->asset->attachUser($id, $user_id);
+			$site_id = Input::get('site_id');
+			$this->asset->attachSite($id, $site_id);
 
 
 			return Redirect::route('asset.show', $id);

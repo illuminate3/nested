@@ -1,13 +1,13 @@
 <?php
 
-class AssetStatus extends Eloquent {
+class Room extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'asset_statuses';
+	protected $table = 'Rooms';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -24,6 +24,8 @@ class AssetStatus extends Eloquent {
 	public static $rules = array(
 /*
 	
+		'site_id' => 'required',
+		'user_id' => 'required',
 		'name' => 'required',
 		'description' => 'required'
 	
@@ -33,6 +35,8 @@ class AssetStatus extends Eloquent {
 	public static $rulesUpdate = array(
 /*
 	
+		'site_id' => 'required',
+		'user_id' => 'required',
 		'name' => 'required',
 		'description' => 'required'
 	

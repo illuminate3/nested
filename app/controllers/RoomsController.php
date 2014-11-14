@@ -1,17 +1,17 @@
 <?php
 
-class AssetStatusesController extends BaseController {
+class RoomsController extends BaseController {
 
 	/**
-	 * AssetStatus Repository
+	 * Room Repository
 	 *
-	 * @var AssetStatus
+	 * @var Room
 	 */
-	protected $assetStatus;
+	protected $room;
 
-	public function __construct(AssetStatus $assetStatus)
+	public function __construct(Room $room)
 	{
-		$this->assetStatus = $assetStatus;
+		$this->room = $room;
 	}
 
 	/**
@@ -21,9 +21,9 @@ class AssetStatusesController extends BaseController {
 	 */
 	public function index()
 	{
-		$assetStatuses = $this->assetStatus->all();
+		$rooms = $this->room->all();
 
-		return View::make('assetStatuses.index', compact('assetStatuses'));
+		return View::make('rooms.index', compact('rooms'));
 	}
 
 	/**
@@ -33,7 +33,7 @@ class AssetStatusesController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('assetStatuses.create');
+		return View::make('rooms.create');
 	}
 
 	/**
@@ -44,16 +44,16 @@ class AssetStatusesController extends BaseController {
 	public function store()
 	{
 		$input = Input::all();
-		$validation = Validator::make($input, AssetStatus::$rules);
+		$validation = Validator::make($input, Room::$rules);
 
 		if ($validation->passes())
 		{
-			$this->assetStatus->create($input);
+			$this->room->create($input);
 
-			return Redirect::route('asset_statuses.index');
+			return Redirect::route('rooms.index');
 		}
 
-		return Redirect::route('asset_statuses.create')
+		return Redirect::route('rooms.create')
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -67,9 +67,9 @@ class AssetStatusesController extends BaseController {
 	 */
 	public function show($id)
 	{
-		$assetStatus = $this->assetStatus->findOrFail($id);
+		$room = $this->room->findOrFail($id);
 
-		return View::make('assetStatuses.show', compact('assetStatus'));
+		return View::make('rooms.show', compact('room'));
 	}
 
 	/**
@@ -80,14 +80,14 @@ class AssetStatusesController extends BaseController {
 	 */
 	public function edit($id)
 	{
-		$assetStatus = $this->assetStatus->find($id);
+		$room = $this->room->find($id);
 
-		if (is_null($assetStatus))
+		if (is_null($room))
 		{
-			return Redirect::route('asset_statuses.index');
+			return Redirect::route('rooms.index');
 		}
 
-		return View::make('assetStatuses.edit', compact('assetStatus'));
+		return View::make('rooms.edit', compact('room'));
 	}
 
 	/**
@@ -99,17 +99,17 @@ class AssetStatusesController extends BaseController {
 	public function update($id)
 	{
 		$input = array_except(Input::all(), '_method');
-		$validation = Validator::make($input, AssetStatus::$rules);
+		$validation = Validator::make($input, Room::$rules);
 
 		if ($validation->passes())
 		{
-			$assetStatus = $this->assetStatus->find($id);
-			$assetStatus->update($input);
+			$room = $this->room->find($id);
+			$room->update($input);
 
-			return Redirect::route('asset_statuses.show', $id);
+			return Redirect::route('rooms.show', $id);
 		}
 
-		return Redirect::route('asset_statuses.edit', $id)
+		return Redirect::route('rooms.edit', $id)
 			->withInput()
 			->withErrors($validation)
 			->with('message', 'There were validation errors.');
@@ -123,9 +123,9 @@ class AssetStatusesController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		$this->assetStatus->find($id)->delete();
+		$this->room->find($id)->delete();
 
-		return Redirect::route('asset_statuses.index');
+		return Redirect::route('rooms.index');
 	}
 
 }

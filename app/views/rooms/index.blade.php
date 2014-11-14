@@ -3,7 +3,7 @@
 @section('title')
 @parent
 	{{ Config::get('vedette.vedette_html.separator') }}
-	asset_statuses
+	Rooms
 @stop
 
 @section('styles')
@@ -43,57 +43,61 @@ $(document).ready(function() {
 	<p class="pull-right">
 
 			{{ Bootstrap::linkIcon(
-				'asset_statuses.create',
+				'rooms.create',
 				trans('lingos::button.new'),
 				'plus fa-fw',
 				array('class' => 'btn btn-info')
 			) }}
 
 	{{ Bootstrap::linkIcon(
-		'asset_statuses.index',
+		'rooms.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
 	) }}
 	</p>
 	<i class="fa fa-angle-double-right fa-lg"></i>
-	AssetStatuses
+	Rooms
 	<hr>
 </h1>
 </div>
 
 <div class="row">
-@if (count($assetStatuses))
+@if (count($rooms))
 
 <div class="table-responsive">
 <table class="table table-striped table-hover" id="DataTable">
 	<thead>
 		<tr>
+			<th>Site_id</th>
+			<th>User_id</th>
 			<th>Name</th>
-				<th>Description</th>
+			<th>Description</th>
 			<th>{{ trans('lingos::table.actions') }}</th>
 		</tr>
 	</thead>
 
 	<tbody>
-		@foreach ($assetStatuses as $assetStatus)
+		@foreach ($rooms as $room)
 		<tr>
-			<td>{{{ $assetStatus->name }}}</td>
-			<td>{{{ $assetStatus->description }}}</td>
+			<td>{{{ $room->site_id }}}</td>
+			<td>{{{ $room->user_id }}}</td>
+			<td>{{{ $room->name }}}</td>
+			<td>{{{ $room->description }}}</td>
 			<td width="25%">
 
 				{{ Form::open(array(
-					'route' => array('asset_statuses.destroy', $assetStatus->id),
+					'route' => array('rooms.destroy', $room->id),
 					'role' => 'form',
 					'method' => 'delete',
 					'class' => 'form-inline'
 				)) }}
 
 					{{ Bootstrap::linkRouteIcon(
-						'asset_statuses.show',
+						'rooms.show',
 						trans('lingos::button.view'),
 						'chevron-right fa-fw',
-						array($assetStatus->id),
+						array($room->id),
 						array(
 							'class' => 'btn btn-primary form-group',
 							'title' => trans('lingos::general.view')
@@ -101,10 +105,10 @@ $(document).ready(function() {
 					) }}
 
 					{{ Bootstrap::linkRouteIcon(
-						'asset_statuses.edit',
+						'rooms.edit',
 						trans('lingos::button.edit'),
 						'edit fa-fw',
-						array($assetStatus->id),
+						array($room->id),
 						array(
 							'class' => 'btn btn-success form-group',
 							'title' => trans('lingos::account.command.edit')
@@ -112,10 +116,10 @@ $(document).ready(function() {
 					) }}
 
 					{{ Bootstrap::linkRouteIcon(
-						'asset_statuses.destroy',
+						'rooms.destroy',
 						trans('lingos::button.delete'),
 						'trash-o fa-fw',
-						array($assetStatus->id),
+						array($room->id),
 						array(
 							'class' => 'btn btn-danger form-group action_confirm',
 							'data-method' => 'delete',
