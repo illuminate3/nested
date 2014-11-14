@@ -10,6 +10,7 @@ CREATE TABLE `statuses` (
 
 
 php artisan generate:scaffold assetStatuses --fields="name:string:nullable, description:string:nullable"
+php artisan generate:scaffold techStatuses --fields="name:string:nullable, description:string:nullable"
 
 
 CREATE TABLE `items` (

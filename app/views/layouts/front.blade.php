@@ -27,6 +27,9 @@
             <a href="{{ route('asset_statuses.index') }}"><span class="glyphicon glyphicon-wrench"></span> asset_statuses</a>
         </li>
         <li>
+            <a href="{{ route('tech_statuses.index') }}"><span class="glyphicon glyphicon-wrench"></span> tech_statuses</a>
+        </li>
+        <li>
             <a href="{{ route('rooms.index') }}"><span class="glyphicon glyphicon-wrench"></span> Rooms</a>
         </li>
 

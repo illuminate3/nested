@@ -76,8 +76,9 @@ $this->item->attachItem($id, $category);
 	public function show($id)
 	{
 		$item = $this->item->findOrFail($id);
-
-		return View::make('items.show', compact('item'));
+$assets = Item::findOrFail($item->id)->assets;
+//dd($assets);
+		return View::make('items.show', compact('item', 'assets'));
 	}
 
 	/**

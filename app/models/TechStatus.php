@@ -1,13 +1,13 @@
 <?php
 
-class Room extends Eloquent {
+class TechStatus extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'Rooms';
+	protected $table = 'tech_statuses';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -24,8 +24,6 @@ class Room extends Eloquent {
 	public static $rules = array(
 /*
 	
-		'site_id' => 'required',
-		'user_id' => 'required',
 		'name' => 'required',
 		'description' => 'required'
 	
@@ -35,8 +33,6 @@ class Room extends Eloquent {
 	public static $rulesUpdate = array(
 /*
 	
-		'site_id' => 'required',
-		'user_id' => 'required',
 		'name' => 'required',
 		'description' => 'required'
 	
@@ -50,11 +46,6 @@ class Room extends Eloquent {
 
 // DEFINE Relationships --------------------------------------------------
 
-
-public function assets()
-{
-	return $this->belongsToMany('Asset');
-}
 
 // Functions --------------------------------------------------
 

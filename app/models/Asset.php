@@ -74,6 +74,11 @@ public function users()
 	return $this->belongsToMany('User');
 }
 
+public function rooms()
+{
+	return $this->belongsToMany('Room');
+}
+
 // Functions --------------------------------------------------
 
 public function getItems()
@@ -121,6 +126,11 @@ public function attachUser($id, $user_id)
 	$asset->users()->attach($user_id);
 }
 
+public function attachRoom($id, $room_id)
+{
+	$asset = Asset::find($id);
+	$asset->rooms()->attach($room_id);
+}
 
 
 
