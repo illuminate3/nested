@@ -1,6 +1,6 @@
 <?php
 
-//use models\Category as Category;
+//use Item as Item;
 
 /**
  * This controller is used to display categorys.
@@ -15,7 +15,13 @@ class CategoryController extends BaseController {
 	 * @var  Category
 	 */
 	protected $category;
-
+/*
+	public function __construct(Category $category, Item $item)
+	{
+		$this->category = $category;
+		$this->item = $item;
+	}
+*/
 	public function __construct(Category $category)
 	{
 		$this->category = $category;
@@ -51,7 +57,8 @@ class CategoryController extends BaseController {
 $category = $this->category->with('items')->whereSlug($slug)->first();
 //dd($category->id);
 $items = Category::findOrFail($category->id)->items;
-//dd($items);
+//$assets = Item::findOrFail($item->id)->assets;
+//dd($assets);
 
 //dd('loaded');
 
