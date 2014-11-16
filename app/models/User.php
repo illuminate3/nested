@@ -1,6 +1,6 @@
 <?php
 
-class Site extends Eloquent {
+class User extends Eloquent {
 
     /**
      * The set of characters for testing slugs.
@@ -28,12 +28,12 @@ public function assets()
 
 
 // Functions --------------------------------------------------
-
+/*
 public function attachItem($id, $category)
 {
 	$item = Item::find($id);
 	$item->categories()->attach($category);
 }
-
+*/
 
 }

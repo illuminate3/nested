@@ -22,7 +22,7 @@
 <h1>
 	<p class="pull-right">
 	{{ Bootstrap::linkIcon(
-		'items.index',
+		'tech_statuses.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
@@ -45,58 +45,31 @@
 @endif
 
 <div class="row">
-{{ Form::model($item, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('items.update', $item->id))) }}
+{{ Form::model($techStatus, array('class' => 'form-horizontal', 'method' => 'PATCH', 'route' => array('tech_statuses.update', $techStatus->id))) }}
 
 {{-- Form::open(
 	[
-		'route' => array('items.update', $Item->id),
-		'item' => 'form',
+		'route' => array('tech_statuses.update', $techStatus->id),
+		'techStatus' => 'form',
 		'method' => 'PATCH'
 	]
 ) --}}
 
 
         <div class="form-group">
-            {{ Form::label('make', 'Make:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('name', 'Name:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('make', Input::old('make'), array('class'=>'form-control', 'placeholder'=>'Make')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('model', 'Model:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('model', Input::old('model'), array('class'=>'form-control', 'placeholder'=>'Model')) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ Form::label('model_number', 'Model_number:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('model_number', Input::old('model_number'), array('class'=>'form-control', 'placeholder'=>'Model_number')) }}
+              {{ Form::text('name', Input::old('name'), array('class'=>'form-control', 'placeholder'=>'Name')) }}
             </div>
         </div>
 
         <div class="form-group">
             {{ Form::label('description', 'Description:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::textarea('description', Input::old('description'), array('class'=>'form-control', 'placeholder'=>'Description')) }}
+              {{ Form::text('description', Input::old('description'), array('class'=>'form-control', 'placeholder'=>'Description')) }}
             </div>
         </div>
 
-        <div class="form-group">
-            {{ Form::label('image', 'Image:', array('class'=>'col-md-2 control-label')) }}
-            <div class="col-sm-10">
-              {{ Form::text('image', Input::old('image'), array('class'=>'form-control', 'placeholder'=>'Image')) }}
-            </div>
-        </div>
-
-{{ Form::beginGroup('parent_id') }}
-	{{ Form::label('parent_id', 'Parent', array('class' => 'col-lg-2 control-label')) }}
-	<div class="col-lg-10">
-		{{ Form::select('parent_id', $parents, null, array('class' => 'form-control', 'required' => true)) }}
-	</div>
-{{ Form::endGroup('parent_id') }}
 
 	<hr>
 
@@ -110,7 +83,7 @@
 	<div class="row">
 		<div class="col-sm-4">
 		{{ Bootstrap::linkIcon(
-			'items.index',
+			'tech_statuses.index',
 			trans('lingos::button.cancel'),
 			'times fa-fw',
 			[
@@ -128,7 +101,7 @@
 		</div>
 		<div class="col-sm-4">
 		{{ Bootstrap::linkIcon(
-			'items.destroy',
+			'tech_statuses.destroy',
 			trans('lingos::button.delete'),
 			'trash-o fa-fw',
 			array(

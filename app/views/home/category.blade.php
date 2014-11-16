@@ -26,12 +26,68 @@
         </ul>
 @endif
     </section>
+</div>
 
 
+<div class="row">
 
 <div id="menuh1">
 {{-- $itemsHelper->htmlList() --}}
 </div>
+
+@if ($items->count())
+
+<div class="table-responsive">
+<table class="table table-striped table-bordered" id="DataTable">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>make</th>
+			<th>model</th>
+			<th>model_number#</th>
+			<th>description</th>
+			<th>image</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach ($items as $item)
+			<tr>
+				<td>{{{ $item->id }}}</td>
+				<td>{{{ $item->make }}}</td>
+				<td>{{{ $item->model }}}</td>
+				<td>{{{ $item->model_number }}}</td>
+				<td>{{{ $item->description }}}</td>
+				<td>{{{ $item->image }}}</td>
+				<td>
+					{{ link_to_route('items.show', 'Information', array($item->id), array('class' => 'btn btn-info')) }}
+				</td>
+			</tr>
+		@endforeach
+	</tbody>
+</table>
+</div> <!-- ./responsive -->
+
+@endif
+
+
+
+
+1111
+{{--
+@foreach ($category->items as $item)
+--}}
+@foreach ($items as $item)
+
+{{ $item->make }}
+22222
+@endforeach
+33333
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssetSiteTable extends Migration
+class CreateRoomSiteTable extends Migration
 {
 
 	public function __construct()
@@ -22,14 +22,14 @@ class CreateAssetSiteTable extends Migration
 	public function up()
 	{
 //		Schema::create($this->prefix.'role_user', function(Blueprint $table)
-		Schema::create('asset_site', function(Blueprint $table)
+		Schema::create('room_site', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
-			$table->integer('asset_id')->unsigned()->index();
+			$table->integer('room_id')->unsigned()->index();
 			$table->integer('site_id')->unsigned()->index();
 
-			$table->foreign('asset_id')->references('id')->on($this->prefix.'assets')->onDelete('cascade');
+			$table->foreign('room_id')->references('id')->on($this->prefix.'rooms')->onDelete('cascade');
 			$table->foreign('site_id')->references('id')->on($this->prefix.'sites')->onDelete('cascade');
 
 		});
@@ -43,7 +43,7 @@ class CreateAssetSiteTable extends Migration
 	public function down()
 	{
 //		Schema::drop($this->prefix.'role_user');
-		Schema::drop($this->prefix.'asset_site');
+		Schema::drop($this->prefix.'room_site');
 	}
 
 }

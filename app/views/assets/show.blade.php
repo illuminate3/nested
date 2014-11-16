@@ -3,7 +3,7 @@
 @section('title')
 @parent
 	{{ Config::get('vedette.vedette_html.separator') }}
-	Item
+	Asset
 @stop
 
 @section('styles')
@@ -24,90 +24,19 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 <h1>
 	<p class="pull-right">
 	{{ Bootstrap::linkIcon(
-		'items.index',
+		'asset.index',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
 	) }}
 	</p>
 	<i class="fa fa-tag fa-lg"></i>
-	Item
+	Asset
 	<hr>
 </h1>
 </div>
 
 <div class="row">
-
-<div class="table-responsive">
-<table class="table table-striped table-hover" id="DataTable">
-	<thead>
-		<tr>
-
-			<th>Make</th>
-				<th>Model</th>
-				<th>Model_number</th>
-				<th>Description</th>
-				<th>Image</th>
-
-			<th>{{ trans('lingos::table.actions') }}</th>
-		</tr>
-	</thead>
-
-	<tbody>
-		<tr>
-
-			<td>{{{ $item->make }}}</td>
-			<td>{{{ $item->model }}}</td>
-			<td>{{{ $item->model_number }}}</td>
-			<td>{{{ $item->description }}}</td>
-			<td>{{{ $item->image }}}</td>
-
-			<td width="25%">
-				{{ Form::open(array(
-					'route' => array('items.destroy', $item->id),
-					'role' => 'form',
-					'method' => 'delete',
-					'class' => 'form-inline'
-				)) }}
-
-					{{ Bootstrap::linkRouteIcon(
-						'items.edit',
-						trans('lingos::button.edit'),
-						'edit fa-fw',
-						array($item->id),
-						array(
-							'class' => 'btn btn-success form-group',
-							'title' => trans('lingos::account.command.edit')
-						)
-					) }}
-
-					{{ Bootstrap::linkRouteIcon(
-						'items.destroy',
-						trans('lingos::button.delete'),
-						'trash-o fa-fw',
-						array($item->id),
-						array(
-							'class' => 'btn btn-danger form-group action_confirm',
-							'data-method' => 'delete',
-							'title' => trans('lingos::account.command.delete')
-						)
-					) }}
-
-				{{ Form::close() }}
-			</td>
-		</tr>
-	</tbody>
-</table>
-</div><!-- ./responsive -->
-
-</div>
-
-
-@if ($assets->count())
-
-<h3>
-	Assets
-</h3>
 
 <div class="table-responsive">
 <table class="table table-striped table-hover" id="DataTable">
@@ -126,8 +55,7 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 	</thead>
 
 	<tbody>
-		@foreach ($assets as $asset)
-			<tr>
+		<tr>
 			<td>{{{ $asset->item_id }}}</td>
 			<td>{{{ $asset->site_id }}}</td>
 			<td>{{{ $asset->room }}}</td>
@@ -169,16 +97,11 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 
 				{{ Form::close() }}
 			</td>
-			</tr>
-		@endforeach
+		</tr>
 	</tbody>
 </table>
-</div> <!-- ./responsive -->
+</div><!-- ./responsive -->
 
-@else
-	{{ Bootstrap::info( trans('lingos::general.no_records'), true) }}
-@endif
-
-
+</div>
 
 @stop

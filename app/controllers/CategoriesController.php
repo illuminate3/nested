@@ -82,6 +82,7 @@ class CategoriesController extends BaseController {
 	public function edit($id)
 	{
 		$category = $this->category->findOrFail($id);
+
 		$parents = $this->getParents();
 
         $this->layout
@@ -254,6 +255,7 @@ class CategoriesController extends BaseController {
 
 		return Redirect::route('categories.index')->withError('Failed to export categories.');
 	}
+
 
 	/**
 	 * Get all available nodes as a list for HTML::select.

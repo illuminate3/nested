@@ -1,13 +1,13 @@
 <?php
 
-class {{className}} extends Eloquent {
+class Room extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = '{{className}}s';
+	protected $table = 'Rooms';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -23,13 +23,23 @@ class {{className}} extends Eloquent {
 // DEFINE Rules --------------------------------------------------
 	public static $rules = array(
 /*
-	{{rules}}
+	
+		'site_id' => 'required',
+		'user_id' => 'required',
+		'name' => 'required',
+		'description' => 'required'
+	
 */
 	);
 
 	public static $rulesUpdate = array(
 /*
-	{{rules}}
+	
+		'site_id' => 'required',
+		'user_id' => 'required',
+		'name' => 'required',
+		'description' => 'required'
+	
 */
 	);
 
@@ -40,6 +50,11 @@ class {{className}} extends Eloquent {
 
 // DEFINE Relationships --------------------------------------------------
 
+
+public function assets()
+{
+	return $this->belongsToMany('Asset');
+}
 
 // Functions --------------------------------------------------
 

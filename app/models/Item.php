@@ -1,6 +1,7 @@
 <?php
 
-class Item extends Eloquent {
+class Item extends \Eloquent {
+
 	protected $guarded = array();
 
 // DEFINE Rules --------------------------------------------------
@@ -16,5 +17,26 @@ class Item extends Eloquent {
 
 
 // DEFINE Relationships --------------------------------------------------
+
+public function categories()
+{
+	return $this->belongsToMany('Category');
+//	return $this->belongsToMany('Category')->withPivot('category_item');
+}
+
+public function assets()
+{
+	return $this->belongsToMany('Asset');
+}
+
+
+// Functions --------------------------------------------------
+
+public function attachItem($id, $category_id)
+{
+	$item = Item::find($id);
+	$item->categories()->attach($category_id);
+}
+
 
 }

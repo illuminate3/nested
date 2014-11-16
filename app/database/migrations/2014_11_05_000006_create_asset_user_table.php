@@ -22,7 +22,7 @@ class CreateAssetUserTable extends Migration
 	public function up()
 	{
 //		Schema::create($this->prefix.'role_user', function(Blueprint $table)
-		Schema::create('asset_users', function(Blueprint $table)
+		Schema::create('asset_user', function(Blueprint $table)
 		{
 			$table->engine = 'InnoDB';
 
@@ -43,7 +43,7 @@ class CreateAssetUserTable extends Migration
 	public function down()
 	{
 //		Schema::drop($this->prefix.'role_user');
-		Schema::drop($this->prefix.'asset_users');
+		Schema::drop($this->prefix.'asset_user');
 	}
 
 }
