@@ -55,8 +55,11 @@ class CategoryController extends BaseController {
 
 
 $category = $this->category->with('items')->whereSlug($slug)->first();
-//dd($category->id);
-$items = Category::findOrFail($category->id)->items;
+//dd($category);
+
+//$items = Category::findOrFail($category->id)->items;
+
+
 //$assets = Item::findOrFail($item->id)->assets;
 //dd($assets);
 

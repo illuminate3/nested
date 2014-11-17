@@ -93,6 +93,12 @@ public function getSites()
 	return $sites;
 }
 
+public function getRooms()
+{
+	$sites = DB::table('rooms')->lists('name', 'id');
+	return $sites;
+}
+
 public function getUsers()
 {
 	$users = DB::table('users')->lists('email', 'id');
@@ -132,6 +138,32 @@ public function attachRoom($id, $room_id)
 	$asset->rooms()->attach($room_id);
 }
 
+
+public function syncAsset($id, $item_id)
+{
+//	$item = Item::find($id);
+//	$item->categories()->attach($category_id);
+	$asset = Asset::find($id);
+	$asset->items()->sync($item_id);
+}
+
+public function syncSite($id, $site_id)
+{
+	$asset = Asset::find($id);
+	$asset->sites()->sync($site_id);
+}
+
+public function syncUser($id, $user_id)
+{
+	$asset = Asset::find($id);
+	$asset->users()->sync($user_id);
+}
+
+public function syncRoom($id, $room_id)
+{
+	$asset = Asset::find($id);
+	$asset->rooms()->sync($room_id);
+}
 
 
 }

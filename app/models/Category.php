@@ -27,6 +27,12 @@ public function items()
 	return $this->belongsToMany('Item');
 }
 
+/*
+public function assets()
+{
+	return $this->hasManyThrough('Asset', 'Item');
+}
+*/
 
 
     /**

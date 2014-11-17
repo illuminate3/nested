@@ -35,7 +35,7 @@
 {{-- $itemsHelper->htmlList() --}}
 </div>
 
-@if ($items->count())
+@if ($category->items->count())
 
 <div class="table-responsive">
 <table class="table table-striped table-bordered" id="DataTable">
@@ -52,7 +52,7 @@
 	</thead>
 
 	<tbody>
-		@foreach ($items as $item)
+		@foreach ($category->items as $item)
 			<tr>
 				<td>{{{ $item->id }}}</td>
 				<td>{{{ $item->make }}}</td>
@@ -71,24 +71,15 @@
 
 @endif
 
-
-
-
-1111
 {{--
-@foreach ($category->items as $item)
---}}
-@foreach ($items as $item)
+1111
+@foreach ($category->assets as $asset)
+222
+	<td>{{{ $asset->id }}}</td>
 
-{{ $item->make }}
-22222
 @endforeach
-33333
-
-
-
-
-
+3333
+--}}
 
 
 

@@ -56,6 +56,11 @@ public function assets()
 	return $this->belongsToMany('Asset');
 }
 
+public function sites()
+{
+	return $this->belongsToMany('Site');
+}
+
 // Functions --------------------------------------------------
 
 
