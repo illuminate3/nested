@@ -157,25 +157,28 @@ $this->asset->attachRoom($id, $room);
 				$input['item_id'] = Null;
 			} else {
 				$item_id = Input::get('item_id');
+				$this->asset->detachAsset($id, $item_id);
 				$this->asset->attachAsset($id, $item_id);
-//				$this->asset->items()->sync($item_id);
 			}
 			if ( Input::get('user_id') == '' ) {
 				$input['user_id'] = Null;
 			} else {
 				$user_id = Input::get('user_id');
+				$this->asset->detachUser($id, $user_id);
 				$this->asset->attachUser($id, $user_id);
 			}
 			if ( Input::get('site_id') == '' ) {
 				$input['site_id'] = Null;
 			} else {
 				$site_id = Input::get('site_id');
+				$this->asset->detachSite($id, $site_id);
 				$this->asset->attachSite($id, $site_id);
 			}
 			if ( Input::get('room_id') == '' ) {
 				$input['room_id'] = Null;
 			} else {
 				$room_id = Input::get('room_id');
+				$this->asset->detachRoom($id, $room_id);
 				$this->asset->attachRoom($id, $room_id);
 			}
 /*

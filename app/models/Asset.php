@@ -139,6 +139,32 @@ public function attachRoom($id, $room_id)
 }
 
 
+public function detachAsset($id, $item_id)
+{
+//	$item = Item::find($id);
+//	$item->categories()->attach($category_id);
+	$asset = Asset::find($id);
+	$asset->items()->detach($item_id);
+}
+
+public function detachSite($id, $site_id)
+{
+	$asset = Asset::find($id);
+	$asset->sites()->detach($site_id);
+}
+
+public function detachUser($id, $user_id)
+{
+	$asset = Asset::find($id);
+	$asset->users()->detach($user_id);
+}
+
+public function detachRoom($id, $room_id)
+{
+	$asset = Asset::find($id);
+	$asset->rooms()->detach($room_id);
+}
+
 public function syncAsset($id, $item_id)
 {
 //	$item = Item::find($id);

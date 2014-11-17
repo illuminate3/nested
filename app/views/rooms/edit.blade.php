@@ -56,6 +56,40 @@
 ) --}}
 
 
+
+<div class="form-group">
+	<label for="inputZone" class="col-sm-2 control-label">User:</label>
+	<div class="col-sm-10">
+		{{
+			Form::select(
+				'user_id',
+				$users,
+				$room->user_id,
+				array(
+					'class' => 'form-control chosen-select'
+				)
+			)
+		}}
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="inputZone" class="col-sm-2 control-label">Site:</label>
+	<div class="col-sm-10">
+		{{
+			Form::select(
+				'site_id',
+				$sites,
+				$room->site_id,
+				array(
+					'class' => 'form-control chosen-select'
+				)
+			)
+		}}
+	</div>
+</div>
+
+{{--
         <div class="form-group">
             {{ Form::label('site_id', 'Site_id:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
@@ -69,7 +103,7 @@
               {{ Form::input('number', 'user_id', Input::old('user_id'), array('class'=>'form-control')) }}
             </div>
         </div>
-
+--}}
         <div class="form-group">
             {{ Form::label('name', 'Name:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
