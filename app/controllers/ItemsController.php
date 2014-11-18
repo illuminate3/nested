@@ -34,7 +34,10 @@ class ItemsController extends BaseController {
 	 */
 	public function create()
 	{
-		return View::make('items.create');
+		$parents = $this->getParents();
+
+//		return View::make('items.create');
+		return View::make('items.create', compact('parents'));
 	}
 
 	/**
@@ -180,5 +183,26 @@ $this->item->attachItem($id, $category);
 	}
 
 
+	/**
+	 * Get all available nodes as a list for HTML::select.
+	 *
+	 * @return array
+	 */
+	protected function getParents()
+	{
+		$all = $this->category->select('id', 'title')->withDepth()->defaultOrder()->get();
+		$result = array();
+
+		foreach ($all as $item)
+		{
+			$title = $item->title;
+
+			if ($item->depth > 0) $title = str_repeat('—', $item->depth).' '.$title;
+
+			$result[$item->id] = $title;
+		}
+
+		return $result;
+	}
 
 }
