@@ -26,6 +26,11 @@ public function assets()
 	return $this->belongsToMany('Asset');
 }
 
+public function rooms()
+{
+	return $this->belongsToMany('Room');
+}
+
 
 // Functions --------------------------------------------------
 

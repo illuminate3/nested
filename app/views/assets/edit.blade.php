@@ -71,7 +71,7 @@
 			Form::select(
 				'item_id',
 				$items,
-				null,
+				$asset->item_id,
 				array(
 					'class' => 'form-control chosen-select'
 				)
@@ -88,7 +88,7 @@
 			Form::select(
 				'user_id',
 				$users,
-				null,
+				$asset->user_id,
 				array(
 					'class' => 'form-control chosen-select'
 				)
@@ -114,7 +114,7 @@
 			Form::select(
 				'site_id',
 				$sites,
-				null,
+				$asset->site_id,
 				array(
 					'class' => 'form-control chosen-select'
 				)
@@ -123,6 +123,24 @@
 	</div>
 </div>
 
+
+<div class="form-group">
+	<label for="inputZone" class="col-sm-2 control-label">Room:</label>
+	<div class="col-sm-10">
+		{{
+			Form::select(
+				'room_id',
+				$rooms,
+				$asset->room_id,
+				array(
+					'class' => 'form-control chosen-select'
+				)
+			)
+		}}
+	</div>
+</div>
+
+{{--
         <div class="form-group">
             {{ Form::label('room', 'Room:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
@@ -130,7 +148,6 @@
             </div>
         </div>
 
-{{--
         <div class="form-group">
             {{ Form::label('statuses_tech_id', 'Statuses_tech_id:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">

@@ -56,7 +56,68 @@ public function assets()
 	return $this->belongsToMany('Asset');
 }
 
+public function sites()
+{
+	return $this->belongsToMany('Site');
+}
+
 // Functions --------------------------------------------------
 
+
+public function getSites()
+{
+	$sites = DB::table('sites')->lists('name', 'id');
+	return $sites;
+}
+
+public function getUsers()
+{
+	$users = DB::table('users')->lists('email', 'id');
+	return $users;
+}
+
+public function attachAsset($id, $item_id)
+{
+//	$item = Item::find($id);
+//	$item->categories()->attach($category_id);
+	$asset = Asset::find($id);
+	$asset->items()->attach($item_id);
+}
+
+public function attachSite($id, $site_id)
+{
+	$asset = Asset::find($id);
+	$asset->sites()->attach($site_id);
+}
+
+public function attachUser($id, $user_id)
+{
+	$asset = Asset::find($id);
+	$asset->users()->attach($user_id);
+}
+
+public function detachSite($id, $site_id)
+{
+	$asset = Asset::find($id);
+	$asset->sites()->detach($site_id);
+}
+
+public function detachUser($id, $user_id)
+{
+	$asset = Asset::find($id);
+	$asset->users()->detach($user_id);
+}
+
+public function syncSite($id, $site_id)
+{
+	$asset = Asset::find($id);
+	$asset->sites()->sync($site_id);
+}
+
+public function syncUser($id, $user_id)
+{
+	$asset = Asset::find($id);
+	$asset->users()->sync($user_id);
+}
 
 }
