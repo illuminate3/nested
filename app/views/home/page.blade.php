@@ -9,7 +9,7 @@
 @endif
 
     <section class="col-md-8">
-        <header class="page-header">
+        <header class="page-header">456465465465465
             <h1>{{ $page->title }}; page ID ={{ $page->id }}</h1>
         </header>
 

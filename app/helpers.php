@@ -62,5 +62,6 @@ function markdown($text)
  */
 function item_depth($depth)
 {
+//dd($depth);
     return str_repeat('<span class="space">&raquo;</span>', $depth);
 }

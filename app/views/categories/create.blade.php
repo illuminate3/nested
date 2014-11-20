@@ -1,5 +1,5 @@
 {{ Form::open(array(
-    'route' => 'pages.store',
+    'route' => 'categories.store',
     'class' => 'form-horizontal',
     'method' => 'post',
 )) }}
