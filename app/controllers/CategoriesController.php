@@ -270,8 +270,8 @@ class CategoriesController extends BaseController {
 		foreach ($all as $item)
 		{
 			$title = $item->title;
-
-			if ($item->depth > 0) $title = str_repeat('—', $item->depth).' '.$title;
+//dd($item->depth);
+			if ($item->depth > 1) $title = str_repeat('—', $item->depth).' '.$title;
 
 			$result[$item->id] = $title;
 		}

@@ -41,9 +41,13 @@
 		    @endif
 		@endforeach
 @endif
-
 		    </ul>
+
+
 		    @yield('content')
+
+
+
 @if (isset($menu2))
 	{{ HTML::navy($menu2) }}
 @endif
@@ -51,7 +55,7 @@
 <br>
 <br>
 
-MainNavigation --------------------------------------------------------
+>>>> MainNavigation --------------------------------------------------------
 {{-- $PrimaryNavigation --}}
 
 <nav class="sidebar-nav11">
@@ -98,7 +102,7 @@ Admin Categories --------------------------------------------------------
 
 <br>
 <br>
-pullDown --------------------------------------------------------
+pullDown222 --------------------------------------------------------
 <!--
 <nav class="sidebar-nav">
 <ul id="metisMenu">
