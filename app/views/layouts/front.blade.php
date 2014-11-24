@@ -52,7 +52,7 @@
 
 Simple Menu --------------------------------------------------------
 <br>
-@if (isset($menu22))
+@if (isset($menu223))
 	@foreach ($menu as $item)
 		<a href="{{ $item['url'] }}">{{ $item['label'] }}</a>
 <br>
@@ -70,8 +70,8 @@ HTML::nav(contents) --------------------------------------------------------
 	</div>
 </div>
 
-pullDown <<<< --------------------------------------------------------
+pullDownadsfadsfdasfads <<<< --------------------------------------------------------
 <br>
-{{-- HTML::pulldown($pullDown) --}}
+{{-- HTML::pulldown($pullDown123131) --}}
 
 @stop
