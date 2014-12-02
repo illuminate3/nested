@@ -72,6 +72,6 @@ HTML::nav(contents) --------------------------------------------------------
 
 pullDownadsfadsfdasfads <<<< --------------------------------------------------------
 <br>
-{{-- HTML::pulldown($pullDown123131) --}}
+{{ HTML::pulldown($pullDown) }}
 
 @stop
