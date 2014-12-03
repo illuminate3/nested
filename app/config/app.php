@@ -122,6 +122,7 @@ return array(
 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 //'Way\Generators\GeneratorsServiceProvider',
 'Dollar\Generators\GeneratorsServiceProvider',
+'Atrakeur\Forum\ForumServiceProvider',
 
 	),
 
