@@ -1,6 +1,17 @@
-<?php
+<?php namespace vedette\controllers;
 
-class {{className}} extends BaseController {
+/*
+use vedette\models\vedette as vedette;
+
+use DB;
+*/
+use View;
+use Input;
+use Validator;
+use Redirect;
+use Session;
+
+class {{className}} extends \BaseController {
 
 	/**
 	 * {{Model}} Repository

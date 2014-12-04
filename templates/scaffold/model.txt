@@ -1,4 +1,7 @@
-<?php
+<?php namespace vedette\models;
+
+use Eloquent;
+use DB;
 
 class {{className}} extends Eloquent {
 
@@ -35,7 +38,8 @@ class {{className}} extends Eloquent {
 
 
 // DEFINE Fillable --------------------------------------------------
-	protected $fillable = array();
+	protected $fillable = array(
+	);
 
 
 // DEFINE Relationships --------------------------------------------------
