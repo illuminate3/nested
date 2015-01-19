@@ -5,8 +5,12 @@
 @section('head')
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{{--
 <link rel="stylesheet" href="{{ asset('css/plugins/metisMenu/metisMenu.min.css') }}">
 <link rel="stylesheet"  href="{{ asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" type="text/css">
+--}}
+<link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/src/css/jquery.mmenu.all.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/src/css/extensions/jquery.mmenu.iconbar.css') }}">
 
 @show
 </head>
@@ -44,12 +48,27 @@
 		    </ul>
 
 
+      <nav id="mmenu">
+         <ul>
+            <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="/about"><i class="fa fa-user"></i> About us</a>
+               <ul>
+                  <li><a href="/about/history">History</a></li>
+                  <li><a href="/about/team">The team</a></li>
+                  <li><a href="/about/address">Our address</a></li>
+               </ul>
+            </li>
+            <li><a href="/contact"><i class="fa fa-envelope"></i> Contact</a></li>
+         </ul>
+      </nav>
+
+
 		    @yield('content')
 
 
 >>>> MetisMenu --------------------------------------------------------
 @if (isset($menu2))
-	{{ HTML::navy($menu2) }}
+	{{ HTML::navclean($menu2) }}
 @endif
 >>>> MetisMenu --------------------------------------------------------
 
@@ -266,12 +285,16 @@ pullDown222 --------------------------------------------------------
 
 <script src="{{ asset('js/jquery.js') }}"></script>
 <script src="{{ asset('js/bootstrap.js') }}"></script>
+{{--
 <script src="{{ asset('js/plugins/metisMenu/metisMenu.min.js') }}"></script>
 <script src="{{ asset('js/sb-admin-2.js') }}"></script>
+--}}
+<script src="{{ asset('assets/jQuery.mmenu/src/js/jquery.mmenu.min.all.js') }}"></script>
 
 <script>
 	$(function () {
 		$('#menu').metisMenu();
+$("#mmenu").mmenu({});
 	});
 </script>
 

@@ -2,11 +2,11 @@
 
 /**
  * Begin boostrap form group.
- * 
+ *
  * Checks whether field has errors.
- * 
+ *
  * @param string $name
- * 
+ *
  * @return string
  */
 Form::macro('beginGroup', function ($name)
@@ -22,11 +22,11 @@ Form::macro('beginGroup', function ($name)
 
 /**
  * End bootstrap form group.
- * 
+ *
  * Displays last error for a field if any.
- * 
+ *
  * @param string $name
- * 
+ *
  * @return string
  */
 Form::macro('endGroup', function ($name)
@@ -45,7 +45,7 @@ Form::macro('endGroup', function ($name)
 
 /**
  * Simple macro for generating bootstrap icons.
- * 
+ *
  * @param string $icon
  */
 HTML::macro('glyphicon', function ($icon)
@@ -79,16 +79,45 @@ HTML::macro('nav', function($data)
 
         $html .= e($item['label']);
 
-if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
+//if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
 
         $html .= '</a>';
 
         if (isset($item['items'])) $html .= HTML::nav($item['items']);
         $html .= '</li>';
-    }   
+    }
 
     return $html.'</ul>';
 });
+
+
+HTML::macro('navclean', function($data)
+{
+    if (empty($data)) return '';
+//print_r($data);
+    $html = '<nav class=""><ul id="">';
+
+    foreach ($data as $item)
+    {
+        $html .= '<li';
+
+//        if (isset($item['active']) && $item['active']) $html .= ' class="active"';
+
+        $html .= '><a href="'.$item['url'].'">';
+        $html .= e($item['label']);
+
+//if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
+
+        $html .= '</a>';
+        if (isset($item['items'])) $html .= HTML::nav($item['items']);
+        $html .= '</li>';
+    }
+
+    return $html.'</ul></nav>';
+});
+
+
+
 
 
 HTML::macro('pulldown', function($data)
@@ -152,6 +181,7 @@ HTML::macro('pulldown', function($data)
 */
 
 
+
 HTML::macro('navy', function($data)
 {
     if (empty($data)) return '';
@@ -172,7 +202,7 @@ if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
         $html .= '</a>';
         if (isset($item['items'])) $html .= HTML::nav($item['items']);
         $html .= '</li>';
-    }   
+    }
 
     return $html.'</ul></nav>';
 });
