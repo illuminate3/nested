@@ -16,3 +16,9 @@ body {
 
 .mm-menu:first-child, .mm-menu.mm-current {
   display: block; }
+
+.fa,
+.fa > a,
+.fa > li {
+	margin-right: 15px;
+}

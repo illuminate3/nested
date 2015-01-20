@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="author" content="www.frebsite.nl" />
+		<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+		<title>jQuery.mmenu demo</title>
+
+		<link type="text/css" rel="stylesheet" href="css/demo.css" />
+		<link type="text/css" rel="stylesheet" href="../src/css/jquery.mmenu.all.css" />
+<link type="text/css" href="../src/css/extensions/jquery.mmenu.iconbar.css" rel="stylesheet" />
+<link media="all" type="text/css" rel="stylesheet" href="../../vendors/font-awesome-4.2.0/css/font-awesome.min.css">
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="../src/js/jquery.mmenu.min.all.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#menu").mmenu({
+			"labels": true,
+			"slidingSubmenus": false
+		});
+	});
+</script>
+	</head>
+	<body>
+		<div id="page">
+			<div class="header">
+				<a href="#menu"></a>
+				Demo
+			</div>
+			<div class="content">
+				<p><strong>This is a demo.</strong><br />
+					Click the menu icon to open the menu.</p>
+				<p>For more demos, a tutorial, documentation and support, please visit <a href="http://mmenu.frebsite.nl" target="_blank">mmenu.frebsite.nl</a></p>			
+			</div>
+
+<nav id="menu">
+<ul>
+<li><a href=""><i class="fa fa-2x fa-home"></i> Home</a></li>
+<li><a href=""><i class="fa fa-2x fa-user"></i> About us</a>
+   <ul>
+	  <li><a href="">History</a></li>
+	  <li><a href="">The team</a></li>
+	  <li><a href="">Our address</a></li>
+   </ul>
+</li>
+<li><a href=""><i class="fa fa-2x fa-envelope"></i> Contact</a></li>
+
+<!--
+<li class="Label">Contact information</li>
+<li><a href="/contact">Contact</a></li>
+<li class="Collapsed"><a href="/contact/address">Our address</a></li>
+<li class="Collapsed"><a href="/contact/form">Contactform</a></li>
+<li class="Collapsed"><a href="/contact/directions">Directions</a></li>
+-->
+<li><a href="http://nestedset.local/pc">PC</a><ul><li><a href="http://nestedset.local/laptop">Lap Top</a><ul><li><a href="http://nestedset.local/laptop-apple">Apple</a></li><li><a href="http://nestedset.local/laptop-dell">Dell</a></li><li><a href="http://nestedset.local/laptop-hp">HP</a></li><li><a href="http://nestedset.local/laptop-asus">Asus</a></li></ul></li><li><a href="http://nestedset.local/desktop">Desk Top</a><ul><li><a href="http://nestedset.local/desktop-dell">Dell</a></li><li><a href="http://nestedset.local/desktop-hp">HP</a></li><li><a href="http://nestedset.local/desktop-asus">Asus</a></li></ul></li></ul></li><li><a href="http://nestedset.local/projectors">Projectors</a></li><li><a href="http://nestedset.local/carts">Carts</a></li>
+</ul>
+
+</nav>
+
+		</div>
+	</body>
+</html>

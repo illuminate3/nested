@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
 		<title>{{{ $title }}}</title>
 @section('head')
-<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {{--
 <link rel="stylesheet" href="{{ asset('css/plugins/metisMenu/metisMenu.min.css') }}">
 <link rel="stylesheet"  href="{{ asset('font-awesome-4.1.0/css/font-awesome.min.css') }}" type="text/css">
+
+
 --}}
+<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+<link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/demo/css/demo.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/src/css/jquery.mmenu.all.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/src/css/extensions/jquery.mmenu.iconbar.css') }}">
 
-@show
+<link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome-4.2.0/css/font-awesome.min.css') }}">
+
+
+
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+{{--
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="{{ asset('js/plugins/metisMenu/metisMenu.min.js') }}"></script>
+<script src="{{ asset('js/sb-admin-2.js') }}"></script>
+--}}
+<script src="{{ asset('assets/jQuery.mmenu/src/js/jquery.mmenu.min.all.js') }}"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+		$("#mmenu").mmenu({
+			"labels": true,
+			"slidingSubmenus": false
+		});
+});
+</script>
+
 </head>
 <body>
+@show
+<div id="container">
+{{--
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		    <div class="container-fluid">
 		        <div class="navbar-header">
@@ -32,7 +64,11 @@
 		        </div>
 		    </div>
 		</nav>
-
+--}}
+			<div class="header">
+				<a href="#mmenu"></a>
+				Demo
+			</div>
 
 		<div class="container">
 @if (isset($breadcrumbs) && !empty($breadcrumbs))
@@ -283,21 +319,8 @@ pullDown222 --------------------------------------------------------
 		    </div>
 		</footer>
 
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-{{--
-<script src="{{ asset('js/plugins/metisMenu/metisMenu.min.js') }}"></script>
-<script src="{{ asset('js/sb-admin-2.js') }}"></script>
---}}
-<script src="{{ asset('assets/jQuery.mmenu/src/js/jquery.mmenu.min.all.js') }}"></script>
-
-<script>
-	$(function () {
-		$('#menu').metisMenu();
-$("#mmenu").mmenu({});
-	});
-</script>
 
 		@yield('footer')
+</div>
 </body>
 </html>
