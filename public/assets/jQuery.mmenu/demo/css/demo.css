@@ -68,6 +68,10 @@ nav:not(.mm-menu)
 	height: 40px;
 	padding: 0 50px;
 }
+.header
+{
+	background: #333;
+}
 .header.fixed
 {
 	position: fixed;
@@ -95,4 +99,37 @@ nav:not(.mm-menu)
 .content
 {
 	padding: 150px 50px 50px 50px;
+}
+
+
+.mmenu-page {
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+/* Push down the sidebar menu so that first item is not covered up by sticky navbar */
+#mainSiteMenuMMenuNav.mmenu-opened {
+    top: 50px;
+}
+/* Only added to force the bullets to show up for my demo explanation */
+ul, ol {
+  list-style-type: disc;
+}
+
+
+/* force the top navbar to stick to top of window when you scroll down*/
+@media (max-width: 979px) {
+    /* Enable use of floated navbar text */
+    .navbar-text.pull-right {
+        float: none;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .navbar-fixed-top, .navbar-fixed-bottom {
+        position: fixed;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 }

@@ -22,18 +22,18 @@
 			subMenusSubOffsetY: -8
 		});
 
-  $('#menu-button').click(function() {
-    var $this = $(this),
-        $menu = $('#main-menu');
-    if (!$this.hasClass('collapsed')) {
-      $menu.addClass('collapsed');
-      $this.addClass('collapsed');
-    } else {
-      $menu.removeClass('collapsed');
-      $this.removeClass('collapsed');
-    }
-    return false;
-  }).click();
+		$('#menu-button').click(function() {
+		var $this = $(this),
+			$menu = $('#main-menu');
+		if (!$this.hasClass('collapsed')) {
+		  $menu.addClass('collapsed');
+		  $this.addClass('collapsed');
+		} else {
+		  $menu.removeClass('collapsed');
+		  $this.removeClass('collapsed');
+		}
+		return false;
+		}).click();
 
 	});
 </script>
@@ -59,30 +59,28 @@
 	}
 
 #menu-button {
-  display:none;
-  /* style it as you like... */
+	display:none;
+	/* style it as you like... */
 }
 #menu-button:before {
-  content:'Menu -';
+	content:'Menu -';
 }
 #menu-button.collapsed:before {
-  content:'Menu +';
+	content:'Menu +';
 }
-
+@media screen and (max-width: 640px) {
+/* show the button on small screens */
+	#menu-button {
+		display:inline-block;
+	}
+	/* hide the menu when it has the "collapsed" class set by the script */
+	#main-menu.collapsed {
+		display:none;
+	}
+}
 
 </style>
-<!--
-@media only screen and (min-width:480px) and (max-width: 640px) {
-  /* show the button on small screens */
-  #menu-button {
-    display:inline-block;
-  }
-  /* hide the menu when it has the "collapsed" class set by the script */
-  #main-menu.collapsed {
-    display:none;
-  }
-}
--->
+
 
 
 
@@ -98,13 +96,9 @@
 
 
 
-<a href="" id="menu-button">1111</a>
 
 <!-- Sample menu definition -->
 <ul id="main-menu" class="sm sm-mint collapsed">
-<li>
-<a href="" id="menu-button">1111</a>
-</li>
   <li><a href="http://www.smartmenus.org/">Home</a></li>
   <li><a href="http://www.smartmenus.org/about/">About</a>
     <ul>
@@ -181,7 +175,44 @@
           <li><a href="#">Dummy item</a></li>
           <li><a href="#">Dummy item</a></li>
           <li><a href="#">Dummy item</a></li>
-         <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">A pretty long text to test the default subMenusMaxWidth:20em setting for the sub menus</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
+          <li><a href="#">Dummy item</a></li>
         </ul>
       </li>
     </ul>
@@ -213,9 +244,10 @@
 <div class="columns">
  <div class="left-column">
   <div id="content">
+<h1>
+<a id="menu-button"></a>
+</h1>
    <h1>SmartMenus</h1>
-   <a href="" id="menu-button"></a>
-
    <p>jQuery website menu plugin. Responsive and accessible list-based website menus that work on all devices.</p>
    <ul>
     <li><a href="http://www.smartmenus.org/docs/">Getting started and API documentation</a></li>
@@ -235,7 +267,10 @@
 
  <div class="right-column">
 
-  <script type="text/javascript" src="../libs/demo-assets/themes-switcher.js"></script>
+<h1>
+<a id="menu-button"></a>
+</h1>
+
 
  </div>
 </div>

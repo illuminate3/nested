@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Slidebars Basic Template</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+		
+		<!-- Slidebars CSS -->
+		<link rel="stylesheet" href="slidebars/slidebars.css">
+		<link rel="stylesheet" href="style.css">
+
+
+
+
+
+<link href="metis/metisMenu.css" rel="stylesheet">
+
+
+
+	</head>
+	
+	<body>
+		<div id="sb-site">
+		<!-- Navbar -->
+
+<nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
+	<!-- Left Control -->
+	<div class="sb-toggle-left navbar-left">
+		<div class="navicon-line"></div>
+		<div class="navicon-line"></div>
+		<div class="navicon-line"></div>
+	</div><!-- /.sb-control-left -->
+	
+	<!-- Right Control -->
+	<div class="sb-toggle-right navbar-right">
+		<div class="navicon-line"></div>
+		<div class="navicon-line"></div>
+		<div class="navicon-line"></div>
+	</div><!-- /.sb-control-right -->
+	
+	<div class="container">
+		<!-- Logo -->
+		<div id="logo" class="navbar-left">
+			<a href="#"><img src="http://plugins.adchsm.me/slidebars/images/slidebars-logo@2x.png" alt="Slidebars Logo" width="118" height="40"></a>
+		</div><!-- /#logo -->
+		
+		<!-- Menu -->
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="http://plugins.adchsm.me/slidebars/">Home</a></li>
+			<li><a href="http://plugins.adchsm.me/slidebars/index.php#download">Download</a></li>
+			<li><a href="http://plugins.adchsm.me/slidebars/usage.php">Usage</a></li>
+			<li><a href="http://plugins.adchsm.me/slidebars/contact.php">Contact</a></li>
+			<li><a id="top-arrow" href="#top">^</a></li>
+		</ul>
+	</div>
+</nav>
+
+Hello
+
+		</div>
+		
+		<div class="sb-slidebar sb-left">
+			<!-- Your left Slidebar content. -->
+
+<aside class="sidebar">
+<nav class="sidebar-nav">
+  <ul id="menu2">
+	<li class="active">
+	  <a href="#">
+		<span class="sidebar-nav-item-icon fa fa-github fa-lg"></span>
+		<span class="sidebar-nav-item">metisMenu</span>
+		<span class="fa arrow"></span>
+	  </a>
+	  <ul class="collapse in">
+		<li>
+		  <a href="https://github.com/onokumus/metisMenu">
+			<span class="sidebar-nav-item-icon fa fa-code-fork"></span>
+			Fork
+		  </a>
+		</li>
+		<li>
+		  <a href="https://github.com/onokumus/metisMenu">
+			<span class="sidebar-nav-item-icon fa fa-star"></span>
+			Star
+		  </a>
+		</li>
+		<li>
+		  <a href="https://github.com/onokumus/metisMenu/issues">
+			<span class="sidebar-nav-item-icon fa fa-exclamation-triangle"></span>
+			Issues
+		  </a>
+		</li>
+	  </ul>
+	</li>
+	  <li class="">
+		  <a href="#">Menu 0 <span class="fa arrow"></span></a>
+		  <ul class="collapse" style="height: 0px;">
+			  <li><a href="#">item 0.1</a></li>
+			  <li><a href="#">item 0.2</a></li>
+			  <li><a href="http://onokumus.com">onokumus</a></li>
+			  <li><a href="#">item 0.4</a></li>
+		  </ul>
+	  </li>
+	  <li class="">
+		  <a href="#">Menu 1 <span class="glyphicon arrow"></span></a>
+		  <ul class="collapse" style="height: 0px;">
+			  <li><a href="#">item 1.1</a></li>
+			  <li><a href="#">item 1.2</a></li>
+			  <li class="">
+				  <a href="#">Menu 1.3 <span class="fa plus-times"></span></a>
+				  <ul class="collapse" style="height: 0px;">
+					  <li><a href="#">item 1.3.1</a></li>
+					  <li><a href="#">item 1.3.2</a></li>
+					  <li><a href="#">item 1.3.3</a></li>
+					  <li><a href="#">item 1.3.4</a></li>
+				  </ul>
+			  </li>
+			  <li><a href="#">item 1.4</a></li>
+			  <li>
+				  <a href="#">Menu 1.5 <span class="fa plus-minus"></span></a>
+				  <ul class="collapse">
+					  <li><a href="#">item 1.5.1</a></li>
+					  <li><a href="#">item 1.5.2</a></li>
+					  <li><a href="#">item 1.5.3</a></li>
+					  <li><a href="#">item 1.5.4</a></li>
+				  </ul>
+			  </li>
+		  </ul>
+	  </li>
+	  <li>
+		  <a href="#">Menu 2 <span class="glyphicon arrow"></span></a>
+		  <ul class="collapse">
+			  <li><a href="#">item 2.1</a></li>
+			  <li><a href="#">item 2.2</a></li>
+			  <li><a href="#">item 2.3</a></li>
+			  <li><a href="#">item 2.4</a></li>
+		  </ul>
+	  </li>
+  </ul>
+ </nav>
+</aside>
+
+
+		</div>
+		
+		<div class="sb-slidebar sb-right">
+			<!-- Your right Slidebar content. -->
+		</div>
+				
+		<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+		
+		<!-- Slidebars -->
+		<script src="slidebars/slidebars.js"></script>
+		<script>
+			(function($) {
+				$(document).ready(function() {
+					$.slidebars();
+				});
+			}) (jQuery);
+		</script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="metis/metisMenu.js"></script>
+<script>
+	$(function () {
+		$('#menu2').metisMenu({
+		  toggle: true
+		});
+	});
+</script>
+	</body>
+</html>

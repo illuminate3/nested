@@ -1,0 +1,26 @@
+{
+  "name": "mmenu-Bootstrap-3",
+  "version": "0.1.0",
+  "homepage": "https://github.com/blackfyre/mmenu-Bootstrap-3",
+  "authors": [
+    "blackfyre <gnick666@gmail.com>","purgeru"
+  ],
+  "description": "mmenu with bootstrap3 compatibility",
+  "keywords": [
+    "bootstrap",
+    "bootstrap3",
+    "mmenu"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "jQuery.mmenu": "~4.3.6"
+  }
+}
