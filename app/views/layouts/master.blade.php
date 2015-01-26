@@ -14,11 +14,11 @@
 --}}
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+{{--
 <link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/demo/css/demo.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/src/css/jquery.mmenu.all.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/jQuery.mmenu/src/css/extensions/jquery.mmenu.iconbar.css') }}">
-
+--}}
 <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome-4.2.0/css/font-awesome.min.css') }}">
 
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
 <body>
 @show
 <div id="container">
-{{--
+
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		    <div class="container-fluid">
 		        <div class="navbar-header">
@@ -64,12 +64,12 @@ $(document).ready(function() {
 		        </div>
 		    </div>
 		</nav>
---}}
+{{--
 			<div class="header">
 				<a href="#mmenu"></a>
 				Demo
 			</div>
-
+--}}
 		<div class="container">
 @if (isset($breadcrumbs) && !empty($breadcrumbs))
 		    <ul class="breadcrumb">
@@ -83,7 +83,7 @@ $(document).ready(function() {
 @endif
 		    </ul>
 
-
+{{--
       <nav id="mmenu">
          <ul>
             <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
@@ -97,7 +97,7 @@ $(document).ready(function() {
             <li><a href="/contact"><i class="fa fa-envelope"></i> Contact</a></li>
          </ul>
       </nav>
-
+--}}
 
 		    @yield('content')
 
