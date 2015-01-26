@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Blueprint: Background Slideshow</title>
+		<meta name="description" content="Blueprint: Background Slideshow" />
+		<meta name="keywords" content="blueprint, background image slideshow, fullscreen slideshow, jquery, fullscreen image, web development" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-7243260-2']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="clearfix">
+				<span>Blueprint <span class="bp-icon bp-icon-about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
+				<h1>Background Slideshow</h1>
+				<nav>
+					<a href="../ResponsiveFullWidthGrid/index.html" class="bp-icon bp-icon-prev" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
+					<a href="../ScrollingLayout/index.html" class="bp-icon bp-icon-next" data-info="next Blueprint"><span>Next Blueprint</span></a>
+					<a href="../../codrops/2013/04/17/background-slideshow/index.html" class="bp-icon bp-icon-drop" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
+					<a href="../../codrops/category/blueprints/index.html" class="bp-icon bp-icon-archive" data-info="Blueprints archive"><span>Go to the archive</span></a>
+				</nav>
+			</header>	
+			<div class="main">
+				<ul id="cbp-bislideshow" class="cbp-bislideshow">
+					<li><img src="images/1.jpg" alt="image01"/></li>
+					<li><img src="images/2.jpg" alt="image02"/></li>
+					<li><img src="images/3.jpg" alt="image03"/></li>
+					<li><img src="images/4.jpg" alt="image04"/></li>
+					<li><img src="images/5.jpg" alt="image05"/></li>
+					<li><img src="images/6.jpg" alt="image06"/></li>
+				</ul>
+				<div id="cbp-bicontrols" class="cbp-bicontrols">
+					<span class="cbp-biprev"></span>
+					<span class="cbp-bipause"></span>
+					<span class="cbp-binext"></span>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<!-- imagesLoaded jQuery plugin by @desandro : https://github.com/desandro/imagesloaded -->
+		<script src="js/jquery.imagesloaded.min.js"></script>
+		<script src="js/cbpBGSlideshow.min.js"></script>
+		<script>
+			$(function() {
+				cbpBGSlideshow.init();
+			});
+		</script>
+		<script src="../../codrops/adpacks/demoad.js"></script>
+	</body>
+</html>

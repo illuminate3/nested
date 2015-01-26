@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Blueprint: Fixed Background Scrolling Layout</title>
+		<meta name="description" content="Blueprint: Fixed Background Scrolling Layout" />
+		<meta name="keywords" content="background scrolling, fixed background, background-attachment, jquery" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="http://tympanus.net/Blueprints/ScrollingLayout/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="http://tympanus.net/Blueprints/ScrollingLayout/css/component.css" />
+		<script src="http://tympanus.net/Blueprints/ScrollingLayout/js/modernizr.custom.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-7243260-2']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="clearfix">
+				<span>Blueprint <span class="bp-icon bp-icon-about" data-content="The Blueprints are a collection of basic and minimal website concepts, components, plugins and layouts with minimal style for easy adaption and usage, or simply for inspiration."></span></span>
+				<h1>Fixed Background Scrolling Layout</h1>
+				<nav>
+					<a href="../BackgroundSlideshow/index.html" class="bp-icon bp-icon-prev" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
+					<a href="http://tympanus.net/Blueprints/VerticalTimeline/" class="bp-icon bp-icon-next" data-info="next Blueprint"><span>Next Blueprint</span></a>
+					<a href="http://tympanus.net/codrops/?p=14921" class="bp-icon bp-icon-drop" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
+					<a href="../../codrops/category/blueprints/index.html" class="bp-icon bp-icon-archive" data-info="Blueprints archive"><span>Go to the archive</span></a>
+				</nav>
+			</header>	
+			<div id="cbp-fbscroller" class="cbp-fbscroller">
+				<nav>
+					<a href="index.html#fbsection1" class="cbp-fbcurrent">Section 1</a>
+					<a href="index.html#fbsection2">Section 2</a>
+					<a href="index.html#fbsection3">Section 3</a>
+					<a href="index.html#fbsection4">Section 4</a>
+					<a href="index.html#fbsection5">Section 5</a>
+				</nav>
+				<section id="fbsection1"></section>
+				<section id="fbsection2"></section>
+				<section id="fbsection3"></section>
+				<section id="fbsection4"></section>
+				<section id="fbsection5"></section>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<!-- jquery.easing by http://gsgd.co.uk/ : http://gsgd.co.uk/sandbox/jquery/easing/ -->
+		<script src="http://tympanus.net/Blueprints/ScrollingLayout/js/jquery.easing.min.js"></script>
+		<!-- waypoints jQuery plugin by http://imakewebthings.com/ : http://imakewebthings.com/jquery-waypoints/ -->
+		<script src="http://tympanus.net/Blueprints/ScrollingLayout/js/waypoints.min.js"></script>
+		<!-- jquery-smartresize by @louis_remi : https://github.com/louisremi/jquery-smartresize -->
+		<script src="http://tympanus.net/Blueprints/ScrollingLayout/js/jquery.debouncedresize.js"></script>
+		<script src="http://tympanus.net/Blueprints/ScrollingLayout/js/cbpFixedScrollLayout.min.js"></script>
+		<script>
+			$(function() {
+				cbpFixedScrollLayout.init();
+			});
+		</script>
+		<script src="../../codrops/adpacks/demoad.js"></script>
+	</body>
+</html>
