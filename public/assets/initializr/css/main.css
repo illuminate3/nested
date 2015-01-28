@@ -10,7 +10,9 @@ footer {
 }
 
 nav {
+/*
 	margin-left: 65px;
+*/
 }
 
 .menu, .menu-bar {
@@ -116,9 +118,11 @@ nav {
 }
 
 @media all and (max-width: 500px) {
-    .container{
-        margin-top:100px;
-    }
+	.container{
+/*
+		margin-top:100px;
+*/
+	}
     .menu{
         height:5em;
         width:100%;
