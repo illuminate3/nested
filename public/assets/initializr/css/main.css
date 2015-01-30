@@ -6,21 +6,25 @@ http://codepen.io/nikhil/pen/yHLlm
 
 body {
 margin-left: 70px;
-	padding-top: 50px;
+/*
 	padding-bottom: 20px;
+	padding-top: 50px;
+*/
 }
 
 footer {
 	margin-left: 75px;
 }
 
-nav {
+.navbar {
 /*
 	margin-left: 65px;
 */
 }
 
 .menu {
+/*
+*/
     position: fixed;
     top: 50px;
     bottom: 0px;
@@ -121,18 +125,6 @@ margin-top: -10px;
 .menu li:hover:after{
     visibility:visible;
     opacity:1;
-}
-
-.para{
-    color:#033f72;
-    padding-left:100px;
-    font-size:3em;
-    margin-bottom:20px;
-}
-
-.open{
-    width:15em;
-    height:100%;
 }
 
 @media all and (max-width: 500px) {
