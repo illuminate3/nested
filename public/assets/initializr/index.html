@@ -13,11 +13,15 @@
 
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
 	<link rel="stylesheet" href="css/main.css">
-
 	<link rel="stylesheet" href="css/SlidePushMenus.css">
+	<link rel="stylesheet" type="text/css" href="navgoco/jquery.navgoco.css" media="screen" />
 
-	<script src="js/modernizr.custom.js"></script>
+	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+
 
 </head>
 <body class="cbp-spmenu-push">
@@ -52,10 +56,10 @@
 
 
 <ul class="menu">
-	<li title="home"><a href="#" class="home" id="showLeft">home</a></li>
-	<li title="search"><a href="#" class="search">search</a></li>
-	<li title="pencil"><a href="#" class="pencil">pencil</a></li>
-	<li title="about"><a href="#" class="active about">about</a></li>
+	<li title="Categories"><a href="#" class="home" id="showLeft">Categories</a></li>
+	<li title="Items"><a href="#" class="search">Items</a></li>
+	<li title="Assets"><a href="#" class="pencil">Assets</a></li>
+	<li title="Rooms"><a href="#" class="about">Rooms</a></li>
 	<li title="archive"><a href="#" class="archive">archive</a></li>
 	<li title="contact"><a href="#" class="contact">contact</a></li>
 </ul>
@@ -121,13 +125,128 @@
 
 
 	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-		<h3>Menu</h3>
-		<a href="#">111 Celery seakale</a>
-		<a href="#">Dulse daikon</a>
-		<a href="#">Zucchini garlic</a>
-		<a href="#">Catsear azuki bean</a>
-		<a href="#">Dandelion bunya</a>
-		<a href="#">Rutabaga</a>
+		<h3>Categories</h3>
+
+<ul id="navagoco" class="navagoco">
+    <li><a href="#">Developer Tools</a></li>
+    <li><a href="#">Download</a>
+        <ul>
+            <li><a href="#"> Setting Up the ADT Bundle</a></li>
+            <li><a href="#">Setting Up an Existing IDE</a>
+                <ul>
+                    <li><a href="#"> Installing the Eclipse Plugin</a></li>
+                    <li><a href="#"> Adding Platforms and Packages</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Android Studio</a>
+                <ul>
+                    <li><a href="#"> Migrating from Eclipse</a></li>
+                    <li><a href="#"> Tips and Tricks</a></li>
+                    <li><a href="#"> Using the Layout Editor</a></li>
+                    <li><a href="#"> Building Your Project with Gradle</a></li>
+                </ul>
+            </li>
+            <li><a href="#"> Exploring the SDK</a></li>
+            <li><a href="#">Download the NDK</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Workflow</a>
+        <ul>
+            <li><a href="#">Setting Up Virtual Devices</a>
+                <ul>
+                    <li><a href="#">With AVD Manager</a></li>
+                    <li><a href="#">From the Command Line</a></li>
+                    <li><a href="#">Using the Emulator</a></li>
+                </ul>
+            </li>
+            <li><a href="http://www.google.com">Google</a>
+                <ul>
+                    <li><a href="#">USB Drivers</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Setting Up Projects</a>
+                <ul>
+                    <li><a href="#">From Eclipse with ADT</a></li>
+                    <li><a href="#">From the Command Line</a></li>
+                    <li><a href="#">Using Code Templates</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Building and Running</a>
+                <ul>
+                    <li><a href="#">From Eclipse with ADT</a></li>
+                    <li><a href="#">From the Command Line</a></li>
+                </ul>
+            </li>
+            <li><a href="http://www.google.com">Google</a>
+                <ul>
+                    <li><a href="#"> Fundamentals</a></li>
+                    <li><a href="#"> From Eclipse</a></li>
+                    <li><a href="#"> What To Test</a></li>
+                    <li><a href="#"> Activity Testing Tutorial</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Debugging</a>
+                <ul>
+                    <li><a href="#">From Eclipse with ADT</a></li>
+                    <li><a href="#">From Other IDEs</a></li>
+                    <li><a href="#">Using the Dev Tools App</a></li>
+                </ul>
+            </li>
+            <li><a href="http://www.google.com">Google</a>
+                <ul>
+                    <li><a href="#">Preparing for Release</a></li>
+                    <li><a href="#">Versioning Your Apps</a></li>
+                    <li><a href="#">Signing Your Apps</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="#">Support Library</a>
+        <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Setup</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Tools Help</a>
+        <ul>
+            <li><a href="#">adb</a></li>
+            <li><a href="#">ADT</a></li>
+            <li><a href="#">monkey</a></li>
+            <li><a href="#">monkeyrunner</a>
+                <ul>
+                    <li><a href="#">MonkeyDevice</a></li>
+                    <li><a href="#">MonkeyImage</a></li>
+                    <li><a href="#">MonkeyRunner</a></li>
+                </ul>
+            </li>
+            <li><a href="#">ProGuard</a></li>
+            <li><a href="#">SDK Manager</a></li>
+            <li><a href="#">Systrace</a></li>
+            <li><a href="#">Tracer for OpenGL ES</a></li>
+            <li><a href="#">Traceview</a></li>
+            <li><a href="#">uiautomator</a>
+                <ul>
+                    <li><a href="#">Configurator</a></li>
+                    <li><a href="#">IAutomationSupport</a></li>
+                    <li><a href="#">UiWatcher</a></li>
+                </ul>
+            </li>
+            <li><a href="#">zipalign</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Revisions</a>
+        <ul>
+            <li><a href="#"> SDK Tools </a></li>
+            <li><a href="#"> ADT Plugin </a></li>
+        </ul>
+    </li>
+    <li><a href="http://www.google.com">Google</a>
+        <ul>
+            <li><a href="http://www.google.com">ADK 2012 Guide</a></li>
+            <li><a href="#">ADK 2011 Guide</a></li>
+        </ul>
+    </li>
+</ul>
 	</nav>
 	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
 		<h3>Menu</h3>
@@ -144,7 +263,10 @@
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/SlidePushMenus.js"></script>
-
+<!-- Add JQuery cookie plugin (optional) -->
+<script src="navgoco/jquery.cookie.js"></script>
+<!-- Add navgoco main js and css files  -->
+<script type="text/javascript" src="navgoco/jquery.navgoco.min.js"></script>
 
 <script>
 $(function () {
@@ -215,6 +337,43 @@ $(function () {
 		}
 	}
 
+});
+$(document).ready(function() {
+	// Initialize navgoco with default options
+	$("#navagoco").navgoco({
+		caretHtml: '',
+		accordion: false,
+		openClass: 'open',
+		save: true,
+		cookie: {
+			name: 'navgoco',
+			expires: false,
+			path: '/'
+		},
+		slide: {
+			duration: 400,
+			easing: 'swing'
+		},
+		// Add Active class to clicked menu item
+		onClickAfter: function(e, submenu) {
+//			e.preventDefault();
+			$('#navagoco').find('li').removeClass('active');
+			var li =  $(this).parent();
+			var lis = li.parents('li');
+			li.addClass('active');
+			lis.addClass('active');
+		},
+	});
+
+	$("#collapseAll").click(function(e) {
+		e.preventDefault();
+		$("#navagoco").navgoco('toggle', false);
+	});
+
+	$("#expandAll").click(function(e) {
+		e.preventDefault();
+		$("#navagoco").navgoco('toggle', true);
+	});
 });
 </script>
 

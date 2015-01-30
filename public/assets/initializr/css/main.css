@@ -15,7 +15,6 @@ footer {
 }
 
 nav {
-margin-left: 70px;
 /*
 	margin-left: 65px;
 */
@@ -23,7 +22,7 @@ margin-left: 70px;
 
 .menu {
     position: fixed;
-    top: 0px;
+    top: 50px;
     bottom: 0px;
     left: 0;
     height: 100%;
@@ -32,7 +31,6 @@ margin-left: 70px;
     padding: 0;
     background: #f7f7f7;
     z-index:9999;
-    overflow:hidden;
     box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
 .menu li a{
@@ -42,7 +40,7 @@ margin-left: 70px;
   width: 5em;
   line-height: 5em;
   text-align:center;
-  color: #000;
+  color: #0d77b6;
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   transition: background 0.1s ease-in-out;
@@ -74,22 +72,29 @@ margin-top: -10px;
   content: "\f007";
 }
 .menu li a.home:before {
-  content: "\f039";
+  content: "\f00b";
 }
 .menu li a:hover,
 .menu li:first-child a {
-  background: #267fdd;
+  background: #0d77b6;
   color: #fff;
 }
-
+.menu li.current a {
+  background: #0d77b6;
+  color: #fff;
+}
+.menu li a.active {
+  background: #0d77b6;
+  color: #fff;
+}
 .menu li a.active:after{
     position:absolute;
     left:5em;
     top:0;
     content:"";
     border:2.5em solid transparent;
-    border-left-color:#ff5c62;
-    border-width: 2.5em 1em
+    border-left-color:#0d77b6;
+    border-width: 1.9em 1em
 }
 .menu li{
     position:relative;
@@ -99,16 +104,19 @@ margin-top: -10px;
     position:absolute;
     left:5em;
     top:0;
-    height:5em;
+    height:3.7em;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    text-transform:uppercase;
-    background:#ff5c62;
-    padding:2em;
+    background:#0d77b6;
+    padding:1em;
     transition: all 0.3s ease-in-out;
     visibility:hidden;
     opacity:0;
+    color:#fff;
+/*
+    text-transform:uppercase;
+*/
 }
 .menu li:hover:after{
     visibility:visible;
@@ -133,6 +141,7 @@ margin-top: -10px;
 		margin-top:100px;
 */
 	}
+/*
     .menu{
         height:5em;
         width:100%;
@@ -147,7 +156,8 @@ margin-top: -10px;
     }
     .para{
     padding-left:5px;
-}
+	}
+*/
 }
 @media screen and (max-height: 34em){
   .menu li {
