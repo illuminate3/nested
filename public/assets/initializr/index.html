@@ -72,23 +72,6 @@
 	<ul class="nav navbar-nav navbar-right">
 		<li><a href="#">Link</a></li>
 
-<li>
-<div class="btn-group">
-	<a class="btn btn-primary" href="#">
-		<i class="fa fa-user fa-fw"></i> User
-	</a>
-	<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-		<span class="fa fa-caret-down"></span>
-	</a>
-	<ul class="dropdown-menu">
-		<li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
-		<li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
-		<li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
-	<li class="divider"></li>
-		<li><a href="#"><i class="i"></i> Make admin</a></li>
-	</ul>
-</div>
-</li>
 
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -133,6 +116,14 @@
 				<li><a href="#">Separated link</a></li>
 			</ul>
 		</li>
+
+		<li>
+			<a id="showRight" href="#">
+				<i class="fa fa-user fa-fw"></i> User <span class="caret"></span>
+			</a>
+		</li>
+
+
 	</ul>
 </div><!-- /.navbar-collapse -->
 
@@ -163,8 +154,8 @@
 				<section>
 					<h2>Slide Menus</h2>
 					<!-- Class "cbp-spmenu-open" gets applied to menu -->
-					<button id="showLeft">Show/Hide Left Slide Menu</button>
-					<button id="showRight">Show/Hide Right Slide Menu</button>
+					<button id="showLeft1">Show/Hide Left Slide Menu</button>
+					<button id="showRight1">Show/Hide Right Slide Menu</button>
 					<button id="showTop">Show/Hide Top Slide Menu</button>
 					<button id="showBottom">Show/Hide Bottom Slide Menu</button>
 				</section>
@@ -332,14 +323,24 @@
     </li>
 </ul>
 	</nav>
+
+
 	<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
-		<h3>Menu</h3>
-		<a href="#">222 Celery seakale</a>
-		<a href="#">Dulse daikon</a>
-		<a href="#">Zucchini garlic</a>
-		<a href="#">Catsear azuki bean</a>
-		<a href="#">Dandelion bunya</a>
-		<a href="#">Rutabaga</a>
+		<h3>User</h3>
+
+			<a href="#">
+				<i class="fa fa-pencil fa-fw"></i> Edit
+			</a>
+			<a href="#">
+				<i class="fa fa-trash-o fa-fw"></i> Delete
+			</a>
+			<a href="#">
+				<i class="fa fa-ban fa-fw"></i> Ban
+			</a>
+			<a href="#">
+				<i class="i"></i> Make admin
+			</a>
+
 	</nav>
 
 

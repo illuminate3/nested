@@ -121,12 +121,30 @@
 	</div>
 </div>
 
+{{--
         <div class="form-group">
             {{ Form::label('room', 'Room:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
               {{ Form::input('number', 'room', Input::old('room'), array('class'=>'form-control')) }}
             </div>
         </div>
+--}}
+
+<div class="form-group">
+	<label for="inputZone" class="col-sm-2 control-label">Room:</label>
+	<div class="col-sm-10">
+		{{
+			Form::select(
+				'room_id',
+				$rooms,
+				null,
+				array(
+					'class' => 'form-control chosen-select'
+				)
+			)
+		}}
+	</div>
+</div>
 
 {{--
         <div class="form-group">
@@ -138,7 +156,7 @@
 --}}
 <div class="form-group">
 	<label for="inputStatus" class="col-sm-1 control-label">Asset Status:</label>
-	<div class="col-sm-11">
+	<div class="col-sm-10">
 		{{
 			Form::select(
 				'asset_status_id',
@@ -167,9 +185,16 @@
         </div>
 
         <div class="form-group">
-            {{ Form::label('po', 'Po:', array('class'=>'col-md-2 control-label')) }}
+            {{ Form::label('po', 'Purchase Order #:', array('class'=>'col-md-2 control-label')) }}
             <div class="col-sm-10">
-              {{ Form::text('po', Input::old('po'), array('class'=>'form-control', 'placeholder'=>'Po')) }}
+              {{ Form::text('po', Input::old('po'), array('class'=>'form-control', 'placeholder'=>'Purchase Order Number')) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('barcode', 'Barcode:', array('class'=>'col-md-2 control-label')) }}
+            <div class="col-sm-10">
+              {{ Form::text('barcode', Input::old('barcode'), array('class'=>'form-control', 'placeholder'=>'Barcode')) }}
             </div>
         </div>
 

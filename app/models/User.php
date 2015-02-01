@@ -14,16 +14,10 @@ class User extends Eloquent {
 //    protected $visible = array('title', 'slug', 'body', 'children');
 
 // DEFINE Relationships --------------------------------------------------
-/*
-	public function page()
-	{
-		return $this->belongsTo('Page');
-	}
-*/
 
 public function assets()
 {
-	return $this->belongsToMany('Asset');
+	return $this->belongsToMany('Asset', 'asset_user', 'asset_id', 'user_id');
 }
 
 

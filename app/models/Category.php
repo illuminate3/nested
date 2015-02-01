@@ -9,31 +9,37 @@ class Category extends \Kalnoy\Nestedset\Node {
 	 */
 	protected $table = 'categories';
 
-    /**
-     * The set of characters for testing slugs.
-     *
-     * @var  string
-     */
-    public static $slugPattern = '[a-z0-9\-/]+';
+	/**
+	 * The set of characters for testing slugs.
+	 *
+	 * @var  string
+	 */
+	public static $slugPattern = '[a-z0-9\-/]+';
 
 	protected $fillable = array('slug', 'title', 'parent_id');
 
-    protected $visible = array('title', 'slug', 'children');
+	protected $visible = array('title', 'slug', 'children');
 
 // DEFINE Relationships --------------------------------------------------
 
 public function items()
 {
-	return $this->belongsToMany('Item');
+	return $this->belongsToMany('Item', 'category_item', 'category_id', 'item_id');
 }
 
 /*
+public function items()
+{
+	return $this->belongsToMany('Item');
+}
 public function assets()
 {
 	return $this->hasManyThrough('Asset', 'Item');
 }
 */
 
+
+// Functions --------------------------------------------------
 
     /**
      * Apply some processing for an input.

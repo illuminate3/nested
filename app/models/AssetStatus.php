@@ -1,4 +1,4 @@
-<?php
+<?php //namespace models;
 
 class AssetStatus extends Eloquent {
 
@@ -23,19 +23,19 @@ class AssetStatus extends Eloquent {
 // DEFINE Rules --------------------------------------------------
 	public static $rules = array(
 /*
-	
+
 		'name' => 'required',
 		'description' => 'required'
-	
+
 */
 	);
 
 	public static $rulesUpdate = array(
 /*
-	
+
 		'name' => 'required',
 		'description' => 'required'
-	
+
 */
 	);
 

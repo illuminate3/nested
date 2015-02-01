@@ -19,6 +19,7 @@ class CreateRoomsTable extends Migration
 			$table->integer('user_id')->nullable();
 			$table->string('name')->nullable();
 			$table->string('description')->nullable();
+			$table->string('barcode')->nullable();
 
 			$table->softDeletes();
 			$table->timestamps();

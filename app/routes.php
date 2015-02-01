@@ -58,6 +58,7 @@ Route::resource('asset', 'AssetsController');
 //Route::when('assets/*', 'AssetsController');
 Route::resource('items', 'ItemsController');
 Route::resource('rooms', 'RoomsController');
+Route::resource('sites', 'SitesController');
 
 Route::resource('asset_statuses', 'AssetStatusesController');
 Route::resource('tech_statuses', 'TechStatusesController');

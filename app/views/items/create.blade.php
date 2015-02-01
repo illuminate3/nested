@@ -91,12 +91,12 @@
 
 
 @if (!isset($category) || !$category->isRoot())
-{{ Form::beginGroup('parent_id') }}
-    {{ Form::label('parent_id', 'Parent', array('class' => 'col-lg-2 control-label')) }}
+{{ Form::beginGroup('category_id') }}
+    {{ Form::label('category_id', 'Parent', array('class' => 'col-lg-2 control-label')) }}
     <div class="col-lg-10">
-        {{ Form::select('parent_id', $parents, null, array('class' => 'form-control', 'required' => true)) }}
+        {{ Form::select('category_id', $parents, null, array('class' => 'form-control', 'required' => true)) }}
     </div>
-{{ Form::endGroup('parent_id') }}
+{{ Form::endGroup('category_id') }}
 @endif
 
 	<hr>

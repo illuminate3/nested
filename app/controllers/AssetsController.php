@@ -1,4 +1,4 @@
-<?php
+<?php //namespace controllers;
 
 class AssetsController extends \BaseController {
 
@@ -58,7 +58,7 @@ class AssetsController extends \BaseController {
 	public function store()
 	{
 //		$input = Input::all();
-		$input = array_except(Input::all(), ['_method', 'item_id', 'user_id', 'site_id', 'room_id']);
+		$input = array_except(Input::all(), ['_method']);
 
 		$validation = Validator::make($input, Asset::$rules);
 
@@ -66,14 +66,21 @@ class AssetsController extends \BaseController {
 		{
 			$this->asset->create($input);
 
-$item = Input::get('item_id');
-$this->asset->attachAsset($id, $item);
-$user = Input::get('user_id');
-$this->asset->attachUser($id, $user);
-$site = Input::get('site_id');
-$this->asset->attachSite($id, $site);
-$room = Input::get('room_id');
-$this->asset->attachRoom($id, $room);
+
+
+$id = DB::getPdo()->lastInsertId();
+
+$item_id = Input::get('item_id');
+$user_id = Input::get('user_id');
+$site_id = Input::get('site_id');
+$room_id = Input::get('room_id');
+
+$this->asset->attachAsset($id, $item_id);
+$this->asset->attachUser($id, $user_id);
+$this->asset->attachSite($id, $site_id);
+$this->asset->attachRoom($id, $room_id);
+
+
 
 
 			return Redirect::route('asset.index');
@@ -152,7 +159,7 @@ $this->asset->attachRoom($id, $room);
 //$this->item->attachItem($id, $category);
 
 //dd(Input::get('user_id'));
-
+/*
 			if ( Input::get('item_id') == '' ) {
 				$input['item_id'] = Null;
 			} else {
@@ -194,6 +201,11 @@ $this->asset->attachRoom($id, $room);
 */
 
 //dd($input);
+
+$category_id = Input::get('category_id');
+$this->item->detachAsset($id, $category_id);
+$this->item->attachAsset($id, $category_id);
+
 
 			$asset = $this->asset->find($id);
 			$asset->update($input);

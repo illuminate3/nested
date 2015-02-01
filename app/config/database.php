@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'nestedset',
+			'database'  => 'nested2',
 //			'database'  => 'core',
 			'username'  => 'root',
 			'password'  => 'root',

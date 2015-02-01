@@ -1,4 +1,4 @@
-<?php
+<?php //namespace controllers;
 
 class RoomsController extends BaseController {
 
@@ -51,7 +51,7 @@ class RoomsController extends BaseController {
 	public function store()
 	{
 //		$input = Input::all();
-		$input = array_except(Input::all(), ['_method', 'user_id', 'site_id']);
+		$input = array_except(Input::all(), ['_method']);
 
 
 		$validation = Validator::make($input, Room::$rules);

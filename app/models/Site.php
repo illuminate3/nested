@@ -1,44 +1,111 @@
-<?php
+<?php //namespace models;
+
+use lib\presenters\PresentableTrait;
+//use Eloquent, DB;
+
 
 class Site extends Eloquent {
 
-    /**
-     * The set of characters for testing slugs.
-     *
-     * @var  string
-     */
-//    public static $slugPattern = '[a-z0-9\-/]+';
+	use PresentableTrait;
 
-//	protected $fillable = array('slug', 'title', 'body', 'parent_id');
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'sites';
 
-//    protected $visible = array('title', 'slug', 'body', 'children');
+	/**
+	 * The model presenter.
+	 *
+	 * @var string
+	 */
+	protected $presenter = 'lib\presenters\presenter\Site';
+
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array();
+
+	protected $guarded = array();
+
+
+// DEFINE Rules --------------------------------------------------
+	public static $rules = [
+		'name' => 'required|unique:sites,name'
+	];
+
+	public static $rulesUpdate = [
+		'name' => 'required'
+	];
+
+// DEFINE Fillable --------------------------------------------------
+	protected $fillable = array(
+//		'name', 'description'
+	);
+
 
 // DEFINE Relationships --------------------------------------------------
-/*
-	public function page()
-	{
-		return $this->belongsTo('Page');
-	}
-*/
 
 public function assets()
 {
-	return $this->belongsToMany('Asset');
+	return $this->belongsToMany('Asset', 'asset_site', 'asset_id', 'site_id');
 }
 
-public function rooms()
+
+
+public function profiles()
 {
-	return $this->belongsToMany('Room');
+	return $this->belongsToMany('HR\models\Profile');
+}
+
+public function division()
+{
+	return $this->belongsTo('HR\models\Division');
+}
+
+public function user()
+{
+	return $this->belongsTo('User');
+}
+public function users()
+{
+	return $this->hasMany('User');
 }
 
 
 // Functions --------------------------------------------------
 
-public function attachItem($id, $category)
-{
-	$item = Item::find($id);
-	$item->categories()->attach($category);
-}
+	public function getDivisions()
+	{
+		$divisions = DB::table('divisions')->lists('name', 'id');
+		return $divisions;
+	}
 
+	public function getContacts()
+	{
+		$contacts = DB::table('profiles')->lists('email', 'user_id');
+//		$contacts = DB::table('profiles')->lists('first_name' . '&nbsp;' . 'last_name', 'user_id');
+		if ( empty($contacts) ) {
+			$contacts = DB::table('users')->lists('email', 'id');
+		}
+		return $contacts;
+	}
+
+	public function getStatuses()
+	{
+		$statuses = DB::table('statuses')->lists('name', 'id');
+		return $statuses;
+	}
+
+	public function getContactUser($id)
+	{
+		$user = DB::table('profiles')
+			->where('user_id', '=', $id)
+			->first();
+		return $user;
+	}
 
 }

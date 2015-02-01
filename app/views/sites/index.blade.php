@@ -3,7 +3,7 @@
 @section('title')
 @parent
 	{{ Config::get('vedette.vedette_html.separator') }}
-	Items
+	{{ trans('lingos::hr.sites') }}
 @stop
 
 @section('styles')
@@ -41,88 +41,119 @@ $(document).ready(function() {
 <div class="row">
 <h1>
 	<p class="pull-right">
+{{--
+	@if (Auth::check())
+		@if (Auth::user()->hasRoleWithName('Admin'))
+--}}
 			{{ Bootstrap::linkIcon(
-				'items.create',
+				'sites.create',
 				trans('lingos::button.new'),
 				'plus fa-fw',
 				array('class' => 'btn btn-info')
 			) }}
+
+{{--
+		@endif
+	@endif
+--}}
+
 	{{ Bootstrap::linkIcon(
-		'items.index',
+		'home',
 		trans('lingos::button.back'),
 		'chevron-left fa-fw',
 		array('class' => 'btn btn-default')
 	) }}
 	</p>
 	<i class="fa fa-angle-double-right fa-lg"></i>
-	Items
+	{{ trans('lingos::hr.sites') }}
 	<hr>
 </h1>
 </div>
 
+{{--
+<div>
+<br>
+<br>
+{{ Datatable::table()
+	->addColumn(trans('lingos::table.name'), trans('lingos::table.division'), trans('lingos::table.website'), trans('lingos::table.supervisior'), trans('lingos::table.actions'))
+	->setUrl(route('api.sites'))
+	->setOptions(array(
+		'dom' =>"T<'clear'>lfrtip",
+		'tabletools' => array(
+			"aSwfPath" => "/assets/Datatables/extensions/TableTools/swf/copy_csv_cls_pdf.swf"
+		)
+	))
+	->render(Config::get('vedette.vedette_views.datatable'))
+}}
+<br>
+<br>
+</div>
+--}}
+
+
+
 <div class="row">
-@if (count($items))
+@if (count($sites))
 
 <div class="table-responsive">
 <table class="table table-striped table-hover" id="DataTable">
 	<thead>
 		<tr>
-			<th>Make</th>
-			<th>Model</th>
-			<th>Model Number</th>
-			<th>Category</th>
-			<th>Description</th>
-			<th>Image</th>
+			<th>#</th>
+			<th>{{ trans('lingos::table.name') }}</th>
+			<th>{{ trans('lingos::table.division') }}</th>
+			<th>{{ trans('lingos::table.website') }}</th>
+			<th>{{ trans('lingos::table.supervisior') }}</th>
 			<th>{{ trans('lingos::table.actions') }}</th>
 		</tr>
 	</thead>
-
 	<tbody>
-
-		@foreach ($items as $item)
+		@foreach ($sites as $site)
 			<tr>
-				<td>{{{ $item->make }}}</td>
-				<td>{{{ $item->model }}}</td>
-				<td>{{{ $item->model_number }}}</td>
-				<td>{{{ $item->present()->categoryName($item->category_id) }}}</td>
-				<td>{{{ $item->description }}}</td>
-				<td>{{{ $item->image }}}</td>
+				<td>{{ $site->id }}</td>
+				<td>{{{ $site->name }}}</td>
+				<td>{{{ $site->division->name }}}</td>
+				<td>{{{ $site->website }}}</td>
+				<td>{{{ $site->user->first_name }}}&nbsp;{{{ $site->user->last_name }}}</td>
+				<td>
 
-				<td width="25%">
 					{{ Form::open(array(
-						'route' => array('items.destroy', $item->id),
+						'route' => array('sites.destroy', $site->id),
 						'role' => 'form',
 						'method' => 'delete',
 						'class' => 'form-inline'
 					)) }}
 
-						{{ Bootstrap::linkRouteIcon(
-							'items.show',
-							trans('lingos::button.view'),
-							'chevron-right fa-fw',
-							array($item->id),
-							array(
-								'class' => 'btn btn-primary form-group',
-								'title' => trans('lingos::general.view')
-							)
-						) }}
+					{{ Bootstrap::linkRouteIcon(
+						'sites.show',
+						trans('lingos::button.view'),
+						'chevron-right fa-fw',
+						array($site->id),
+						array(
+							'class' => 'btn btn-primary form-group',
+							'title' => trans('lingos::general.view')
+						)
+					) }}
+
+@if (Auth::check())
+@if (Auth::user()->hasRoleWithName('Admin'))
+
+					{{ Bootstrap::linkRouteIcon(
+						'sites.edit',
+						trans('lingos::button.edit'),
+						'edit fa-fw',
+						array($site->id),
+						array(
+							'class' => 'btn btn-success form-group',
+							'title' => trans('lingos::account.command.edit')
+						)
+					) }}
 
 						{{ Bootstrap::linkRouteIcon(
-							'items.edit',
-							trans('lingos::button.edit'),
-							'edit fa-fw',
-							array($item->id),
-							array(
-								'class' => 'btn btn-success form-group',
-								'title' => trans('lingos::account.command.edit')
-							)
-						) }}
-
-						{{ Bootstrap::linkRouteIcon(
-							'items.destroy',
+							'sites.destroy',
 							trans('lingos::button.delete'),
 							'trash-o fa-fw',
-							array($item->id),
+							array($site->id),
 							array(
 								'class' => 'btn btn-danger form-group action_confirm',
 								'data-method' => 'delete',
@@ -130,7 +161,11 @@ $(document).ready(function() {
 							)
 						) }}
 
+@endif
+@endif
+
 					{{ Form::close() }}
+
 				</td>
 			</tr>
 		@endforeach
@@ -141,7 +176,5 @@ $(document).ready(function() {
 @else
 	{{ Bootstrap::info( trans('lingos::general.no_records'), true) }}
 @endif
-
 </div>
-
 @stop

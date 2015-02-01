@@ -85,9 +85,9 @@ require app_path().'/filters.php';
 /**
  * Require some HTML macros
  */
-require app_path().'/macros.php';
+require app_path().'/lib/macros.php';
 
 /**
- * Require view composers.  
+ * Require view composers.
  */
 require app_path().'/composers.php';

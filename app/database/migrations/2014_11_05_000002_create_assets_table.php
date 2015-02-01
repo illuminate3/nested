@@ -23,6 +23,7 @@ class CreateAssetsTable extends Migration
 			$table->string('asset_tag')->nullable();
 			$table->string('serial')->nullable();
 			$table->string('po')->nullable();
+			$table->string('barcode')->nullable();
 			$table->text('note')->nullable();
 
 			$table->softDeletes();

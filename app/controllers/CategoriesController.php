@@ -1,4 +1,4 @@
-<?php
+<?php //namespace controllers;
 
 use dflydev\markdown\MarkdownParser;
 
@@ -101,6 +101,7 @@ class CategoriesController extends BaseController {
 		$category = $this->category->findOrFail($id);
 //dd('loaded');
 		$data = $this->category->preprocessData(Input::all());
+//dd($data);
 
 		try
 		{

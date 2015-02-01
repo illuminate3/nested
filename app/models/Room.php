@@ -1,4 +1,4 @@
-<?php
+<?php //namespace models;
 
 class Room extends Eloquent {
 
@@ -23,23 +23,23 @@ class Room extends Eloquent {
 // DEFINE Rules --------------------------------------------------
 	public static $rules = array(
 /*
-	
+
 		'site_id' => 'required',
 		'user_id' => 'required',
 		'name' => 'required',
 		'description' => 'required'
-	
+
 */
 	);
 
 	public static $rulesUpdate = array(
 /*
-	
+
 		'site_id' => 'required',
 		'user_id' => 'required',
 		'name' => 'required',
 		'description' => 'required'
-	
+
 */
 	);
 
@@ -50,10 +50,9 @@ class Room extends Eloquent {
 
 // DEFINE Relationships --------------------------------------------------
 
-
 public function assets()
 {
-	return $this->belongsToMany('Asset');
+	return $this->belongsToMany('Asset', 'asset_room', 'asset_id', 'room_id');
 }
 
 public function sites()

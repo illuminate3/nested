@@ -44,10 +44,10 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 		<tr>
 
 			<th>Make</th>
-				<th>Model</th>
-				<th>Model_number</th>
-				<th>Description</th>
-				<th>Image</th>
+			<th>Model</th>
+			<th>Model Number</th>
+			<th>Description</th>
+			<th>Image</th>
 
 			<th>{{ trans('lingos::table.actions') }}</th>
 		</tr>
@@ -103,7 +103,7 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 </div>
 
 
-@if ($assets->count())
+@if ($assets != NULL)
 
 <h3>
 	Assets

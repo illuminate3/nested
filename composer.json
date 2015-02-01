@@ -29,16 +29,17 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php",
-            "app/lib"
+			"app/tests/TestCase.php"
 		],
 
 		"psr-0": {
 			"Kalnoy": "app/lib"
 		},
-
+		"psr-4": {
+			"lib\\": "app/lib"
+		},
         "files": [
-            "app/helpers.php"
+            "app/lib/helpers.php"
         ]
 	},
 

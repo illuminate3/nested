@@ -1,4 +1,4 @@
-<?php
+<?php //namespace controllers;
 
 class ItemsController extends BaseController {
 
@@ -23,6 +23,8 @@ class ItemsController extends BaseController {
 	public function index()
 	{
 		$items = $this->item->all();
+//		$items = $items->with('categories');
+//dd($items);
 
 		return View::make('items.index', compact('items'));
 	}
@@ -48,7 +50,8 @@ class ItemsController extends BaseController {
 	public function store()
 	{
 //		$input = Input::all();
-		$input = array_except(Input::all(), ['parent_id']);
+		$input = array_except(Input::all(), '_method');
+//dd($input);
 
 		$validation = Validator::make($input, Item::$rules);
 
@@ -57,8 +60,9 @@ class ItemsController extends BaseController {
 			$this->item->create($input);
 
 
-$category = Input::get('parent_id');
-$this->item->attachItem($id, $category);
+$id = DB::getPdo()->lastInsertId();
+$category_id = Input::get('category_id');
+$this->item->attachItem($id, $category_id);
 
 
 			return Redirect::route('items.index');
@@ -79,8 +83,10 @@ $this->item->attachItem($id, $category);
 	public function show($id)
 	{
 		$item = $this->item->findOrFail($id);
+
 $assets = Item::findOrFail($item->id)->assets;
 //dd($assets);
+
 		return View::make('items.show', compact('item', 'assets'));
 	}
 
@@ -121,7 +127,8 @@ $this->layout
 	public function update($id)
 	{
 //		$input = array_except(Input::all(), '_method');
-		$input = array_except(Input::all(), ['_method', 'parent_id']);
+		$input = array_except(Input::all(), ['_method']);
+//dd($input);
 
 
 		$validation = Validator::make($input, Item::$rules);
@@ -141,9 +148,9 @@ $this->layout
 //$customer = Item::find($id);
 //$customer->categories()->attach(Input::get('parent_id'));
 
-
-$category = Input::get('parent_id');
-$this->item->attachItem($id, $category);
+$category_id = Input::get('category_id');
+$this->item->detachItem($id, $category_id);
+$this->item->attachItem($id, $category_id);
 
 
 /*

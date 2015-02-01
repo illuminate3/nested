@@ -1,4 +1,6 @@
-<?php
+<?php namespace lib;
+
+use Form, HTML, View;
 
 /**
  * Begin boostrap form group.
