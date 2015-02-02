@@ -130,7 +130,7 @@ return [
 'vedette_views' => array(
 
 	// The layout to use : change to what matches your application
-	'layout'					=> 'layouts-vedette.master',
+	'layout'					=> 'layouts.master',
 	'layout_simple'				=> 'layouts.simple',
 
 	// datatable

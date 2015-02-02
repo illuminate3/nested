@@ -4,7 +4,7 @@ use dflydev\markdown\MarkdownParser;
 
 class CategoriesController extends BaseController {
 
-	protected $layout = 'layouts.backend';
+	protected $layout = 'layouts.master';
 
 	/**
 	 * The category storage.

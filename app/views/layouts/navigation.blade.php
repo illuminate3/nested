@@ -1,90 +1,100 @@
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-<div class="container">
+<nav class="navbar navbar-default navbar-fixed-top">
+<div class="container-fluid">
+
+<!-- Brand and toggle get grouped for better mobile display -->
 <div class="navbar-header">
-	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		<span class="sr-only">Toggle navigation</span>
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	</button>
-	{{ HTML::linkRoute(
-		Config::get('vedette.vedette_routes.home'),
-		Config::get('vedette.vedette_html.project_name'),
-		null,
-		array(
-			'class' => 'navbar-brand'
-		)
-	) }}
+	<a class="navbar-brand" href="/">
+		<i class="fa fa-home fa-fw"></i>
+	</a>
 </div>
 
-
-<div class="collapse navbar-collapse">
-
-<ul class="nav navbar-nav">
-	@include(Config::get('vedette.vedette_html.include_nav'))
-</ul>
-
-
-<ul class="nav navbar-nav pull-right">
-	@if (Auth::check())
-
-	<li class="dropdown">
-		<img
-			src="{{ asset(Session::get('userPicture')) }}"
-			alt="{{ Auth::user()->email }}"
-			class="img-circle show-profile"
-		/>
-	</li>
-	<li class="dropdown">
-{{--
-		<a class="dropdown-toggle {{ (Request::is('auth*') ? ' active' : '') }}" data-toggle="dropdown" href="#">
---}}
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			{{ Auth::user()->email }}
-			<b class="caret"></b>
-		</a>
-		<ul class="dropdown-menu">
-			@if (Auth::user()->hasRoleWithName('Admin'))
-				<li>
-					<a href="{{ route('admin.index') }}"><i class="fa fa-dashboard fa-fw"></i>{{ trans('lingos::general.administration') }}</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i>{{ trans('lingos::account.users') }}</a>
-				</li>
-				<li>
-					<a href="{{ route('roles.index') }}"><i class="fa fa-gavel fa-fw"></i>{{ trans('lingos::role.roles') }}</a>
-				</li>
-{{--
-				<li>
-					<a href="{{ route('vedette.permissions') }}"><i class="fa fa-wrench fa-fw"></i>{{ trans('lingos::permission.permissions') }}</a>
-				</li>
---}}
-				<li class="divider"></li>
-			@endif
-			<li>
-				<a href="{{ route('profiles.show', Auth::user()->id) }}"><i class="fa fa-gear fa-fw"></i>{{ trans('lingos::account.profile') }}</a>
-			</li>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+		<li><a href="#">Link</a></li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
 			<li class="divider"></li>
-			<li>
-				<a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i>{{ trans('lingos::auth.log_out') }}</a>
-			</li>
-		</ul>
-	</li>
+				<li><a href="#">Separated link</a></li>
+			<li class="divider"></li>
+				<li><a href="#">One more separated link</a></li>
+			</ul>
+		</li>
+	</ul>
+	<form class="navbar-form navbar-left" role="search">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="#">Link</a></li>
+
+
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+				<i class="fa fa-user fa-fw"></i> User <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<li>
+					<a href="#">
+						<i class="fa fa-pencil fa-fw"></i> Edit
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-trash-o fa-fw"></i> Delete
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="fa fa-ban fa-fw"></i> Ban
+					</a>
+				</li>
+			<li class="divider"></li>
+				<li>
+					<a href="#">
+						<i class="i"></i> Make admin
+					</a>
+				</li>
+			</ul>
+		</li>
 
 
 
-{{--
-	<li {{ (Request::is('user*') ? ' class="active"' : '') }}>{{ HTML::linkRoute('user.show', 'Logged in as ' . Auth::user()->email, array(Auth::user()->id)) }}</li>
---}}
-	@else
-	<li {{ (Request::is('login') ? ' class="active"' : '') }}>{{ HTML::linkRoute('login', 'Login') }}</li>
-	<li {{ (Request::is('register') ? ' class="active"' : '') }}>{{ HTML::linkRoute('register', 'Register') }}</li>
-	@endif
-</ul>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+				Dropdown <span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu" role="menu">
+				<li><a href="#">Action</a></li>
+				<li><a href="#">Another action</a></li>
+				<li><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+				<li><a href="#">Separated link</a></li>
+			</ul>
+		</li>
 
-</div>
+		<li>
+			<a id="showRight" href="#">
+				<i class="fa fa-user fa-fw"></i> User <span class="caret"></span>
+			</a>
+		</li>
 
 
-</div>
-</div>
+	</ul>
+</div><!-- /.navbar-collapse -->
+
+</div><!-- /.container-fluid -->
+</nav>

@@ -16,6 +16,7 @@
 	<meta name="author" content="{{ Config::get('vedette.vedette_html.author') }}" />
 	<meta name="keywords" content="{{ Config::get('vedette.vedette_html.keywords') }}" />
 	<meta name="description" content="{{ Config::get('vedette.vedette_html.description') }}" />
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="{{ asset('assets/ico/favicon.png') }}">
 	<link rel="icon" href="{{ asset('assets/favicon.ico') }}">
@@ -66,16 +67,14 @@
 	@include('layouts._partials.left_side')
 	@include('layouts._partials.right_side')
 
-
-	<div class="container-fluid">
+	<div id="wrap" class="container-fluid">
 		@include('layouts.content')
 	</div>
 	<!-- ./container -->
 
-
 	@include('layouts.footer')
 
-
+</body>
 
 <!-- ------------------------------------------ js ------------------------------------------ -->
 {{-- Bootstrap::js2x() --}}
@@ -172,5 +171,4 @@ $(document).ready(function() {
 		@yield('inline-scripts')
 	</script>
 
-</body>
 </html>

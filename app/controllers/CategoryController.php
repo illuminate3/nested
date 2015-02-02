@@ -58,7 +58,26 @@ $category = $this->category->with('items')->whereSlug($slug)->first();
 //dd($category);
 
 //$items = Category::findOrFail($category->id)->items;
+// 1,2,4 WTF???
+//$result = Category::hasChildren()->get();
 
+// this is returning only 1 value!!! UGH!!!
+//$result = Category::hasChildren()->withDepth()->having('depth', '=', 1)->get();
+
+// #1 Using accessor
+//$result = $this->category->getAncestors();
+
+
+// All nodes will now be ordered by lft value,, dump straight list
+//$result = Category::defaultOrder()->get();
+
+// remove ID=1
+//$result = Category::hasParent()->get();
+
+//$this->layout->items = Category::whereDescendantOf($category->id)->get();
+//$this->layout->items = Category::descendantsOf($category->id);
+$this->layout->items =  Category::hasChildren($category->parent_id)->get();
+//dd($items);
 
 //$assets = Item::findOrFail($item->id)->assets;
 //dd($assets);
@@ -75,7 +94,7 @@ $category = $this->category->with('items')->whereSlug($slug)->first();
 
         $this->layout->title = $category->title;
 
-$this->layout->exploreNested = $this->exploreNested();
+//$this->layout->exploreNested = $this->exploreNested();
 //dd($this->layout->exploreNested);
 
 
@@ -94,14 +113,14 @@ $this->layout->exploreNested = $this->exploreNested();
 //        $this->layout->content = View::make($view, with(compact('category', 'sites')) );
         $this->layout->content = View::make($view, compact('category', 'items'));
 
-$this->layout->menu = $this->getMenu($category);
+//$this->layout->menu = $this->getMenu($category);
 $this->layout->menu2 = $this->getMenu2($category);
 //dd($this->layout->menu);
 
         $this->layout->breadcrumbs = $this->getBreadcrumbs($category);
 
 
-$this->layout->pullDown = $this->getPullDown();
+//$this->layout->pullDown = $this->getPullDown();
 
 	}
 
