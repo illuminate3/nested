@@ -76,7 +76,7 @@ $category = $this->category->with('items')->whereSlug($slug)->first();
 
 //$this->layout->items = Category::whereDescendantOf($category->id)->get();
 //$this->layout->items = Category::descendantsOf($category->id);
-$this->layout->items =  Category::hasChildren($category->parent_id)->get();
+//$this->layout->items =  Category::hasChildren($category->parent_id)->get();
 //dd($items);
 
 //$assets = Item::findOrFail($item->id)->assets;

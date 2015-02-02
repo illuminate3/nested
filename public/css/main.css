@@ -42,42 +42,7 @@ body {
 	margin-right:20px;
 }
 
-.menu li a.search:before {
-	content: "\f002";
-}
-.menu li a.archive:before {
-	content: "\f187";
-}
-.menu li a.pencil:before {
-	content: "\f040";
-}
-.menu li a.contact:before {
-	content: "\f003";
-}
-.menu li a.about:before {
-	content: "\f007";
-}
-.menu li a.home:before {
-	content: "\f00b";
-}
-.menu li a.building:before {
-	content: "\f0f7";
-}
-.menu li a.sitemap:before {
-	content: "\f0e8";
-}
-.menu li a.book:before {
-	content: "\f02d";
-}
-.menu li a.tags:before {
-	content: "\f02c";
-}
-
-
-
 .menu {
-/*
-*/
 	position: fixed;
 	top: 50px;
 	bottom: 0px;
@@ -113,8 +78,7 @@ body {
 	width: 100%;
 	font-size: 1.4em;
 }
-.menu li a:hover,
-.menu li:first-child a {
+.menu li a:hover{
 	background: #0d77b6;
 	color: #fff;
 }
@@ -153,14 +117,57 @@ body {
 	visibility:hidden;
 	opacity:0;
 	color:#fff;
-/*
-	text-transform:uppercase;
-*/
 }
+.menu li:hover:after{
+	background: #0d77b6;
+	color: #fff;
+}
+/*
+.menu li a:hover,
+.menu li:first-child a {
+	background: #0d77b6;
+	color: #fff;
+}
+*/
+
 .menu li:hover:after{
 	visibility:visible;
 	opacity:1;
 }
+
+.menu li a.search:before {
+	content: "\f002";
+}
+.menu li a.archive:before {
+	content: "\f187";
+}
+.menu li a.pencil:before {
+	content: "\f040";
+}
+.menu li a.contact:before {
+	content: "\f003";
+}
+.menu li a.about:before {
+	content: "\f007";
+}
+.menu li a.home:before {
+	content: "\f00b";
+}
+.menu li a.building:before {
+	content: "\f0f7";
+}
+.menu li a.sitemap:before {
+	content: "\f0e8";
+}
+.menu li a.book:before {
+	content: "\f02d";
+}
+.menu li a.tags:before {
+	content: "\f02c";
+}
+
+
+
 
 @media all and (max-width: 500px) {
 
