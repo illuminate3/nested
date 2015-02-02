@@ -18,7 +18,7 @@ class CreateAssetsTable extends Migration
 			$table->integer('user_id')->nullable();
 			$table->integer('item_id')->nullable();
 			$table->integer('site_id')->nullable();
-			$table->integer('room')->nullable();
+			$table->integer('room_id')->nullable();
 			$table->integer('asset_status_id')->nullable();
 			$table->string('asset_tag')->nullable();
 			$table->string('serial')->nullable();

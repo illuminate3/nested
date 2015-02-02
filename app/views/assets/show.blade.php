@@ -58,7 +58,7 @@ var text_confirm_message = '{{ trans('lingos::general.ask.delete') }}';
 		<tr>
 			<td>{{{ $asset->item_id }}}</td>
 			<td>{{{ $asset->site_id }}}</td>
-			<td>{{{ $asset->room }}}</td>
+			<td>{{{ $asset->room_id }}}</td>
 			<td>{{{ $asset->asset_status_id }}}</td>
 			<td>{{{ $asset->asset_tag }}}</td>
 			<td>{{{ $asset->serial }}}</td>

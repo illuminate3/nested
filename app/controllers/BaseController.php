@@ -13,6 +13,14 @@ class BaseController extends Controller {
 		{
 			$this->layout = View::make($this->layout);
 		}
+
+
+$category = $this->category->with('items')->whereSlug('/')->first();
+$itemTree = $this->category->where('parent_id', '!=', 'NULL')
+	->get([ 'id', 'slug', 'title', '_lft', 'parent_id' ])
+	->toTree();
+$menu2 = make_nav($itemTree, $category->getKey());
+//dd($menu2);
 	}
 
 }

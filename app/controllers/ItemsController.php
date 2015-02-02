@@ -26,6 +26,7 @@ class ItemsController extends BaseController {
 //		$items = $items->with('categories');
 //dd($items);
 
+
 		return View::make('items.index', compact('items'));
 	}
 

@@ -21,12 +21,12 @@ body {
 	width: 100%;
 /* Set the fixed height of the footer here */
 	height: 80px;
-	background-color: #f5f5f5;
 }
 .breadcrumb {
 	padding: 0;
 	margin: 10px auto 0;
 	border-radius: 0;
+	background-color: #fff;
 }
 
 .navbar {

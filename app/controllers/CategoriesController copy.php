@@ -1,10 +1,10 @@
-<?php
+<?php //namespace controllers;
 
 use dflydev\markdown\MarkdownParser;
 
 class CategoriesController extends BaseController {
 
-	protected $layout = 'layouts.backend';
+	protected $layout = 'layouts.master';
 
 	/**
 	 * The category storage.
@@ -15,6 +15,7 @@ class CategoriesController extends BaseController {
 
 	public function __construct(Category $category)
 	{
+//dd('loaded');
 		$this->category = $category;
 	}
 
@@ -26,7 +27,7 @@ class CategoriesController extends BaseController {
 	public function index()
 	{
 		$categories = $this->category->withDepth()->defaultOrder()->get();
-
+//dd('loaded');
         $this->layout
         	->withTitle('Manage Categories')
         	->nest('content', 'categories.index', compact('categories'));
@@ -81,6 +82,7 @@ class CategoriesController extends BaseController {
 	public function edit($id)
 	{
 		$category = $this->category->findOrFail($id);
+
 		$parents = $this->getParents();
 
         $this->layout
@@ -97,8 +99,9 @@ class CategoriesController extends BaseController {
 	public function update($id)
 	{
 		$category = $this->category->findOrFail($id);
-
+//dd('loaded');
 		$data = $this->category->preprocessData(Input::all());
+//dd($data);
 
 		try
 		{
@@ -110,6 +113,7 @@ class CategoriesController extends BaseController {
 				->withInput()
 				->withError($e->getMessage());
 		}
+//dd('loaded');
 
 		if (($messages = $category->validate()) === true)
 		{
@@ -126,6 +130,7 @@ class CategoriesController extends BaseController {
 				->withInput()
 				->withError('Could not save the category.');
 		}
+//dd('loaded');
 
 		return Redirect::route('categories.edit', array($id))
 			->withInput($data)
@@ -252,6 +257,7 @@ class CategoriesController extends BaseController {
 		return Redirect::route('categories.index')->withError('Failed to export categories.');
 	}
 
+
 	/**
 	 * Get all available nodes as a list for HTML::select.
 	 *
@@ -265,8 +271,8 @@ class CategoriesController extends BaseController {
 		foreach ($all as $item)
 		{
 			$title = $item->title;
-
-			if ($item->depth > 0) $title = str_repeat('—', $item->depth).' '.$title;
+//dd($item->depth);
+			if ($item->depth > 1) $title = str_repeat('—', $item->depth).' '.$title;
 
 			$result[$item->id] = $title;
 		}

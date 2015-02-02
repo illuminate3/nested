@@ -188,7 +188,7 @@ HTML::macro('navy', function($data)
 {
     if (empty($data)) return '';
 //print_r($data);
-    $html = '<ul id="navagoco" class="navagoco"><ul id="">';
+    $html = '<nav class="sidebar-nav"><ul id="menu">';
 
     foreach ($data as $item)
     {
@@ -199,7 +199,7 @@ HTML::macro('navy', function($data)
         $html .= '><a href="'.$item['url'].'">';
         $html .= e($item['label']);
 
-//if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
+if (isset($item['items'])) $html .= '<span class="fa plus-minus"></span>';
 
         $html .= '</a>';
         if (isset($item['items'])) $html .= HTML::nav($item['items']);

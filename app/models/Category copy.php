@@ -9,16 +9,16 @@ class Category extends \Kalnoy\Nestedset\Node {
 	 */
 	protected $table = 'categories';
 
-    /**
-     * The set of characters for testing slugs.
-     *
-     * @var  string
-     */
-    public static $slugPattern = '[a-z0-9\-/]+';
+	/**
+	 * The set of characters for testing slugs.
+	 *
+	 * @var  string
+	 */
+	public static $slugPattern = '[a-z0-9\-/]+';
 
-	protected $fillable = array('slug', 'title', 'body', 'parent_id');
+	protected $fillable = array('slug', 'title', 'parent_id');
 
-    protected $visible = array('title', 'slug', 'body', 'children');
+	protected $visible = array('title', 'slug', 'children');
 
 // DEFINE Relationships --------------------------------------------------
 
@@ -80,15 +80,14 @@ public function assets()
             'slug'  => array(
                 'required',
                 'regex:#^'.self::$slugPattern.'$#',
-                'unique:categorys'.($this->exists ? ',slug,'.$this->id : ''),
+                'unique:categories'.($this->exists ? ',slug,'.$this->id : ''),
             ),
 
-            'body'  => 'required',
         );
 
         if ($this->exists && ! $this->isRoot())
         {
-            $rules['parent_id'] = 'required|exists:categorys,id';
+            $rules['parent_id'] = 'required|exists:categories,id';
         }
 
         return $rules;
@@ -164,5 +163,30 @@ public function assets()
     {
         return $this->title;
     }
+
+	/**
+	 * Get all available nodes as a list for HTML::select.
+	 *
+	 * @return array
+	 */
+	public function getParents()
+	{
+//dd('here');
+
+		$all = $this->select('id', 'title')->withDepth()->defaultOrder()->get();
+		$result = array();
+
+		foreach ($all as $item)
+		{
+			$title = $item->title;
+
+			if ($item->depth > 0) $title = str_repeat('—', $item->depth).' '.$title;
+
+			$result[$item->id] = $title;
+		}
+
+		return $result;
+	}
+
 
 }

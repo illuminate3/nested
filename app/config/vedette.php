@@ -83,7 +83,7 @@ return [
 //	'ipsum_content'				=> 'content.third',
 	'ipsum_content'				=> 'content.bam',
 //	'footer'					=> 'Vedette © 2014',
-	'footer'					=> 'Bryant School District © 2014',
+	'footer'					=> 'Bryant School District © 2015',
 
 ),
 

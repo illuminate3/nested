@@ -41,6 +41,24 @@
 
 {{-- $items --}}
 
-@if (isset($menu2))
+@section('menu')
+    @if (isset($menu))
+    <ul class="nav navbar-nav">
+        @foreach ($menu as $item)
+        <li @if(isset($item['active']) && $item['active'])class="active"@endif>
+            <a href="{{ $item['url'] }}">{{ $item['label'] }}</a>
+        </li>
+        @endforeach
+    </ul>
+    @endif
+
+    <ul class="nav navbar-nav pull-right">
+        <li>
+            <a href="{{ URL::to('categories') }}"><span class="glyphicon glyphicon-wrench"></span> Manage</a>
+        </li>
+    </ul>
+@stop
+
+@if ( isset($menu2) )
 	{{ HTML::navclean($menu2) }}
 @endif

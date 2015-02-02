@@ -90,4 +90,4 @@ require app_path().'/lib/macros.php';
 /**
  * Require view composers.
  */
-require app_path().'/composers.php';
+require app_path().'/lib/composers.php';

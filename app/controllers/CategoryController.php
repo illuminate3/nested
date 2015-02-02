@@ -1,9 +1,7 @@
-<?php //namespace controllers;
-
-//use Item as Item;
+<?php
 
 /**
- * This controller is used to display categorys.
+ * This controller is used to display categories.
  */
 class CategoryController extends BaseController {
 
@@ -15,13 +13,7 @@ class CategoryController extends BaseController {
 	 * @var  Category
 	 */
 	protected $category;
-/*
-	public function __construct(Category $category, Item $item)
-	{
-		$this->category = $category;
-		$this->item = $item;
-	}
-*/
+
 	public function __construct(Category $category)
 	{
 		$this->category = $category;
@@ -36,92 +28,22 @@ class CategoryController extends BaseController {
 	 */
 	public function show($slug = '/')
 	{
-//dd('loaded');
 //		$category = $this->category->whereSlug($slug)->first();
-//		$category = $this->category->whereSlug($slug)->with('sites')->first();
-//		$user = $this->user->with('profile')->findOrFail($id);
-//		$profile = $this->profile->with('grades', 'sites', 'departments')->findOrFail($id);
-
-//		$site = $this->site->with('profiles')->findOrFail($id);
-//		$profiles = Site::findOrFail($id)->profiles;
-/*
-		return View::make(
-			'sites.show',
-			compact(
-				'site', 'profiles', 'logo', 'contact'
-//				'site', 'logo'
-			)
-*/
-
-
-$category = $this->category->with('items')->whereSlug($slug)->first();
+		$category = $this->category->with('items')->whereSlug($slug)->first();
 //dd($category);
-
-//$items = Category::findOrFail($category->id)->items;
-// 1,2,4 WTF???
-//$result = Category::hasChildren()->get();
-
-// this is returning only 1 value!!! UGH!!!
-//$result = Category::hasChildren()->withDepth()->having('depth', '=', 1)->get();
-
-// #1 Using accessor
-//$result = $this->category->getAncestors();
-
-
-// All nodes will now be ordered by lft value,, dump straight list
-//$result = Category::defaultOrder()->get();
-
-// remove ID=1
-//$result = Category::hasParent()->get();
-
-//$this->layout->items = Category::whereDescendantOf($category->id)->get();
-//$this->layout->items = Category::descendantsOf($category->id);
-//$this->layout->items =  Category::hasChildren($category->parent_id)->get();
-//dd($items);
-
-//$assets = Item::findOrFail($item->id)->assets;
-//dd($assets);
-
-//dd('loaded');
 
 		if ($category === null)
 		{
 			App::abort(404, 'Sorry, but requested category doesn\'t exists.');
 		}
-//dd('loaded');
 
         $view = $category->isRoot() ? 'home.categories_index' : 'home.category';
 
         $this->layout->title = $category->title;
-
-//$this->layout->exploreNested = $this->exploreNested();
-//dd($this->layout->exploreNested);
-
-
-//dd( View::make($view) );
-
-
-
-//$items = Menu::all();
-//$this->layout->itemsHelper = new ItemsHelper($items);
-//  return View::make('hello',compact('items','itemsHelper'));
-
-//dd('loaded');
-
-
-//        $this->layout->content = View::make($view, compact('category', 'items','itemsHelper'));
-//        $this->layout->content = View::make($view, with(compact('category', 'sites')) );
-        $this->layout->content = View::make($view, compact('category', 'items'));
-
-//$this->layout->menu = $this->getMenu($category);
+        $this->layout->content = View::make($view, compact('category'));
+        $this->layout->menu = $this->getMenu($category);
 $this->layout->menu2 = $this->getMenu2($category);
-//dd($this->layout->menu);
-
         $this->layout->breadcrumbs = $this->getBreadcrumbs($category);
-
-
-//$this->layout->pullDown = $this->getPullDown();
-
 	}
 
 	/**
@@ -166,7 +88,6 @@ $this->layout->menu2 = $this->getMenu2($category);
      */
 	protected function getMenu(Category $activeCategory)
 	{
-
 		$itemTree = $this->category
 			->where('parent_id', '=', 1)
 			->get([ 'id', 'slug', 'title', '_lft', 'parent_id' ])
@@ -178,54 +99,12 @@ $this->layout->menu2 = $this->getMenu2($category);
 	{
 
 		$itemTree = $this->category
+//		$itemTree = DB::table('categories')
 			->where('parent_id', '!=', 'NULL')
 			->get([ 'id', 'slug', 'title', '_lft', 'parent_id' ])
 			->toTree();
 
 		return make_nav($itemTree, $activeCategory->getKey());
 	}
-
-	protected function getPullDown()
-	{
-		$categorys = $this->category->withDepth()->defaultOrder()->get();
-//dd($categorys);
-//		return make_nav($categorys, $activeCategory->getKey());
-//		return make_nav($categorys);
-		return $categorys;
-	}
-
-
-	protected function exploreNested()
-	{
-
-// dump straight list
-$result = $this->category->withDepth()->defaultOrder()->get();
-
-// 1,2,4 WTF???
-//$result = Category::hasChildren()->get();
-
-// this is returning only 1 value!!! UGH!!!
-//$result = Category::hasChildren()->withDepth()->having('depth', '=', 1)->get();
-
-// #1 Using accessor
-//$result = $this->category->getAncestors();
-
-
-// All nodes will now be ordered by lft value,, dump straight list
-//$result = Category::defaultOrder()->get();
-
-// remove ID=1
-//$result = Category::hasParent()->get();
-
-
-
-//dd($result);
-
-		return $result;
-	}
-
-
-
-
 
 }
