@@ -7,7 +7,7 @@
  */
 class CategoryController extends BaseController {
 
-	protected $layout = 'layouts.front';
+	protected $layout = 'layouts.master';
 
 	/**
 	 * The category storage.

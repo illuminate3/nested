@@ -24,14 +24,13 @@
 	<!-- Google Fonts -->
 <!--
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
--->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+-->
 
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/media/css/jquery.dataTables.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/extensions/TableTools/css/dataTables.tableTools.min.css') }}">
 
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/media/css/jquery.dataTables.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/DataTables/extensions/TableTools/css/dataTables.tableTools.min.css') }}">
 	@yield('styles')
-
 
 
 <script type="text/javascript" src="{{ asset('assets/DataTables/media/js/jquery.js') }}"></script>
@@ -41,13 +40,13 @@
 
 <body>
 
-	@include('layouts-vedette.navigation')
+	@include('layouts.navigation')
 
 	<div id="wrap" class="container"><!-- Container -->
-		@include('layouts-vedette.content')
+		@include('layouts.content')
 	</div><!-- ./ container -->
 
-	@include('layouts-vedette.footer')
+	@include('layouts.footer')
 
 </body>
 
