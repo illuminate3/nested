@@ -42,7 +42,7 @@ class CategoryController extends BaseController {
         $this->layout->title = $category->title;
         $this->layout->content = View::make($view, compact('category'));
         $this->layout->menu = $this->getMenu($category);
-$this->layout->menu2 = $this->getMenu2($category);
+//$this->layout->menu2 = $this->getMenu2($category);
         $this->layout->breadcrumbs = $this->getBreadcrumbs($category);
 	}
 

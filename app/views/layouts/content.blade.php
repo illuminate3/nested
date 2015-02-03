@@ -40,6 +40,7 @@
 {{ $content }}
 
 {{-- $items --}}
+{{--
 
 @section('menu')
     @if (isset($menu))
@@ -62,3 +63,4 @@
 @if ( isset($menu2) )
 	{{ HTML::navclean($menu2) }}
 @endif
+--}}
