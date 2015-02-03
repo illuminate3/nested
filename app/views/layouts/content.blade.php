@@ -59,8 +59,8 @@
         </li>
     </ul>
 @stop
-
-@if ( isset($menu2) )
-	{{ HTML::navclean($menu2) }}
-@endif
 --}}
+
+@if ( isset($mainMenu) )
+	{{ HTML::navclean($mainMenu) }}
+@endif

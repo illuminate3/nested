@@ -168,6 +168,9 @@ body {
 .menu li a.tags:before {
 	content: "\f02c";
 }
+.menu li a.barcode:before {
+	content: "\f02a";
+}
 
 
 
