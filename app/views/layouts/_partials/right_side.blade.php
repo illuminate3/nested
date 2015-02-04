@@ -10,8 +10,8 @@
 		<a href="#">
 			<i class="fa fa-ban fa-fw"></i> Ban
 		</a>
-		<a href="#">
-			<i class="i"></i> Make admin
+		<a href="{{ URL::to('categories') }}">
+			<i class="i"></i> Manage Categories
 		</a>
 
 </nav>

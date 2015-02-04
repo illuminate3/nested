@@ -134,7 +134,7 @@ return [
 	'layout_simple'				=> 'layouts.simple',
 
 	// datatable
-	'datatable'					=> 'layouts-vedette._partials.datatable',
+	'datatable'					=> 'layouts._partials.datatable',
 
 	// Auth views
 	'login'						=> 'auth.login',

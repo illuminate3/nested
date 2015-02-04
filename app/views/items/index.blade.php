@@ -63,7 +63,7 @@ $(document).ready(function() {
 
 <div class="row">
 @if (count($items))
-
+{{--
 <div class="table-responsive">
 <table class="table table-striped table-hover" id="DataTable">
 	<thead>
@@ -138,6 +138,28 @@ $(document).ready(function() {
 	</tbody>
 </table>
 </div><!-- ./responsive -->
+--}}
+
+	{{ Datatable::table()
+		->addColumn(
+			'id',
+			'Make',
+			'Model',
+			'Model Number',
+			'Category',
+			'Description',
+			'Image',
+			trans('lingos::table.actions')
+		)
+		->setUrl(route('api.items'))
+		->setOptions(array(
+			'dom' =>"T<'clear'>lfrtip",
+			'tabletools' => array(
+				"aSwfPath" => "/assets/Datatables/extensions/TableTools/swf/copy_csv_cls_pdf.swf"
+			)
+		))
+		->render(Config::get('vedette.vedette_views.datatable'))
+	}}
 
 @else
 	{{ Bootstrap::info( trans('lingos::general.no_records'), true) }}

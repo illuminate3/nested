@@ -1,5 +1,8 @@
 <?php //namespace controllers;
 
+//use Datatable;
+//use Bootstrap;
+
 class ItemsController extends BaseController {
 
 	/**
@@ -212,5 +215,106 @@ $this->item->attachItem($id, $category_id);
 
 		return $result;
 	}
+
+	/**
+	 * @return mixed
+	 */
+	public function getDatatable()
+	{
+//dd('loaded');
+
+/*
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `make` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `model` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `model_number` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',*/
+
+/*
+		return Datatable::collection(
+//			Item::all()
+			Item::remember(10)->get()
+		)
+*/
+		$query = DB::table('items')->remember(10);
+//dd($query);
+		return Datatable::query($query)
+
+/*
+			->showColumns('id')
+
+			->addColumn('make',
+				function($model) {
+					return $model->make;
+				})
+
+			->addColumn('model',
+				function($model) {
+					return $model->model;
+				})
+
+			->addColumn('model_number',
+				function($model) {
+					return $model->model_number;
+				})
+
+			->addColumn(
+				'category_id',
+				function($model) {
+					return $model->category_id;
+				})
+
+			->addColumn('description',
+				function($model) {
+					return $model->description;
+				})
+
+			->addColumn('image',
+				function($model) {
+//					return $model->present()->status($model->status);
+					return $model->image;
+				})
+
+*/
+			->showColumns('id', 'make', 'model', 'model_number', 'category_id', 'description', 'image')
+
+			->addColumn('actions',
+				function($model) {
+
+				$modal =
+					'<div class="modal fade" id="delete-Record-'.$model->id.'">
+						'.Form::open(array("route" => array("items.destroy", $model->id), "method" => "delete")).'
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">' . trans('lingos::general.close') . '</span></button>
+										<h4 class="modal-title">' . trans('lingos::account.ask.delete') . '</h4>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-dismiss="modal">' . trans('lingos::button.no') . '</button>
+										<button type="submit" class="btn btn-success" name="deleteRecord">' . trans('lingos::button.yes') . '</button>
+									</div>
+								</div><!-- /.modal-content -->
+							</div><!-- /.modal-dialog -->
+						'.Form::close().'
+					</div><!-- /.modal -->';
+				return
+					'<a href="/items/' . $model->id . '" class="btn btn-primary form-group" title="' . trans('lingos::general.view') . '"><i class="fa fa-chevron-right fa-fw"></i>' . trans('lingos::button.view') . '</a>&nbsp;'
+					. '<a href="/items/' . $model->id . '/edit" class="btn btn-success form-group" title="' . trans('lingos::account.command.edit') . '"><i class="fa fa-edit fa-fw"></i>' . trans('lingos::button.edit') . '</a>&nbsp;'
+					. Form::button('<span class="glyphicon glyphicon-trash"></span> ' . trans('lingos::button.delete'), array('name'=>'deleteRecord', 'class' => 'btn btn-danger', 'type' => 'button',  'data-toggle' => 'modal', 'data-target' => '#delete-Record-'.$model->id))
+					. $modal;
+				})
+
+			->searchColumns('category_id', 'make', 'model', 'model_number', 'description')
+			->orderColumns('id', 'category_id', 'make', 'model', 'model_number', 'description', 'image')
+
+			->make();
+	}
+
 
 }

@@ -189,6 +189,7 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+'Datatable'		=> 'Chumper\Datatable\Facades\DatatableFacade',
 'Bootstrap'		=> 'Illuminate3\BootAwesome\Facades\Bootstrap',
 'NestedSet'		=> 'Kalnoy\Nestedset\NestedSet',
 'Node'			=> 'Kalnoy\Nestedset\Node',

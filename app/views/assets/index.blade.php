@@ -62,7 +62,7 @@ $(document).ready(function() {
 
 <div class="row">
 @if (count($assets))
-
+{{--
 <div class="table-responsive">
 <table class="table table-striped table-hover" id="DataTable">
 	<thead>
@@ -141,6 +141,32 @@ $(document).ready(function() {
 	</tbody>
 </table>
 </div><!-- ./responsive -->
+--}}
+
+	{{ Datatable::table()
+		->addColumn(
+			'id',
+			'user_id',
+			'Item_id',
+			'Site_id',
+			'Room',
+			'Asset Status',
+			'Asset_tag',
+			'Serial',
+			'Po',
+			'barcode',
+			'Note',
+			trans('lingos::table.actions')
+		)
+		->setUrl(route('api.asset'))
+		->setOptions(array(
+			'dom' =>"T<'clear'>lfrtip",
+			'tabletools' => array(
+				"aSwfPath" => "/assets/Datatables/extensions/TableTools/swf/copy_csv_cls_pdf.swf"
+			)
+		))
+		->render(Config::get('vedette.vedette_views.datatable'))
+	}}
 
 @else
 	{{ Bootstrap::info( trans('lingos::general.no_records'), true) }}

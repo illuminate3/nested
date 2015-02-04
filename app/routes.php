@@ -12,6 +12,21 @@
 */
 
 /*
+|--------------------------------------------------------------------------
+| Chumper Datatables API
+|--------------------------------------------------------------------------
+*/
+Route::get('api/items', array(
+	'as'=>'api.items',
+	'uses'=>'ItemsController@getDatatable'
+	));
+Route::get('api/asset', array(
+	'as'=>'api.asset',
+	'uses'=>'AssetsController@getDatatable'
+	));
+
+
+/*
 Route::get('/', function()
 {
   $items = Menu::all();
@@ -209,16 +224,4 @@ Route::group(
 		));
 
 
-/*
-|--------------------------------------------------------------------------
-| Chumper Datatables API
-|--------------------------------------------------------------------------
-*/
-Route::get('api/users', array(
-	'as'=>'api.users',
-	'uses'=>'Vedette\controllers\UsersController@getDatatable'
-	));
-
-
 });
-

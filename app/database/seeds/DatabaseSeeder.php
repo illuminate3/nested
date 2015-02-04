@@ -26,27 +26,19 @@ class DatabaseSeeder extends Seeder {
 			DB::unprepared($statement);
 
 
-
 		Eloquent::unguard();
 
 		$this->call('SitesSeeder');
 		$this->call('ItemsSeeder');
 		$this->call('AssetsSeeder');
+
+		$this->call('AssetAttachSeeder');
 /*
 		$this->call('AssetsTableSeeder');
-		$this->call('Asset_statusesTableSeeder');
 		$this->call('AssetstatusesTableSeeder');
 		$this->call('RoomsTableSeeder');
 		$this->call('TechstatusesTableSeeder');
 */
-
-/*
-		DB::table('alerts')->delete();
-			$statement = "ALTER TABLE alerts AUTO_INCREMENT = 1;";
-			DB::unprepared($statement);
-*/
-
-
 
 	}
 

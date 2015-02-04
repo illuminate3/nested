@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('menu')
+{{--
 <ul class="nav navbar-nav">
     <li><a href="{{ route('categories.index') }}">Categories</a></li>
 </ul>
@@ -9,6 +10,7 @@
 <ul class="nav navbar-nav pull-right">
     <li><a href="{{ url('/') }}"><span class="glyphicon glyphicon-arrow-left"></span> Return to site</a></li>
 </ul>
+--}}
 @stop
 
 @section('content')
@@ -25,10 +27,12 @@
         @endif
     @endforeach
 
-    {{ $content }}
+{{-- $content --}}
 @stop
 
 @section('footer')
+{{--
     <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.01/ace.js"></script>
     <script src="/js/backend.js"></script>
+--}}
 @stop

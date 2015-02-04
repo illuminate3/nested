@@ -16,9 +16,9 @@ class Category extends \Kalnoy\Nestedset\Node {
      */
     public static $slugPattern = '[a-z0-9\-/]+';
 
-	protected $fillable = array('slug', 'title', 'body', 'parent_id');
+	protected $fillable = array('slug', 'title', 'parent_id');
 
-    protected $visible = array('title', 'slug', 'body', 'children');
+    protected $visible = array('title', 'slug', 'children');
 
 // DEFINE Relationships --------------------------------------------------
 
@@ -80,15 +80,15 @@ public function assets()
             'slug'  => array(
                 'required',
                 'regex:#^'.self::$slugPattern.'$#',
-                'unique:categorys'.($this->exists ? ',slug,'.$this->id : ''),
+                'unique:categories'.($this->exists ? ',slug,'.$this->id : ''),
             ),
 
-            'body'  => 'required',
+//            'body'  => 'required',
         );
 
         if ($this->exists && ! $this->isRoot())
         {
-            $rules['parent_id'] = 'required|exists:categorys,id';
+            $rules['parent_id'] = 'required|exists:categories,id';
         }
 
         return $rules;
