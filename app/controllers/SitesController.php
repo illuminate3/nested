@@ -1,7 +1,7 @@
 <?php
 // namespace controllers;
 
-use models\Site as Site;
+//use models\Site as Site;
 //use View, Input, Validator, Redirect;
 //use Bootstrap;
 //use Image;

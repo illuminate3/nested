@@ -171,6 +171,9 @@ body {
 .menu li a.barcode:before {
 	content: "\f02a";
 }
+.menu li a.site:before {
+	content: "\f21d";
+}
 
 
 

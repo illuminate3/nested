@@ -10,7 +10,8 @@ class SitesSeeder extends Seeder {
 			$statement = "ALTER TABLE sites AUTO_INCREMENT = 1;";
 			DB::unprepared($statement);
 
-		$csv = dirname(__FILE__) . '/data/' . 'bam-sites.csv';
+//		$csv = dirname(__FILE__) . '/data/' . 'bam-sites.csv';
+		$csv = dirname(__FILE__) . '/data/' . 'sites.csv';
 		$file_handle = fopen($csv, "r");
 
 		while (!feof($file_handle)) {
@@ -38,7 +39,7 @@ class SitesSeeder extends Seeder {
 //			$table->integer('status_id')->default(1);
 //			$table->text('notes')->nullable();
 
-
+/*
 			$c = array();
 			$c['id']				= $line[0];
 			$c['name']				= $line[1];
@@ -64,6 +65,30 @@ class SitesSeeder extends Seeder {
 			$c['bld_number']		= NULL;
 			$c['status_id']			= 1;
 			$c['notes']				= NULL;
+*/
+
+//id,name,email,primary_phone,secondary_phone,website,address,city,state,zipcode,logo,user_id,division_id,ad_code,bld_number,status_id,notes
+
+
+			$c = array();
+			$c['id']				= $line[0];
+			$c['name']				= $line[1];
+			$c['email']				= $line[2];
+			$c['primary_phone']		= $line[3];
+			$c['secondary_phone']	= $line[4];
+			$c['website']			= $line[5];
+			$c['address']			= $line[6];
+			$c['city']				= $line[7];
+			$c['state']				= $line[8];
+			$c['zipcode']			= $line[9];
+			$c['logo']				= $line[10];
+			$c['user_id']			= $line[11];
+			$c['division_id']		= $line[12];
+			$c['ad_code']			= $line[13];
+			$c['bld_number']		= $line[14];
+			$c['status_id']			= $line[15];
+			$c['notes']				= $line[16];
+
 
 			DB::table('sites')->insert($c);
 		}

@@ -21,12 +21,14 @@
 		</a>
 	</li>
 	<li title="Scan">
-		<a href="{{  URL::to('rooms') }}" {{ (strstr(Route::getCurrentRoute()->getPath(),'rooms')) ? 'class="active barcode"' : 'class="barcode"' }} >
+		<a href="{{  URL::to('scans') }}" {{ (strstr(Route::getCurrentRoute()->getPath(),'scans')) ? 'class="active barcode"' : 'class="barcode"' }} >
 			Scan
 		</a>
 	</li>
-	<li title="Sites" {{ (strstr(Route::getCurrentRoute()->getPath(),'sites')) ? 'class="active"' : '' }} >
-		{{ link_to('sites', 'Sites') }}
+	<li title="Sites">
+		<a href="{{  URL::to('sites') }}" {{ (strstr(Route::getCurrentRoute()->getPath(),'sites')) ? 'class="active site"' : 'class="site"' }} >
+			Sites
+		</a>
 	</li>
 
 </ul>

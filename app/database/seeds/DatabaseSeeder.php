@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-
+/*
 		DB::table('asset_item')->truncate();
 		DB::table('asset_room')->truncate();
 		DB::table('asset_site')->truncate();
@@ -24,10 +24,11 @@ class DatabaseSeeder extends Seeder {
 		DB::table('sites')->delete();
 			$statement = "ALTER TABLE sites AUTO_INCREMENT = 1;";
 			DB::unprepared($statement);
-
-
+*/
 		Eloquent::unguard();
 
+		$this->call('RoomsSeeder');
+/*
 		$this->call('SitesSeeder');
 		$this->call('ItemsSeeder');
 		$this->call('AssetsSeeder');

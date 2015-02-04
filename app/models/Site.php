@@ -58,12 +58,12 @@ public function assets()
 
 public function profiles()
 {
-	return $this->belongsToMany('HR\models\Profile');
+	return $this->belongsToMany('Profile');
 }
 
 public function division()
 {
-	return $this->belongsTo('HR\models\Division');
+	return $this->belongsTo('Division');
 }
 
 public function user()

@@ -75,6 +75,7 @@ Route::resource('asset', 'AssetsController');
 Route::resource('items', 'ItemsController');
 Route::resource('rooms', 'RoomsController');
 Route::resource('sites', 'SitesController');
+Route::resource('divisions', 'DivisionsController');
 
 Route::resource('asset_statuses', 'AssetStatusesController');
 Route::resource('tech_statuses', 'TechStatusesController');
@@ -116,6 +117,40 @@ Route::group(array('prefix' => 'categories'), function () {
 // route
 Route::get('{slug}', array('as' => 'category', 'uses' => 'CategoryController@show'))
     ->where('slug', Category::$slugPattern);
+
+
+Route::controller('scans', 'ScansController');
+Route::get('scans/index',
+	[
+		'as' => 'scans.index',
+		'uses' => 'ScansController@index',
+	]
+);
+Route::get('scans/pallet',
+	[
+		'as' => 'scans.pallet',
+		'uses' => 'ScansController@getPallet',
+	]
+);
+Route::post('scans/pallet',
+	[
+		'as' => 'scans.pallet',
+		'uses' => 'ScansController@postPallet',
+	]
+);
+Route::get('scans/rack',
+	[
+		'as' => 'scans.rack',
+		'uses' => 'ScansController@getRack',
+	]
+);
+Route::post('scans/rack',
+	[
+		'as' => 'scans.rack',
+		'uses' => 'ScansController@postRack',
+	]
+);
+
 
 
 
