@@ -1,7 +1,7 @@
 # ************************************************************
 # Sequel Pro SQL dump
 # Version 4096
-#
+# I dumped this today
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
