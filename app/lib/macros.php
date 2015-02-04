@@ -188,7 +188,7 @@ HTML::macro('navy', function($data)
 {
     if (empty($data)) return '';
 //print_r($data);
-    $html = '<ul id="navagoco" class="navagoco"><ul id="">';
+    $html = '<ul id="navagoco" class="navagoco">';
 
     foreach ($data as $item)
     {
@@ -206,5 +206,5 @@ HTML::macro('navy', function($data)
         $html .= '</li>';
     }
 
-    return $html.'</ul></nav>';
+    return $html.'</ul>';
 });
