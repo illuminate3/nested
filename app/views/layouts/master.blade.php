@@ -79,7 +79,7 @@
 
 <!-- ------------------------------------------ js ------------------------------------------ -->
 {{-- Bootstrap::js2x() --}}
-	<script>window.jQuery || document.write('<script type="text/javascript" src="assets/vendors/jquery/jquery-2.1.3.min.js"><\/script>')</script>
+	<script type="text/javascript" src="assets/vendors/jquery/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript"  src="{{ asset('assets/vendors/bootstrap-3.3.2/js/bootstrap.min.js') }}"></script>
 
 	<script type="text/javascript"  src="{{ asset('js/SlidePushMenus.js') }}"></script>
